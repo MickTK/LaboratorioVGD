@@ -9,7 +9,8 @@ using UnityEngine.UI;
 [System.Serializable]
 public class GameData
 {
-    //TODO: Creare un array di oggetti di tipo SerializableHS di lunghezza 3 chiamato highScores.
+    //done: Creare un array di oggetti di tipo SerializableHS di lunghezza 3 chiamato highScores.
+    public SerializableHS [] highScores = new SerializableHS [3];
 }
 
 [System.Serializable]
@@ -43,8 +44,10 @@ public class Manager : MonoBehaviour
     }
     public void UpdateScore()
     {
-        //TODO: Aumenta lo score di 1.
-        //TODO: Aggiorna il testo del punteggio.
+        //done: Aumenta lo score di 1.
+        score++;
+        //done: Aggiorna il testo del punteggio.
+        countText.text=score.ToString();
     }
 
     public void saveData()
@@ -67,7 +70,35 @@ public class Manager : MonoBehaviour
 
     private void UpdateScores(ref GameData g, string playerName, int score)
     {
-        //TODO: Aggiornare i dati contenuti in g con i dati della partita corrente. La classifica deve essere ordinata in ordine decrescente.
+        //done: Aggiornare i dati contenuti in g con i dati della partita corrente. La classifica deve essere ordinata in ordine decrescente.
+
+        bool check=false;      //variabile che indica se il nuovo punteggio è nella top 3
+
+        //controllo con un ciclo che il nuovo punteggio sia maggiore di almeno uno dei vecchi punteggi
+        for (int i=0; i<3; i++){
+            if(g.highScores[i].score<score)
+                check=true;
+        }
+
+        //nel caso positivo provvedo ad inserire il nuovo punteggio
+        if(check){  
+
+            //cancello sempre il terzo che a prescindere dal nuovo piazzamento verrà cancellato
+            g.highScores[2].name=playerName;
+            g.highScores[2].score=score;
+
+
+            //per poter ordinare utilizzando il metodo sort (che funziona tramite compare) devo utilizzare una lista come struttura di appoggio 
+
+            List <SerializableHS> miaLista = new List <SerializableHS> (g.highScores);
+
+            miaLista.Sort();                    //riordino le mie partite
+            miaLista.Reverse();                 //ordine decrescente: inverto i miei punteggi
+            g.highScores=miaLista.ToArray();    //infine aggiorno la vecchia classifica
+
+        }
+
+       
     }
 
     // Update is called once per frame
