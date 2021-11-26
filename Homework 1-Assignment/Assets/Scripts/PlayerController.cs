@@ -7,10 +7,10 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float rotationSpeed;
     private CharacterController characterController;
-  
+
 
     public GameObject bullet;
-  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,9 +36,12 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            //TODO: Istanziare il prefab "bullet" nella posizione del player. 
+            //TODO: Istanziare il prefab "bullet" nella posizione del player.
+            GameObject b = Instantiate(bullet, transform.position, transform.rotation);
             //TODO: Aggiungere una forza di tipo Impulse al bullet per farlo sparare verso il forward del player con una forza di 100.
+            b.GetComponent<Rigidbody>().AddForce(transform.forward*100, ForceMode.Impulse);
             //TODO: Distruggere il bullet dopo 3 secondi. Hint: vedere gli overload di Destroy()
-
+            Destroy(b, 3);
+        }
     }
 }

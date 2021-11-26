@@ -28,6 +28,7 @@ public class EnemyController : MonoBehaviour
     private void FixedUpdate()
     {
         //TODO: Creare un vettore chiamato "movement" che rappresenta il moviemnto del nemico verso il player
+        Vector3 movement = player.transform.position - transform.position;
         movement.Normalize();
         rb.AddForce(movement * speed);
     }
