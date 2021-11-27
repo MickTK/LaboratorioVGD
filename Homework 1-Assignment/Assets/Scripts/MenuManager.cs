@@ -42,15 +42,17 @@ public class MenuManager : MonoBehaviour
 
         }
 
-        
+        // Se non esiste viene creato
+        else
+        {
+            FileStream fileStream = File.Open(savePath, FileMode.Create);
+            formatter.Serialize(fileStream, currentData);
+            fileStream.Close();
+        }
 
         score1.text = currentData.highScores[0].name + ": " + currentData.highScores[0].score;
         score2.text = currentData.highScores[1].name + ": " + currentData.highScores[1].score;
         score3.text = currentData.highScores[2].name + ": " + currentData.highScores[2].score;
-
-        
-
-        
     }
 
     // Update is called once per frame
@@ -62,13 +64,9 @@ public class MenuManager : MonoBehaviour
     public void newGame()
     {
         //TODO: salva il nome del giocatore nelle playerprefs con chiave "PlayerName"
-        PlayerPrefs.DeleteAll();
         PlayerPrefs.SetString("PlayerName", playerName.text);
 
         //TODO: carica la scena Level1
-        PlayerPrefs.SetInt("currentLevel",1);
-        SceneManager.LoadScene(PlayerPrefs.GetInt("currentLevel"));
+        SceneManager.LoadScene(1);
     }
-    
-    
 }
