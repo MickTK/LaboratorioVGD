@@ -22,11 +22,35 @@ public class MenuManager : MonoBehaviour
         BinaryFormatter formatter = new BinaryFormatter();
         GameData currentData = new GameData(); //creo i punteggi di default
         
-        //TODO: carica i punteggi in currentdata se il file savePath esite, altrimenti salva i punteggi di default su file
+        //TODO: carica i punteggi in currentdata se il file savePath esiste, altrimenti salva i punteggi di default su file
+        //inizializzo i punteggi di default
+        SerializableHS defaultGame= new SerializableHS();
+        defaultGame.name="no name";
+        defaultGame.score=0;
+
+        currentData.highScores[0]=defaultGame;
+        currentData.highScores[1]=defaultGame;
+        currentData.highScores[2]=defaultGame;
+        
+        //carico il vecchio file se esiste
+        if(File.Exists(savePath)){
+            
+                FileStream fs = File.Open(savePath,FileMode.Open);
+
+                currentData= (GameData) formatter.Deserialize(fs);
+                fs.Close();
+
+        }
+
+        
 
         score1.text = currentData.highScores[0].name + ": " + currentData.highScores[0].score;
         score2.text = currentData.highScores[1].name + ": " + currentData.highScores[1].score;
         score3.text = currentData.highScores[2].name + ": " + currentData.highScores[2].score;
+
+        
+
+        
     }
 
     // Update is called once per frame
@@ -38,7 +62,12 @@ public class MenuManager : MonoBehaviour
     public void newGame()
     {
         //TODO: salva il nome del giocatore nelle playerprefs con chiave "PlayerName"
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetString("PlayerName", playerName.text);
+
         //TODO: carica la scena Level1
+        PlayerPrefs.SetInt("currentLevel",1);
+        SceneManager.LoadScene(PlayerPrefs.GetInt("currentLevel"));
     }
     
     
