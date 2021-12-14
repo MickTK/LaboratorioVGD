@@ -31,9 +31,23 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        //TODO: Scrivere il codice per il movimento del personaggio tramite character controller. La variabile velocity aumenta di 0.3f per ogni secondo in cui l'input utente assume valori positivi e diminuisce di 2.0f altrimenti.
-        //La variabile velocity deve sempre essere compresa tra 0.0f e 1.0f. Impostare i parametri velocity e turn dell'animator. 
-        
+        //TODO: Scrivere il codice per il movimento del personaggio tramite character controller.
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        //TODO: La variabile velocity aumenta di 0.3f per ogni secondo in cui l'input utente assume valori positivi e diminuisce di 2.0f altrimenti.
+        if (vertical > 0)
+            velocity += Time.deltaTime * 0.3f;
+        else
+            velocity -= Time.deltaTime * 2.0f;
+
+        //TODO: La variabile velocity deve sempre essere compresa tra 0.0f e 1.0f.
+        velocity = Mathf.Clamp01(velocity);
+
+        //TODO: Impostare i parametri velocity e turn dell'animator. 
+        animator.SetFloat("Velocity", velocity);
+        animator.SetFloat("Turn", horizontal);
+
         controller.SimpleMove(transform.forward * velocity * 5.0f);
         transform.Rotate(0, horizontal * 90 * Time.deltaTime, 0);
 
