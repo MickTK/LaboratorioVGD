@@ -45,8 +45,8 @@ public class PlayerController : MonoBehaviour
         velocity = Mathf.Clamp01(velocity);
 
         //TODO: Impostare i parametri velocity e turn dell'animator. 
-        animator.SetFloat("Velocity", velocity);
-        animator.SetFloat("Turn", horizontal);
+        animator.SetFloat("velocity", velocity);
+        animator.SetFloat("turn", horizontal);
 
         controller.SimpleMove(transform.forward * velocity * 5.0f);
         transform.Rotate(0, horizontal * 90 * Time.deltaTime, 0);
@@ -54,22 +54,43 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             //TODO: Lanciare la coroutine ShootCooldown() se e solo se coroutineIsRunning è false, isShooting è false e velocity è minore o uguale a 0.1.
-
+            if (!coroutineIsRunning && !isShooting && velocity <= 0.1f)
+                StartCoroutine(ShootCooldown());
         }
     }
 
-    /*TODO: Inserire il tipo di ritorno corretto*/ void ShootCooldown()
+    /*TODO: Inserire il tipo di ritorno corretto*/
+    IEnumerator ShootCooldown()
     {
-        //TODO: Questa coroutine deve impostare a true la variabile coroutineIsRunning, attivare il paramentro shoot dell'animator e impostare isShooting a true. una volta aspettati "fireRatio" secondi,
-        //coroutineIsRunning deve essere impostata a false. 
+        //TODO: Questa coroutine deve impostare a true la variabile coroutineIsRunning, attivare il paramentro shoot dell'animator e impostare isShooting a true.
+        coroutineIsRunning = true;
+        animator.SetBool("shoot", true);
+        isShooting = true;
+
+        //TODO: Una volta aspettati "fireRatio" secondi, coroutineIsRunning deve essere impostata a false.
+        yield return new WaitForSeconds(fireRatio);
+        coroutineIsRunning = false;
     }
 
     void Shoot()
     {
         //TODO: Sparare il raggio ray. Se il raggio colpisce un oggetto con tag "Enemy" allora deve essere richiamato il metodo TakeDamage(1) dello script EnemyController (attaccato all'oggetto colpito).
-        //Se invece il raggio colpisce un oggetto con tag "Button" allora deve essere richiamato il metodo Press() dello script ButtonBehavior (attaccato all'oggetto colpito).
-        Ray ray = new Ray(transform.position + new Vector3(0,0.6f,0), transform.forward);
+        Ray ray = new Ray(transform.position + new Vector3(0, 0.6f, 0), transform.forward);
+        RaycastHit hit;
+        bool raycastResult = Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity);
+        if (raycastResult)
+        {
+            if (hit.transform.tag == "Enemy")
+            {
+                hit.transform.gameObject.SendMessage("TakeDamage", 1);
+            }
 
+            //TODO: Se invece il raggio colpisce un oggetto con tag "Button" allora deve essere richiamato il metodo Press() dello script ButtonBehavior (attaccato all'oggetto colpito).
+            else if (hit.transform.tag == "Button")
+            {
+                hit.transform.gameObject.SendMessage("ButtonBehavior");
+            }
+        }
     }
 
     IEnumerator Immunity(){
@@ -88,6 +109,7 @@ public class PlayerController : MonoBehaviour
                 SceneManager.LoadScene(0);
             }
             //TODO: Lanciare la coroutine Immunity()
+            StartCoroutine(Immunity());
         }
 
     }
