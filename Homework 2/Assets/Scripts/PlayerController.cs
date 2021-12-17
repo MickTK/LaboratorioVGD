@@ -53,9 +53,14 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
+            
             //TODO: Lanciare la coroutine ShootCooldown() se e solo se coroutineIsRunning è false, isShooting è false e velocity è minore o uguale a 0.1.
             if (!coroutineIsRunning && !isShooting && velocity <= 0.1f)
+            {
+                animator.SetBool("shoot", true);
                 StartCoroutine(ShootCooldown());
+            }
+                
         }
     }
 
@@ -64,7 +69,6 @@ public class PlayerController : MonoBehaviour
     {
         //TODO: Questa coroutine deve impostare a true la variabile coroutineIsRunning, attivare il paramentro shoot dell'animator e impostare isShooting a true.
         coroutineIsRunning = true;
-        animator.SetBool("shoot", true);
         isShooting = true;
 
         //TODO: Una volta aspettati "fireRatio" secondi, coroutineIsRunning deve essere impostata a false.
@@ -87,20 +91,22 @@ public class PlayerController : MonoBehaviour
 
             //TODO: Se invece il raggio colpisce un oggetto con tag "Button" allora deve essere richiamato il metodo Press() dello script ButtonBehavior (attaccato all'oggetto colpito).
             else if (hit.transform.tag == "Button")
-            {
-                hit.transform.gameObject.SendMessage("ButtonBehavior");
+            {   
+                hit.transform.gameObject.SendMessage("Press");
             }
         }
     }
 
-    IEnumerator Immunity(){
+    IEnumerator Immunity()
+    {
         yield return new WaitForSeconds(1.5f);
         isImmune = false;
     }
 
     public void TakeDamage(int damage)
-    {   
-        if(!isImmune){
+    {
+        if (!isImmune)
+        {
             isImmune = true;
             life -= damage;
             lifeText.SetText(life.ToString());
@@ -118,8 +124,10 @@ public class PlayerController : MonoBehaviour
     {
         if (isShooting)
         {
+            
             Shoot();
             isShooting = false;
+            
 
         }
 

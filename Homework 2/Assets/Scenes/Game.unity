@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 3b93136faca404ad6ab9a0391516f9dd, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 2411f8e4b46725c4dbe5e508ec542b69, type: 2}
 --- !u!1 &53493143
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +283,7 @@ OffMeshLink:
   m_Start: {fileID: 68247776}
   m_End: {fileID: 1682530230}
   m_CostOverride: -1
-  m_BiDirectional: 0
+  m_BiDirectional: 1
   m_Activated: 1
   m_AutoUpdatePositions: 0
 --- !u!4 &68247776
@@ -1118,7 +1118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 60b19879a7db14e5b8fdb41c5520ef61, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 46.400005
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 60b19879a7db14e5b8fdb41c5520ef61, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1564,7 +1564,7 @@ GameObject:
   - component: {fileID: 732778978}
   - component: {fileID: 732778977}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: link1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1582,7 +1582,7 @@ Transform:
   m_LocalScale: {x: 4.3564, y: 1, z: 5.7585}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &732778977
 BoxCollider:
@@ -1660,7 +1660,7 @@ GameObject:
   - component: {fileID: 759667835}
   - component: {fileID: 759667834}
   m_Layer: 0
-  m_Name: link1
+  m_Name: link0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1680,7 +1680,7 @@ OffMeshLink:
   m_Start: {fileID: 759667838}
   m_End: {fileID: 732778976}
   m_CostOverride: -1
-  m_BiDirectional: 0
+  m_BiDirectional: 1
   m_Activated: 1
   m_AutoUpdatePositions: 0
 --- !u!65 &759667835
@@ -1757,7 +1757,7 @@ Transform:
   m_LocalScale: {x: 4.099032, y: 0.170856, z: 1.26}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &804553112
 GameObject:

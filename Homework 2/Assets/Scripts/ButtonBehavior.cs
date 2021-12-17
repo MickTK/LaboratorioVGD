@@ -19,6 +19,7 @@ public class ButtonBehavior : MonoBehaviour
 
     public void Press(){
         //Questo potrebbe tornarvi utile (non per questo homework ma in generale). E' possibile iterare su tutti gli oggetti figli di un GameObject sfruttando la gerarchia che esiste tra i loro Transform.
+        
         foreach(Transform child in bridge.transform){
             BoxCollider bc = child.gameObject.GetComponent<BoxCollider>();
             Material mat = child.gameObject.GetComponent<Renderer>().material;
@@ -32,4 +33,6 @@ public class ButtonBehavior : MonoBehaviour
             }
         }
     }
+
+   
 }
