@@ -34,9 +34,9 @@ public class Teleport : MonoBehaviour
         }
         else if(other.gameObject.tag == "Enemy") {
             //TODO: Teletrasportare il nemico nella posizione "endPos" utilizzando il metodo appropriato dell NavMeshAgent. Infine chiamare il metodo ToggleFollowPlayer() dell' EnemyController.
-            NavMeshAgent agent = GetComponent<NavMeshAgent>(); /*Recuperare il NavMeshAgent*/
-            agent.SetDestination(endPos);
-            GetComponent<EnemyController>().ToggleFollowPlayer();
+            NavMeshAgent agent = other.gameObject.GetComponent<NavMeshAgent>(); /*Recuperare il NavMeshAgent*/
+            agent.Warp(endPos);
+            other.gameObject.GetComponent<EnemyController>().ToggleFollowPlayer();
 
         }
     }
