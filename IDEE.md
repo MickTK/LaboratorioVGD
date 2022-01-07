@@ -31,3 +31,4 @@
 - https://assetstore.unity.com/packages/3d/environments/urban/lowpoly-modern-city-decorations-set-66070
 - https://assetstore.unity.com/packages/3d/environments/low-poly-pack-94605
 - https://assetstore.unity.com/packages/3d/environments/fantasy/free-fantasy-medieval-houses-and-props-pack-167010
+- https://assetstore.unity.com/packages/3d/props/exterior/low-poly-boat-yard-128856
