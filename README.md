@@ -6,6 +6,8 @@
 
 [Homeworks](https://mega.nz/file/8p1WkKCZ#A8-EQJq6pvmOkuNbb6ecuveq2p7KXDH_vU_ymk6Gvs8)
 
+[Fonte](https://www.youtube.com/watch?v=CmuAAf1mhiY)
+
 ````
 Proposta:
 "Genere: HyperCasual
@@ -21,8 +23,6 @@ Risposta del prof:
 ````
 ## Struttura
 ### HUD
-- Schermata principale:
-	- Miglior punteggio
 	- Pulsanti:
 		- Nuovo gioco
 		- Missioni*
@@ -31,46 +31,57 @@ Risposta del prof:
 		- Customizzazione*
 		- Negozio*
 		- Classifica*
-- Schermata di gioco:
-	- Numero monete raccolte
-	- Punteggio attuale
-	- Miglior punteggio
-	- Moltiplicatore punteggio
-	- Pausa
 - Schermata di fine gioco:
 	- Punteggio totalizzato
 	- Miglior punteggio
 	- Monete ottenute
 	- Monete totali
-	- Pulsanti:
-		- Nuovo gioco
-		- Menu principale
 
-*opzionale
+## Sistema Off Game
+#### Fra
+- menù di pausa
+- menù iniziale, bottone Play
+- salvataggi
+- classifiche single player, miglior punteggio 
+- HUD: numero monete raccolte, punteggio, moltiplicatore, vite, potenziamenti attivi permanenti e non
+- cambio skin personaggio
+- menù con scelta di 3 augment in game
+- menù shop ingame
+- schermata di fine gioco, con recap del punteggio
+- opzioni con suono, lingua..
 
-[Fonte](https://www.youtube.com/watch?v=CmuAAf1mhiY)
+## Suoni
+#### Michele
+- cercare il tipo di suono
+- applicare ogni suono ad ogni oggetto:
+		moneta acquisita, danno, salto, selezione, ogni click del menù
 
+## Animazione e Modelli
+#### Michele
+- gestione corretta delle animazioni del personaggio
 
 ## Sistema Movimento e Ostacoli
-	- creazione spawn randomico ostacoli e monete
-	- 
-	
+#### Riccardo 
+- creazione spawn randomico ostacoli e monete
+
 ## Background
-	- 3 stili: foresta, 
+#### Riccardo e Gabriel
+- 3 stili: foresta, città e planetario
+- due corridoi affianco alla strada procedurali che fanno da sfondo 
+
+## Gameplay
+#### Gabriel
+- l'obbiettivo non è tanto arrivare alla fine quanto fare il punteggio più alto
+- limitato a livelli
 
 ## Sistema Oggetti
-	- possibilità di trovare durante la strada degli shop che interrompono il gioco e ti permettono di acquistare potenziamenti temporanei e non
-	- ogni avanzamento di stage ottieni un potenziamento unico e permanente
-	- trovi monete durante il gioco
-	- trovi delle strutture che ti danno potenziamenti o debuff permanenti
-	- 
-	
-## Sistema Off Game
-	- menù di pausa
-	- menù iniziale
-	- salvataggi
-	- classifiche single player
-	- HUD
-	- cambio skin personaggio
-	- menù con scelta di 3 augment in game
+#### Gabriel
+- possibilità di trovare durante la strada degli shop che interrompono il gioco e ti permettono di acquistare potenziamenti temporanei e non
+- ogni avanzamento di stage ottieni un potenziamento unico e permanente
+- trovi monete durante il gioco
+- trovi delle strutture che ti danno potenziamenti o debuff permanenti
+- variabili in game che cambiano lo stato del personaggio
+
+
+
 
