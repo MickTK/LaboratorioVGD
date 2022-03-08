@@ -24,6 +24,7 @@ Risposta del prof:
 
 # Fondamentali
 - è anche mobile
+- pseudo endless runner
 
 ## Sistema Off Game
 #### Fra
@@ -66,6 +67,7 @@ Risposta del prof:
 #### Gabriel
 - possibilità di trovare durante la strada degli shop che interrompono il gioco e ti permettono di acquistare potenziamenti temporanei e non
 - ogni avanzamento di stage ottieni un potenziamento unico e permanente
+	tra cui agginuge vite, ad ogni colpo preso raddoppi il punteggio, aumenti la velocità
 - trovi monete durante il gioco
 - trovi delle strutture che ti danno potenziamenti o debuff permanenti
 - variabili in game che cambiano lo stato del personaggio
