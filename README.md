@@ -21,22 +21,6 @@ Viene dato un punteggio finale in base alla distanza percorsa dal giocatore."
 Risposta del prof:
 "La proposta va bene, buon lavoro"
 ````
-## Struttura
-### HUD
-	- Pulsanti:
-		- Nuovo gioco
-		- Missioni*
-		- Sfide giornaliere*
-		- Opzioni
-		- Customizzazione*
-		- Negozio*
-		- Classifica*
-- Schermata di fine gioco:
-	- Punteggio totalizzato
-	- Miglior punteggio
-	- Monete ottenute
-	- Monete totali
-
 ## Sistema Off Game
 #### Fra
 - menù di pausa
@@ -47,7 +31,7 @@ Risposta del prof:
 - cambio skin personaggio
 - menù con scelta di 3 augment in game
 - menù shop ingame
-- schermata di fine gioco, con recap del punteggio
+- schermata di fine gioco, con recap del punteggio, monete ottenute e totali
 - opzioni con suono, lingua..
 
 ## Suoni
@@ -81,7 +65,3 @@ Risposta del prof:
 - trovi monete durante il gioco
 - trovi delle strutture che ti danno potenziamenti o debuff permanenti
 - variabili in game che cambiano lo stato del personaggio
-
-
-
-
