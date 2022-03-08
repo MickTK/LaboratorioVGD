@@ -21,6 +21,10 @@ Viene dato un punteggio finale in base alla distanza percorsa dal giocatore."
 Risposta del prof:
 "La proposta va bene, buon lavoro"
 ````
+
+# Fondamentali
+- è anche mobile
+
 ## Sistema Off Game
 #### Fra
 - menù di pausa
