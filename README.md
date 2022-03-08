@@ -49,3 +49,28 @@ Risposta del prof:
 *opzionale
 
 [Fonte](https://www.youtube.com/watch?v=CmuAAf1mhiY)
+
+
+## Sistema Movimento e Ostacoli
+	- creazione spawn randomico ostacoli e monete
+	- 
+	
+## Background
+	- 3 stili: foresta, 
+
+## Sistema Oggetti
+	- possibilità di trovare durante la strada degli shop che interrompono il gioco e ti permettono di acquistare potenziamenti temporanei e non
+	- ogni avanzamento di stage ottieni un potenziamento unico e permanente
+	- trovi monete durante il gioco
+	- trovi delle strutture che ti danno potenziamenti o debuff permanenti
+	- 
+	
+## Sistema Off Game
+	- menù di pausa
+	- menù iniziale
+	- salvataggi
+	- classifiche single player
+	- HUD
+	- cambio skin personaggio
+	- menù con scelta di 3 augment in game
+
