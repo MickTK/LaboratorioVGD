@@ -2,9 +2,7 @@ using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
-//Credit to Brackeys youtube tutorial on Audio managers, as the majority of this code and learning how to use it was made by him.
-
-
+/* Script utilizzato per gestire i suoni presenti nelle scene */
 public partial class AudioManager : MonoBehaviour
 {
 
