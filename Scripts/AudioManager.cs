@@ -2,7 +2,6 @@ using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
-/* Script utilizzato per gestire i suoni presenti nelle scene */
 public partial class AudioManager : MonoBehaviour
 {
 
