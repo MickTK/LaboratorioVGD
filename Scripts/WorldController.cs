@@ -6,7 +6,7 @@ public class WorldController : MonoBehaviour
 {
 
 
-    bool waitObs = true;
+    bool waitObs = false;
     int countObstacles = 0;
     
 
@@ -14,7 +14,7 @@ public class WorldController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine("delaySpawn");
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class WorldController : MonoBehaviour
         }
 
         ObjectController.move();
-        ObjectController.delete();
+        ObjectController.reset();
 
     }
 
@@ -50,6 +50,12 @@ public class WorldController : MonoBehaviour
     }
 
   
+    IEnumerator delaySpawn(){
+
+        yield return new WaitForSecondsRealtime(2);
+        waitObs=true;
+
+    }
     
  
 

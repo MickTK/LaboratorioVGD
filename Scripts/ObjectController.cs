@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectController : MonoBehaviour
 {     
     
-    public enum Oggetti
+    public enum Oggetti //enum che permette di ridurre i magic number e gestire i gruppi di ostacoli
     {  
         MONETA1,
         MONETA2,
@@ -18,7 +18,7 @@ public class ObjectController : MonoBehaviour
        
     }
 
-    public enum Poteri
+    public enum Poteri  //enu m che permette di dividere i possibili power up da implementare a livello visivo
     {
         POTERE1,
         POTERE2,
@@ -28,72 +28,88 @@ public class ObjectController : MonoBehaviour
 
 
 
-    private static float speed = 15f;
-    static GameObject[] prefTerreno;
-    static GameObject[] prefGruppi;
-    static GameObject[] prefPoteri;
-    static List <GameObject> listElementi;
+    private static float speed = 15f;   //velocità di spostamento di tutti gli oggetti di gioco
+
+    /*creo un vettore per ogni tipo di prefab istanziabile*/    
+    static GameObject[] prefGruppi;     
+    static GameObject[] prefPoteri;     
+
+    /*Creo una lista per ogni tipo di oggetto attualmente presente nella scena*/
+    static List <GameObject> listElementi;  
     static List <GameObject> listGruppi;
     static List <GameObject> listPoteri;
-    static List <GameObject> listTerreno;
+    static List <GameObject> listChunk;
+    static List <GameObject> listLPlanes;
+    static List <GameObject> listRPlanes;
 
+
+    
 
 
     void Start(){
         
-        prefTerreno = Resources.LoadAll<GameObject>("Prefabs/Terreno");
+        /*Carico le cartelle dei prefab negli appositi vettori*/
+
         prefGruppi = Resources.LoadAll<GameObject>("Prefabs/Gruppi");
         prefPoteri = Resources.LoadAll<GameObject>("Prefabs/Poteri");
+
+        listChunk =new List<GameObject>(GameObject.FindGameObjectsWithTag("Chunk"));
+        listLPlanes = new List<GameObject>(GameObject.FindGameObjectsWithTag("LPlane"));
+        listRPlanes = new List<GameObject>(GameObject.FindGameObjectsWithTag("RPlane"));
 
                
     }
 
+    public static Vector3 randCoord(){
 
+        /*creo la posizione dell'oggetto da istanziare, con y e z fisse ma x variabile*/
+          
+        Vector3 randPos;  
+        int posX;              
+        posX= UnityEngine.Random.Range(-1,2)*2; //genero una x casuale tra -2,0 e 2
+        return randPos = new Vector3(posX,0,80); 
+        
+
+    }
 
     public static void spawnOstacolo(){
-
-        int posX; 
-        Vector3 vettPos;        
-        Oggetti what = (Oggetti) UnityEngine.Random.Range(0,8);
-        posX= UnityEngine.Random.Range(-1,2)*2;
-        vettPos = new Vector3(posX,0,80); 
-
-                
+        Vector3 randPos = ObjectController.randCoord();   
+        Oggetti what = (Oggetti) UnityEngine.Random.Range(0,8); //creo una variabile casuale tra 0 e 8 che decide il tipo di oggetto da istanziare
            
         switch(what)
             {
                 
             case Oggetti.MONETA1:   
-            Instantiate(prefGruppi[0], vettPos, Quaternion.identity);
+            Instantiate(prefGruppi[0], randPos, Quaternion.identity);
             break;
 
             case Oggetti.MONETA2:
-            Instantiate(prefGruppi[1], vettPos, Quaternion.identity);
+            Instantiate(prefGruppi[1], randPos, Quaternion.identity);
             break;
 
             case Oggetti.OSTACOLO1 :
-            Instantiate(prefGruppi[2], vettPos, Quaternion.identity);
+            Instantiate(prefGruppi[2], randPos, Quaternion.identity);
             break;
 
             case Oggetti.OSTACOLO2 :
-            Instantiate(prefGruppi[3], vettPos, Quaternion.identity);
+            Instantiate(prefGruppi[3], randPos, Quaternion.identity);
             break;
                 
                 
             case Oggetti.OSTACOLO3 :
-            Instantiate(prefGruppi[4], vettPos, Quaternion.identity);
+            Instantiate(prefGruppi[4], randPos, Quaternion.identity);
             break;
                 
             case Oggetti.OSTACOLO4 :
-            Instantiate(prefGruppi[5], vettPos, Quaternion.identity);
+            Instantiate(prefGruppi[5], randPos, Quaternion.identity);
             break;
                 
             case Oggetti.OSTACOLO5 :
-            Instantiate(prefGruppi[6], vettPos, Quaternion.identity);
+            Instantiate(prefGruppi[6], randPos, Quaternion.identity);
             break;
                 
             case Oggetti.OSTACOLO6 :
-            Instantiate(prefGruppi[7], vettPos, Quaternion.identity);
+            Instantiate(prefGruppi[7], randPos, Quaternion.identity);
             break;
                 
                 
@@ -104,23 +120,22 @@ public class ObjectController : MonoBehaviour
     }
 
     public static void spawnPower(){
-        int posX; 
-        Vector3 vettPos;        
+
+
+        Vector3 randPos = ObjectController.randCoord();
         Poteri what = (Poteri) UnityEngine.Random.Range(0,3);
-        posX= UnityEngine.Random.Range(-1,2)*2;
-        vettPos = new Vector3(posX,1,80); 
 
         switch(what){
             case Poteri.POTERE1:
-            Instantiate(prefPoteri[0], vettPos, Quaternion.identity);
+            Instantiate(prefPoteri[0], randPos, Quaternion.identity);
             break;
 
             case Poteri.POTERE2:
-            Instantiate(prefPoteri[1], vettPos, Quaternion.identity);
+            Instantiate(prefPoteri[1], randPos, Quaternion.identity);
             break;
 
             case Poteri.POTERE3:
-            Instantiate(prefPoteri[2], vettPos, Quaternion.identity);
+            Instantiate(prefPoteri[2], randPos, Quaternion.identity);
             break;
             
         }
@@ -131,20 +146,49 @@ public class ObjectController : MonoBehaviour
 
 
 
-    public static void spawnPlane(){
+    public static void moveTerrains(GameObject el){
             
-            Vector3 vettPos;        
-            float max=0;
-            foreach(GameObject p in listTerreno){
-                if(p.transform.position.z>max)
-                    max=p.transform.position.z;
+        Vector3 posIniz;
+        float max=0;
+        float posX=0;
+        float posZ=0;
 
-            }
-            max+=10;
-            
-            vettPos = new Vector3(0,0,max); 
-            GameObject chunk= prefTerreno[0];  
-            Instantiate(chunk, vettPos, Quaternion.identity);
+        switch(el.tag){
+
+            case "Chunk":
+                foreach(GameObject p in listChunk){
+                    if(p.transform.position.z>max)
+                        max=p.transform.position.z;
+                        posX=0;
+                        
+                }
+            break;
+
+            case "LPlane":
+                foreach(GameObject p in listLPlanes){
+                    if(p.transform.position.z>max){
+                        max=p.transform.position.z;
+                        posX=-30;
+                    }
+                }
+            break;
+
+            case "RPlane":
+                foreach(GameObject p in listRPlanes){
+                     if(p.transform.position.z>max){
+                        max=p.transform.position.z;
+                        posX=30;
+                    }
+                }
+            break;
+
+
+        }
+
+        posZ=max+10;
+        posIniz = new Vector3(posX,0,posZ); 
+        el.transform.position=posIniz;
+           
 
         
 
@@ -153,13 +197,14 @@ public class ObjectController : MonoBehaviour
     public static void find(){  
 
         //legge i gruppi, chunk e poteri presenti in gioco attualmente
-        listGruppi= new List<GameObject>(GameObject.FindGameObjectsWithTag("Gruppo")); 
-        listTerreno =new List<GameObject>(GameObject.FindGameObjectsWithTag("Plane"));
+        listGruppi= new List<GameObject>(GameObject.FindGameObjectsWithTag("Gruppo"));
         listPoteri =new List<GameObject>(GameObject.FindGameObjectsWithTag("Potere"));
 
         //ricrea una lista totale di elementi presenti
         listElementi= new List<GameObject>(listGruppi);
-        listElementi.AddRange(listTerreno);
+        listElementi.AddRange(listChunk);
+        listElementi.AddRange(listLPlanes);
+        listElementi.AddRange(listRPlanes);
         listElementi.AddRange(listPoteri);
     }
 
@@ -169,27 +214,27 @@ public class ObjectController : MonoBehaviour
         ObjectController.find();    
 
         if(listElementi!=null){
-            foreach(GameObject ogg in listElementi){
-                ogg.transform.Translate(-Vector3.forward *Time.deltaTime* speed);
+            foreach(GameObject el in listElementi){
+                el.transform.Translate(-Vector3.forward *Time.deltaTime* speed);
             }
         }
 
     }
-
-    public static void delete(){
+    public static void reset(){
 
 
         ObjectController.find();
 
-    
-
         if(listElementi!=null){
-            foreach(GameObject ogg in listElementi){
-                if(ogg.transform.position.z<-10){
-                    if(ogg.tag=="Plane"){
-                        ObjectController.spawnPlane();
+            foreach(GameObject el in listElementi){
+                if(el.transform.position.z<-10){
+                    if(el.tag=="RPlane"||el.tag=="LPlane"||el.tag=="Chunk"){
+                        ObjectController.moveTerrains(el);
                     }
-                    Destroy(ogg);
+                    else{
+                        Destroy(el);
+                    }
+                    
                 }
             }
         }
