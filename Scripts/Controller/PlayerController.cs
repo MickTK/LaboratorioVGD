@@ -7,11 +7,22 @@ public class PlayerController : MonoBehaviour
 {
     private CharacterController controller;
     private float velocity = 10f;
-    public float lane = 0f;
-    public float xPosition = 0f;
+    public int lane = 2; // lane attuale, indice per il movimento tra le lanes
+    public float xDirection = 0f; // la direzione destra o sinistra verso cui si muove il player
     public float yPosition = 0f;
-    private int movement = 0;
-    const int quaranta = 40;
+    private float jumpSpeed = 3.5f;
+    private float jumpForce = 5f;
+    private float gravity = 9.81f;
+
+    private Vector3[] lanes = new Vector3[]{
+
+        new Vector3(-4,0,0), // lane left left
+        new Vector3(-2,0,0), // lane left center
+        new Vector3(0,0,0), // lane center
+        new Vector3(2,0,0), // lane right center
+        new Vector3(4,0,0) // lane right right
+
+    };
 
     void Start()
     {
@@ -28,42 +39,40 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown("w"))
         {
-
+            yPosition = jumpSpeed;
         }
 
         if (Input.GetKeyDown("s"))
         {
-
+            yPosition -= jumpSpeed;
         }
 
-        if (Input.GetKeyDown("a") && lane > -1)
+        Vector3 direction = new Vector3();
+        yPosition -= gravity * Time.deltaTime;
+        direction.y = yPosition;
+        controller.Move(direction * jumpForce * Time.deltaTime);
+
+        if (Input.GetKeyDown("a") && lane > 0)
         {
-            lane -= 1;
-            xPosition = -1;
-
-            if(movement == 0){
-                movement = quaranta;
-            } else {
-                movement = quaranta - movement;
-            }
+            lane -= 1; 
+            xDirection = -1;
         }
 
-        if (Input.GetKeyDown("d") && lane < 1)
+        if (Input.GetKeyDown("d") && lane < 4)
         {
             lane += 1;
-            xPosition = 1;
-
-            if(movement == 0){
-                movement = quaranta;
-            } else {
-                movement = quaranta - movement;
-            }
+            xDirection = 1;
         }
 
+        if(xDirection == -1 && controller.transform.position.x > lanes[lane].x){
 
-        if(movement != 0){
-            movement -= 1;
-            Vector3 translator = new Vector3(xPosition * velocity, yPosition * velocity, 0); 
+            Vector3 translator = new Vector3(xDirection * velocity, 0, 0); 
+            controller.transform.Translate(translator * Time.deltaTime);
+        }
+
+        if(xDirection == 1 && controller.transform.position.x < lanes[lane].x){
+
+            Vector3 translator = new Vector3(xDirection * velocity, 0, 0); 
             controller.transform.Translate(translator * Time.deltaTime);
         }
     }
