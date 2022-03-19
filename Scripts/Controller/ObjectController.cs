@@ -41,6 +41,8 @@ public class ObjectController : MonoBehaviour
     static List <GameObject> listChunk;
     static List <GameObject> listLPlanes;
     static List <GameObject> listRPlanes;
+    static List <GameObject> listEnvironment;
+
 
 
     
@@ -50,12 +52,14 @@ public class ObjectController : MonoBehaviour
         
         /*Carico le cartelle dei prefab negli appositi vettori*/
 
-        prefGruppi = Resources.LoadAll<GameObject>("Prefabs/Gruppi");
-        prefPoteri = Resources.LoadAll<GameObject>("Prefabs/Poteri");
+        //prefGruppi = Resources.LoadAll<GameObject>("Prefabs/Gruppi");
+        //prefPoteri = Resources.LoadAll<GameObject>("Prefabs/Poteri");
 
+        listElementi= new List<GameObject>();
         listChunk =new List<GameObject>(GameObject.FindGameObjectsWithTag("Chunk"));
         listLPlanes = new List<GameObject>(GameObject.FindGameObjectsWithTag("LPlane"));
         listRPlanes = new List<GameObject>(GameObject.FindGameObjectsWithTag("RPlane"));
+        listEnvironment= new List<GameObject>(GameObject.FindGameObjectsWithTag("Environment"));
 
                
     }
@@ -168,7 +172,7 @@ public class ObjectController : MonoBehaviour
                 foreach(GameObject p in listLPlanes){
                     if(p.transform.position.z>max){
                         max=p.transform.position.z;
-                        posX=-30;
+                        posX=-15;
                     }
                 }
             break;
@@ -177,7 +181,7 @@ public class ObjectController : MonoBehaviour
                 foreach(GameObject p in listRPlanes){
                      if(p.transform.position.z>max){
                         max=p.transform.position.z;
-                        posX=30;
+                        posX=15;
                     }
                 }
             break;
@@ -197,15 +201,23 @@ public class ObjectController : MonoBehaviour
     public static void find(){  
 
         //legge i gruppi, chunk e poteri presenti in gioco attualmente
-        listGruppi= new List<GameObject>(GameObject.FindGameObjectsWithTag("Gruppo"));
-        listPoteri =new List<GameObject>(GameObject.FindGameObjectsWithTag("Potere"));
+        //listGruppi= new List<GameObject>(GameObject.FindGameObjectsWithTag("Gruppo"));
+        //listPoteri =new List<GameObject>(GameObject.FindGameObjectsWithTag("Potere"));
+        
 
         //ricrea una lista totale di elementi presenti
-        listElementi= new List<GameObject>(listGruppi);
+        
+        
+        //listElementi= new List<GameObject>(listGruppi);
+        //listElementi.AddRange(listPoteri);
+
+        listElementi.RemoveAll(el =>true);
         listElementi.AddRange(listChunk);
         listElementi.AddRange(listLPlanes);
-        listElementi.AddRange(listRPlanes);
-        listElementi.AddRange(listPoteri);
+        listElementi.AddRange(listRPlanes);        
+        listElementi.AddRange(listEnvironment);
+
+        
     }
 
     public static void move(){
@@ -220,21 +232,44 @@ public class ObjectController : MonoBehaviour
         }
 
     }
+
+
+    public static void moveEnvironment(GameObject el){
+
+        Vector3 position= new Vector3 (el.transform.position.x,el.transform.position.y,90);
+        el.transform.position=position;
+
+    }
+
+
+
     public static void reset(){
 
 
         ObjectController.find();
 
+        
+
         if(listElementi!=null){
             foreach(GameObject el in listElementi){
                 if(el.transform.position.z<-10){
-                    if(el.tag=="RPlane"||el.tag=="LPlane"||el.tag=="Chunk"){
-                        ObjectController.moveTerrains(el);
+                    switch(el.tag){
+
+                        case "RPlane":
+                        case "LPlane":
+                        case "Chunk":
+                            ObjectController.moveTerrains(el);
+                        break;
+
+                        case "Environment":
+                            ObjectController.moveEnvironment(el);
+                        break;
+
+                        default:
+                            Destroy(el);
+                        break;
+
                     }
-                    else{
-                        Destroy(el);
-                    }
-                    
                 }
             }
         }
