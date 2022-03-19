@@ -43,6 +43,8 @@ public class ObjectController : MonoBehaviour
     static List <GameObject> listRPlanes;
     static List <GameObject> listEnvironment;
 
+    
+
 
 
     
@@ -212,6 +214,7 @@ public class ObjectController : MonoBehaviour
         //listElementi.AddRange(listPoteri);
 
         listElementi.RemoveAll(el =>true);
+        
         listElementi.AddRange(listChunk);
         listElementi.AddRange(listLPlanes);
         listElementi.AddRange(listRPlanes);        
