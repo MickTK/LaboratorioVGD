@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
   m_Name: Moltiplicatore
   m_EditorClassIdentifier: 
-  tipo: 3
+  tipo: 5
   titolo: Moltiplicatore
-  descrizione: gain pain
+  descrizione: per 30 secondi le monete valgono doppio
   artwork: {fileID: 21300000, guid: 07187e79e65f9d34498613ee12d1e6e5, type: 3}
-  prezzo: 500
+  prezzo: 300
+  durata: 30

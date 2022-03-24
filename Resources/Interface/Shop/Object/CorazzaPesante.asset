@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
-  m_Name: Zuppanonna
+  m_Name: CorazzaPesante
   m_EditorClassIdentifier: 
-  tipo: 4
-  titolo: La Zuppa della Nonna
-  descrizione: Aumento del massimo di cuori di 1
-  artwork: {fileID: 21300000, guid: 021f1dfe5417f7f49b3c7587ef52a9f6, type: 3}
+  tipo: 3
+  titolo: Corazza Pesante
+  descrizione: Aggiunge 4 cuori non recuperabili
+  artwork: {fileID: 0}
   prezzo: 500
   durata: 0

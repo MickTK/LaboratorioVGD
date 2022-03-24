@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
   m_Name: Antiproiettile
   m_EditorClassIdentifier: 
-  tipo: 1
-  titolo: Giubbotto Antiproiettile
-  descrizione: aggiunge 3 vite temporanee
+  tipo: 2
+  titolo: Antiproiettile
+  descrizione: aggiungi 2 vite non recuperabili
   artwork: {fileID: 21300000, guid: bb7789741bd5dca4ea8fe30aa4f844ef, type: 3}
-  prezzo: 400
+  prezzo: 500
+  durata: 0

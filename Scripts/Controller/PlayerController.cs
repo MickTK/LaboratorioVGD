@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    GameVariable gameVariable;
     private CharacterController controller;
-    private float velocity = 10f;
     public int lane = 2; // lane attuale, indice per il movimento tra le lanes
     public float xDirection = 0f; // la direzione destra o sinistra verso cui si muove il player
     public float yPosition = 0f;
@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        gameVariable = GetComponent<GameVariable>();
     }
 
     void Update()
@@ -66,14 +67,19 @@ public class PlayerController : MonoBehaviour
 
         if(xDirection == -1 && controller.transform.position.x > lanes[lane].x){
 
-            Vector3 translator = new Vector3(xDirection * velocity, 0, 0); 
+            Vector3 translator = new Vector3(xDirection * gameVariable.XVelocity, 0, 0); 
             controller.transform.Translate(translator * Time.deltaTime);
         }
 
         if(xDirection == 1 && controller.transform.position.x < lanes[lane].x){
 
-            Vector3 translator = new Vector3(xDirection * velocity, 0, 0); 
+            Vector3 translator = new Vector3(xDirection * gameVariable.XVelocity, 0, 0); 
             controller.transform.Translate(translator * Time.deltaTime);
         }
+    }
+
+    public void TakeDamage(){
+
+        //TODO TAKE DAMAGE
     }
 }

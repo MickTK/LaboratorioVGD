@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Deck<T>
 {    
-    List<T> deck = new List<T>();
-    string path;
-    public List<T> DeckAccess { get => deck; set => deck = value; }
+    List<T> pool = new List<T>();
+    List<T> active = new List<T>();
+    public List<T> Pool { get => pool; set => pool = value; }
+    public List<T> Active { get => active; set => active = value; }
 
+    string path;
     public Deck(string path){
 
         this.path = path;
@@ -17,30 +19,30 @@ public class Deck<T>
         T[] card = Resources.LoadAll(path, typeof(T)).Cast<T>().ToArray();
         foreach (var item in card)
         {
-            deck.Add(item);
+            pool.Add(item);
         }
     }
 
     public T Draw(){
 
-        if(!deck.Any()){ // se la lista è vuota
+        if(!pool.Any()){ // se la lista è vuota
             Init();
         }
 
-        int cardPos = (int) (Random.value * deck.Count);
-        T card = deck[cardPos];
-        deck.Remove(card);
+        int cardPos = (int) (Random.value * pool.Count);
+        T card = pool[cardPos];
+        pool.Remove(card);
         return card;
     }
 
     public T Pick(){
 
-        if(!deck.Any()){ // se la lista è vuota
+        if(!pool.Any()){ // se la lista è vuota
             Init();
         }
 
-        int cardPos = (int) (Random.value * deck.Count);
-        T card = deck[cardPos];
+        int cardPos = (int) (Random.value * pool.Count);
+        T card = pool[cardPos];
         return card;
     }
 }

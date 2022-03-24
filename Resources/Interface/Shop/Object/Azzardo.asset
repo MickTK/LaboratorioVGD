@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
-  m_Name: Fortuna
+  m_Name: Azzardo
   m_EditorClassIdentifier: 
-  tipo: 4
-  titolo: Fortuna
-  descrizione: fortunaaa
-  artwork: {fileID: 21300000, guid: 0123a718108c229499bf5c502a42776a, type: 3}
-  prezzo: 1000
+  tipo: 11
+  titolo: Azzardo
+  descrizione: ottieni 2 vite recuperabile e una non recuperabile. Tra 1 minuto paghi
+    700 monete, se non le hai perdi le vite guadagnate
+  artwork: {fileID: 0}
+  prezzo: 0
+  durata: 60

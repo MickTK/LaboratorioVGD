@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public enum PermType 
+public enum TrattoType 
 {
     REROLL,
     NUOVERECLUTE,
     RAMPA
 }
 
-[CreateAssetMenu(fileName = "Nuovo Permanente", menuName = "Permanente")]
-public class Permanente : ScriptableObject // potenziamento persistente e permanente 
+[CreateAssetMenu(fileName = "Nuovo Tratto", menuName = "Tratto")]
+public class Tratto : ScriptableObject // potenziamento persistente e permanente 
 {
-    public PermType tipo;
+    public TrattoType tipo;
     public string titolo;
     public string descrizione;
     public Sprite artwork;
