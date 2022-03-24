@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject gameManager;
     GameVariable gameVariable;
     private CharacterController controller;
     public int lane = 2; // lane attuale, indice per il movimento tra le lanes
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        gameVariable = GetComponent<GameVariable>();
+        gameVariable = gameManager.GetComponent<GameVariable>();
     }
 
     void Update()
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown("w"))
+        if (Input.GetKeyDown("w") && controller.isGrounded)
         {
             yPosition = jumpSpeed;
         }
@@ -67,13 +68,13 @@ public class PlayerController : MonoBehaviour
 
         if(xDirection == -1 && controller.transform.position.x > lanes[lane].x){
 
-            Vector3 translator = new Vector3(xDirection * gameVariable.XVelocity, 0, 0); 
+            Vector3 translator = new Vector3(xDirection * gameVariable.xVelocity, 0, 0); 
             controller.transform.Translate(translator * Time.deltaTime);
         }
 
         if(xDirection == 1 && controller.transform.position.x < lanes[lane].x){
 
-            Vector3 translator = new Vector3(xDirection * gameVariable.XVelocity, 0, 0); 
+            Vector3 translator = new Vector3(xDirection * gameVariable.xVelocity, 0, 0); 
             controller.transform.Translate(translator * Time.deltaTime);
         }
     }

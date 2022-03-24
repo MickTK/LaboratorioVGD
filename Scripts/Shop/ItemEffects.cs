@@ -139,10 +139,10 @@ public class ItemEffects : MonoBehaviour
                 
                 case ItemType.MORFINA:
                     if(item.durata == 60){
-                        gameVariable.XVelocity *= 1.2f;
+                        gameVariable.xVelocity *= 1.2f;
                     }
                     if(item.durata == 0){
-                        gameVariable.XVelocity /= 1.2f;
+                        gameVariable.xVelocity /= 1.2f;
                     }
                 break;
             }

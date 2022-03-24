@@ -2074,13 +2074,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 1
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!65 &322895107
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2093,7 +2093,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &322895108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2106,6 +2106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2156c93cffd9af843877aaf571e4c689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1252394698}
   lane: 2
   xDirection: 0
   yPosition: 0
@@ -7776,6 +7777,7 @@ MonoBehaviour:
   vite: 3
   viteMassime: 3
   viteNonRecuperabili: 0
+  xVelocity: 10
 --- !u!1001 &1253823794
 PrefabInstance:
   m_ObjectHideFlags: 0
