@@ -26,7 +26,7 @@ public class WorldController : MonoBehaviour
             StartCoroutine("delayObs");  
 
             if(countObstacles<5){
-                //ObjectController.spawnOstacolo();
+                ObjectController.spawnOstacolo();
                 countObstacles++;
             }
             else{  

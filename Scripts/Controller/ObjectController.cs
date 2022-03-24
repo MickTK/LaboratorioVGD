@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectController : MonoBehaviour
 {     
     
+    //DA REFACTORARE
     public enum Oggetti //enum che permette di ridurre i magic number e gestire i gruppi di ostacoli
     {  
         MONETA1,
@@ -31,12 +32,12 @@ public class ObjectController : MonoBehaviour
     private static float speed = 15f;   //velocità di spostamento di tutti gli oggetti di gioco
 
     /*creo un vettore per ogni tipo di prefab istanziabile*/    
-    static GameObject[] prefGruppi;     
+    static GameObject[] prefOstacoli;     
     static GameObject[] prefPoteri;     
 
     /*Creo una lista per ogni tipo di oggetto attualmente presente nella scena*/
     static List <GameObject> listElementi;  
-    static List <GameObject> listGruppi;
+    static List <GameObject> listOstacoli;
     static List <GameObject> listPoteri;
     static List <GameObject> listChunk;
     static List <GameObject> listLPlanes;
@@ -44,7 +45,7 @@ public class ObjectController : MonoBehaviour
     static List <GameObject> listEnvironment;
 
     
-
+    static int howMany;
 
 
     
@@ -54,10 +55,14 @@ public class ObjectController : MonoBehaviour
         
         /*Carico le cartelle dei prefab negli appositi vettori*/
 
-        //prefGruppi = Resources.LoadAll<GameObject>("Prefabs/Gruppi");
+        prefOstacoli = Resources.LoadAll<GameObject>("Obstacle/Static/Fence");
+        howMany=prefOstacoli.Length;
+
+        Debug.Log("numero prefab: "+howMany);
         //prefPoteri = Resources.LoadAll<GameObject>("Prefabs/Poteri");
 
         listElementi= new List<GameObject>();
+        listOstacoli = new List<GameObject>();
         listChunk =new List<GameObject>(GameObject.FindGameObjectsWithTag("Chunk"));
         listLPlanes = new List<GameObject>(GameObject.FindGameObjectsWithTag("LPlane"));
         listRPlanes = new List<GameObject>(GameObject.FindGameObjectsWithTag("RPlane"));
@@ -80,42 +85,45 @@ public class ObjectController : MonoBehaviour
 
     public static void spawnOstacolo(){
         Vector3 randPos = ObjectController.randCoord();   
-        Oggetti what = (Oggetti) UnityEngine.Random.Range(0,8); //creo una variabile casuale tra 0 e 8 che decide il tipo di oggetto da istanziare
-           
+        Oggetti what = (Oggetti) UnityEngine.Random.Range(0,howMany); //creo una variabile casuale tra 0 e 8 che decide il tipo di oggetto da istanziare
+        
+        Debug.Log("numero uscito: "+what);
+
+
         switch(what)
             {
                 
             case Oggetti.MONETA1:   
-            Instantiate(prefGruppi[0], randPos, Quaternion.identity);
+            Instantiate(prefOstacoli[0], randPos, Quaternion.identity);
             break;
 
             case Oggetti.MONETA2:
-            Instantiate(prefGruppi[1], randPos, Quaternion.identity);
+            Instantiate(prefOstacoli[1], randPos, Quaternion.identity);
             break;
 
             case Oggetti.OSTACOLO1 :
-            Instantiate(prefGruppi[2], randPos, Quaternion.identity);
+            Instantiate(prefOstacoli[2], randPos, Quaternion.identity);
             break;
 
             case Oggetti.OSTACOLO2 :
-            Instantiate(prefGruppi[3], randPos, Quaternion.identity);
+            Instantiate(prefOstacoli[3], randPos, Quaternion.identity);
             break;
                 
                 
             case Oggetti.OSTACOLO3 :
-            Instantiate(prefGruppi[4], randPos, Quaternion.identity);
+            Instantiate(prefOstacoli[4], randPos, Quaternion.identity);
             break;
                 
             case Oggetti.OSTACOLO4 :
-            Instantiate(prefGruppi[5], randPos, Quaternion.identity);
+            Instantiate(prefOstacoli[5], randPos, Quaternion.identity);
             break;
                 
             case Oggetti.OSTACOLO5 :
-            Instantiate(prefGruppi[6], randPos, Quaternion.identity);
+            Instantiate(prefOstacoli[6], randPos, Quaternion.identity);
             break;
                 
             case Oggetti.OSTACOLO6 :
-            Instantiate(prefGruppi[7], randPos, Quaternion.identity);
+            Instantiate(prefOstacoli[7], randPos, Quaternion.identity);
             break;
                 
                 
@@ -202,16 +210,9 @@ public class ObjectController : MonoBehaviour
 
     public static void find(){  
 
-        //legge i gruppi, chunk e poteri presenti in gioco attualmente
-        //listGruppi= new List<GameObject>(GameObject.FindGameObjectsWithTag("Gruppo"));
-        //listPoteri =new List<GameObject>(GameObject.FindGameObjectsWithTag("Potere"));
-        
-
-        //ricrea una lista totale di elementi presenti
-        
-        
-        //listElementi= new List<GameObject>(listGruppi);
-        //listElementi.AddRange(listPoteri);
+      
+        listOstacoli.RemoveAll(el=>true);
+        listOstacoli.AddRange(GameObject.FindGameObjectsWithTag("Obstacle"));
 
         listElementi.RemoveAll(el =>true);
         
