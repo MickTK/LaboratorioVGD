@@ -19,7 +19,7 @@ public class ObjectController : MonoBehaviour
        
     }
 
-    public enum Poteri  //enu m che permette di dividere i possibili power up da implementare a livello visivo
+    public enum Poteri  //enum che permette di dividere i possibili power up da implementare a livello visivo
     {
         POTERE1,
         POTERE2,
@@ -55,10 +55,10 @@ public class ObjectController : MonoBehaviour
         
         /*Carico le cartelle dei prefab negli appositi vettori*/
 
-        prefOstacoli = Resources.LoadAll<GameObject>("Obstacle/Static/Fence");
+        prefOstacoli = Resources.LoadAll<GameObject>("Obstacles");
         howMany=prefOstacoli.Length;
 
-        Debug.Log("numero prefab: "+howMany);
+        //Debug.Log("numero prefab: "+howMany);
         //prefPoteri = Resources.LoadAll<GameObject>("Prefabs/Poteri");
 
         listElementi= new List<GameObject>();
@@ -85,76 +85,18 @@ public class ObjectController : MonoBehaviour
 
     public static void spawnOstacolo(){
         Vector3 randPos = ObjectController.randCoord();   
-        Oggetti what = (Oggetti) UnityEngine.Random.Range(0,howMany); //creo una variabile casuale tra 0 e 8 che decide il tipo di oggetto da istanziare
-        
-        Debug.Log("numero uscito: "+what);
-
-
-        switch(what)
-            {
-                
-            case Oggetti.MONETA1:   
-            Instantiate(prefOstacoli[0], randPos, Quaternion.identity);
-            break;
-
-            case Oggetti.MONETA2:
-            Instantiate(prefOstacoli[1], randPos, Quaternion.identity);
-            break;
-
-            case Oggetti.OSTACOLO1 :
-            Instantiate(prefOstacoli[2], randPos, Quaternion.identity);
-            break;
-
-            case Oggetti.OSTACOLO2 :
-            Instantiate(prefOstacoli[3], randPos, Quaternion.identity);
-            break;
-                
-                
-            case Oggetti.OSTACOLO3 :
-            Instantiate(prefOstacoli[4], randPos, Quaternion.identity);
-            break;
-                
-            case Oggetti.OSTACOLO4 :
-            Instantiate(prefOstacoli[5], randPos, Quaternion.identity);
-            break;
-                
-            case Oggetti.OSTACOLO5 :
-            Instantiate(prefOstacoli[6], randPos, Quaternion.identity);
-            break;
-                
-            case Oggetti.OSTACOLO6 :
-            Instantiate(prefOstacoli[7], randPos, Quaternion.identity);
-            break;
-                
-                
-            }
-            
-           
-
+        int what = UnityEngine.Random.Range(0,howMany); //creo una variabile casuale che decide il tipo di oggetto da istanziare
+        Instantiate(prefOstacoli[what], randPos, Quaternion.identity);
+                   
     }
 
     public static void spawnPower(){
 
 
         Vector3 randPos = ObjectController.randCoord();
-        Poteri what = (Poteri) UnityEngine.Random.Range(0,3);
+        int what = UnityEngine.Random.Range(0,3);
+        Instantiate(prefPoteri[what], randPos, Quaternion.identity);
 
-        switch(what){
-            case Poteri.POTERE1:
-            Instantiate(prefPoteri[0], randPos, Quaternion.identity);
-            break;
-
-            case Poteri.POTERE2:
-            Instantiate(prefPoteri[1], randPos, Quaternion.identity);
-            break;
-
-            case Poteri.POTERE3:
-            Instantiate(prefPoteri[2], randPos, Quaternion.identity);
-            break;
-            
-        }
-        
-        
 
     }
 
@@ -215,7 +157,7 @@ public class ObjectController : MonoBehaviour
         listOstacoli.AddRange(GameObject.FindGameObjectsWithTag("Obstacle"));
 
         listElementi.RemoveAll(el =>true);
-        
+        listElementi.AddRange(listOstacoli);
         listElementi.AddRange(listChunk);
         listElementi.AddRange(listLPlanes);
         listElementi.AddRange(listRPlanes);        
