@@ -4,15 +4,17 @@ A lezione abbiamo visto troppo poco per poter implementare un sistema audio dece
 
 ## Lista suoni
 ### Menu
-- "In" -> Bottoni (es.: Nuovo gioco, Impostazioni, etc.)
-- "Out" -> Bottoni per tornare al menu precedente
+- "MouseIn" -> Il cursore viene posizionato sopra un bottone
+- "In" -> Viene premuto un bottone
+- "Out" -> Viene premuto un bottone per tornare al menu precedente
 ### Gioco
-- "Moneta" -> Quando viene raccolta una moneta
-- "Oggetto" -> Quando viene raccolto un oggetto
-- "Salto" -> Quando il giocatore salta
-- "Fine effetto" -> Quando finisce l'effetto acquisito dal giocatore
+- "Moneta" -> Viene raccolta una moneta
+- "Oggetto" -> Viene raccolto un oggetto
+- "Salto" -> Il giocatore salta
+- "Fine effetto" -> Finisce l'effetto acquisito dal giocatore
+- "Bonk" -> Il giocatore riceve danno
 ### Altro
-- "Sottofondo in game" -> Tema principale
+- "Potato" -> Tema principale
 
 ## Riprodurre un suono
 - Collocare il prefab "AudioManager" nella scena (solo uno per scena)
