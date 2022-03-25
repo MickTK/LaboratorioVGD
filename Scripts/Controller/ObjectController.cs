@@ -5,94 +5,104 @@ using UnityEngine;
 public class ObjectController : MonoBehaviour
 {     
     
-    
-    private  float speed = 15f;   //velocità di spostamento di tutti gli oggetti di gioco
+    //DA REFACTORARE
+    public enum Oggetti //enum che permette di ridurre i magic number e gestire i gruppi di ostacoli
+    {  
+        MONETA1,
+        MONETA2,
+        OSTACOLO1,
+        OSTACOLO2,  
+        OSTACOLO3,
+        OSTACOLO4,
+        OSTACOLO5,
+        OSTACOLO6
+       
+    }
+
+    public enum Poteri  //enum che permette di dividere i possibili power up da implementare a livello visivo
+    {
+        POTERE1,
+        POTERE2,
+        POTERE3
+
+    }
+
+
+
+    private static float speed = 15f;   //velocità di spostamento di tutti gli oggetti di gioco
 
     /*creo un vettore per ogni tipo di prefab istanziabile*/    
-    public GameObject[] prefOstacoli;     
-    GameObject[] prefPoteri;     
+    static GameObject[] prefOstacoli;     
+    static GameObject[] prefPoteri;     
 
     /*Creo una lista per ogni tipo di oggetto attualmente presente nella scena*/
-    List <GameObject> listElementi = new List<GameObject>();
-    List <GameObject> listOstacoli = new List<GameObject>();
-    List <GameObject> listPoteri = new List<GameObject>();
-    List <GameObject> listChunk = new List<GameObject>();
-    List <GameObject> listLPlanes = new List<GameObject>();
-    List <GameObject> listRPlanes = new List<GameObject>();
-    List <GameObject> listEnvironment = new List<GameObject>();
-    int howMany;
+    static List <GameObject> listElementi;  
+    static List <GameObject> listOstacoli;
+    static List <GameObject> listPoteri;
+    static List <GameObject> listChunk;
+    static List <GameObject> listLPlanes;
+    static List <GameObject> listRPlanes;
+    static List <GameObject> listEnvironment;
+
+    
+    static int howMany;
 
 
     
 
 
-    public void Start(){
+    void Start(){
         
         /*Carico le cartelle dei prefab negli appositi vettori*/
 
-        
+        prefOstacoli = Resources.LoadAll<GameObject>("Obstacles");
         howMany=prefOstacoli.Length;
 
         //Debug.Log("numero prefab: "+howMany);
         //prefPoteri = Resources.LoadAll<GameObject>("Prefabs/Poteri");
-        //listElementi 
-        //listOstacoli 
-        listChunk.AddRange(GameObject.FindGameObjectsWithTag("Chunk"));
-        listLPlanes.AddRange (GameObject.FindGameObjectsWithTag("LPlane"));
-        listRPlanes.AddRange (GameObject.FindGameObjectsWithTag("RPlane"));
-        listEnvironment.AddRange (GameObject.FindGameObjectsWithTag("Environment"));
+
+        listElementi= new List<GameObject>();
+        listOstacoli = new List<GameObject>();
+        listChunk =new List<GameObject>(GameObject.FindGameObjectsWithTag("Chunk"));
+        listLPlanes = new List<GameObject>(GameObject.FindGameObjectsWithTag("LPlane"));
+        listRPlanes = new List<GameObject>(GameObject.FindGameObjectsWithTag("RPlane"));
+        listEnvironment= new List<GameObject>(GameObject.FindGameObjectsWithTag("Environment"));
 
                
     }
 
-    public Vector3 randCoord(){
+    public static Vector3 randCoord(){
 
         /*creo la posizione dell'oggetto da istanziare, con y e z fisse ma x variabile*/
           
         Vector3 randPos;  
         int posX;              
-        posX= UnityEngine.Random.Range(-2,3)*2; //genero una x casuale tra -2,0 e 2
+        posX= UnityEngine.Random.Range(-1,2)*2; //genero una x casuale tra -2,0 e 2
         return randPos = new Vector3(posX,0,80); 
         
 
     }
 
-    public void spawnCoord(Vector3 coordinate){
-        Vector3 randPos = randCoord();   
-        int what = UnityEngine.Random.Range(0,howMany); 
-        if(coordinate!=randPos){
-            Instantiate(prefOstacoli[what], randPos, Quaternion.identity);
-        }
-        else{
-            spawnCoord(coordinate);
-        }
-        
-    }
-
-    public void spawnOstacolo(){
-        Vector3 randPos = randCoord();   
-        int what = UnityEngine.Random.Range(0,howMany); 
+    public static void spawnOstacolo(){
+        Vector3 randPos = ObjectController.randCoord();   
+        int what = UnityEngine.Random.Range(0,howMany); //creo una variabile casuale che decide il tipo di oggetto da istanziare
         Instantiate(prefOstacoli[what], randPos, Quaternion.identity);
-
-        int prob= UnityEngine.Random.Range(0,101);
-        if(prob<80){
-            spawnCoord(randPos);
-        }
-           
                    
     }
 
-    public void spawnPower(){
+    public static void spawnPower(){
 
 
-        Vector3 randPos = randCoord();
-        int what = UnityEngine.Random.Range(0,prefPoteri.Length+1);
+        Vector3 randPos = ObjectController.randCoord();
+        int what = UnityEngine.Random.Range(0,3);
         Instantiate(prefPoteri[what], randPos, Quaternion.identity);
 
 
     }
 
-    public void resetTerrains(GameObject el){
+
+
+    public static void moveTerrains(GameObject el){
             
         Vector3 posIniz;
         float max=0;
@@ -140,7 +150,7 @@ public class ObjectController : MonoBehaviour
 
     }
 
-    public void find(){  
+    public static void find(){  
 
       
         listOstacoli.RemoveAll(el=>true);
@@ -156,10 +166,10 @@ public class ObjectController : MonoBehaviour
         
     }
 
-    public void moveForward(){
+    public static void move(){
 
 
-        find();    
+        ObjectController.find();    
 
         if(listElementi!=null){
             foreach(GameObject el in listElementi){
@@ -170,15 +180,22 @@ public class ObjectController : MonoBehaviour
     }
 
 
-    public static void resetEnv(GameObject el){
+    public static void moveEnvironment(GameObject el){
 
         Vector3 position= new Vector3 (el.transform.position.x,el.transform.position.y,90);
         el.transform.position=position;
 
     }
 
-    public void reset(){
-        find();
+
+
+    public static void reset(){
+
+
+        ObjectController.find();
+
+        
+
         if(listElementi!=null){
             foreach(GameObject el in listElementi){
                 if(el.transform.position.z<-10){
@@ -187,11 +204,11 @@ public class ObjectController : MonoBehaviour
                         case "RPlane":
                         case "LPlane":
                         case "Chunk":
-                            resetTerrains(el);
+                            ObjectController.moveTerrains(el);
                         break;
 
                         case "Environment":
-                            resetEnv(el);
+                            ObjectController.moveEnvironment(el);
                         break;
 
                         default:

@@ -8,15 +8,12 @@ public class WorldController : MonoBehaviour
 
     bool waitObs = false;
     int countObstacles = 0;
-    ObjectController myController;
     
 
 
     // Start is called before the first frame update
     void Start()
     {
-        myController= GetComponent<ObjectController>();
-        myController.prefOstacoli = Resources.LoadAll<GameObject>("Obstacles");
         StartCoroutine("delaySpawn");
     }
 
@@ -29,7 +26,7 @@ public class WorldController : MonoBehaviour
             StartCoroutine("delayObs");  
 
             if(countObstacles<5){
-                myController.spawnOstacolo();
+                ObjectController.spawnOstacolo();
                 countObstacles++;
             }
             else{  
@@ -40,8 +37,8 @@ public class WorldController : MonoBehaviour
             
         }
 
-        myController.moveForward();
-        myController.reset();
+        ObjectController.move();
+        ObjectController.reset();
 
     }
 
