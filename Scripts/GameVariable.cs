@@ -7,7 +7,7 @@ public class GameVariable : MonoBehaviour
     public bool isGameRunning;
     public Transform player;
     public int monete;
-    public int dadi;
+    public int doni;
     public int punteggio;
     public byte vite;
     public byte viteMassime;

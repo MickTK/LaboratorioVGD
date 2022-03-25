@@ -96,16 +96,22 @@ public class ItemHandler : MonoBehaviour
 
     void Update(){
 
-        if (Input.GetKeyDown("z"))
+        if (Input.GetKeyDown("c"))
         {
-            gameVariable.isGameRunning = false;
-            itemUI.SetActive(true);
-            itemDisplayer1.Item = gameVariable.Shop.Pick();
-            itemDisplayer2.Item = gameVariable.Shop.Pick();
-            itemDisplayer3.Item = gameVariable.Shop.Pick();
-            itemDisplayer4.Item = gameVariable.Shop.Pick();
+            StartCoroutine(OpenShop());
         }
+    }
 
+    IEnumerator OpenShop(){
+        
+        yield return new WaitForSeconds(1f);
+
+        gameVariable.isGameRunning = false;
+        itemUI.SetActive(true);
+        itemDisplayer1.Item = gameVariable.Shop.Pick();
+        itemDisplayer2.Item = gameVariable.Shop.Pick();
+        itemDisplayer3.Item = gameVariable.Shop.Pick();
+        itemDisplayer4.Item = gameVariable.Shop.Pick();
     }
 
 }

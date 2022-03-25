@@ -1,5 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 using UnityEngine.UI;
 
 public class TrattoHandler : MonoBehaviour
@@ -44,12 +45,20 @@ public class TrattoHandler : MonoBehaviour
 
     void Update(){
 
-        if (Input.GetKeyDown("x"))
+        if (gameVariable.doni == 4)
         {
-            permanentiUI.SetActive(true);
-            tratto1.Tratto = gameVariable.Tratti.Draw();
-            tratto2.Tratto = gameVariable.Tratti.Draw();
-            tratto3.Tratto = gameVariable.Tratti.Draw();
+            StartCoroutine(OpenTratto());
+            gameVariable.doni = 0;
         }
+    }
+
+    IEnumerator OpenTratto(){
+
+        yield return new WaitForSeconds(1f);
+
+        permanentiUI.SetActive(true);
+        tratto1.Tratto = gameVariable.Tratti.Draw();
+        tratto2.Tratto = gameVariable.Tratti.Draw();
+        tratto3.Tratto = gameVariable.Tratti.Draw();
     }
 }
