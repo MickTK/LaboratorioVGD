@@ -5,7 +5,6 @@ using UnityEngine;
 public class ObjectController : MonoBehaviour
 {     
     
-    
     private  float speed = 15f;   //velocità di spostamento di tutti gli oggetti di gioco
 
     /*creo un vettore per ogni tipo di prefab istanziabile*/    
@@ -20,6 +19,8 @@ public class ObjectController : MonoBehaviour
     List <GameObject> listLPlanes = new List<GameObject>();
     List <GameObject> listRPlanes = new List<GameObject>();
     List <GameObject> listEnvironment = new List<GameObject>();
+
+   
     int howMany;
 
 
@@ -47,37 +48,41 @@ public class ObjectController : MonoBehaviour
 
     public Vector3 randCoord(){
 
-        /*creo la posizione dell'oggetto da istanziare, con y e z fisse ma x variabile*/
-          
-        Vector3 randPos;  
+        /*creo la posizione dell'oggetto da istanziare, con y e z fisse ma x variabile*/ 
         int posX;              
         posX= UnityEngine.Random.Range(-2,3)*2; //genero una x casuale tra -2,0 e 2
-        return randPos = new Vector3(posX,0,80); 
+        return new Vector3(posX,0,80); 
         
 
     }
 
-    public void spawnCoord(Vector3 coordinate){
-        Vector3 randPos = randCoord();   
-        int what = UnityEngine.Random.Range(0,howMany); 
-        if(coordinate!=randPos){
-            Instantiate(prefOstacoli[what], randPos, Quaternion.identity);
-        }
-        else{
-            spawnCoord(coordinate);
-        }
-        
-    }
 
-    public void spawnOstacolo(){
+
+    public void spawnOstacoli(){
+        
+        List <Vector3> posOccupate = new List<Vector3>();        
         Vector3 randPos = randCoord();   
         int what = UnityEngine.Random.Range(0,howMany); 
+        posOccupate.Add(randPos);
         Instantiate(prefOstacoli[what], randPos, Quaternion.identity);
 
-        int prob= UnityEngine.Random.Range(0,101);
-        if(prob<80){
-            spawnCoord(randPos);
+        for (int i = 0; i < 3; i++)
+        {
+            what = UnityEngine.Random.Range(0,howMany);
+            int prob= UnityEngine.Random.Range(0,101);
+
+            if(prob<80){
+                do{
+                    randPos = randCoord();
+                    }
+                while(posOccupate.Contains(randPos));
+                 
+                Instantiate(prefOstacoli[what], randPos, Quaternion.identity);
+                posOccupate.Add(randPos);
+            }
         }
+
+        
            
                    
     }
@@ -143,10 +148,10 @@ public class ObjectController : MonoBehaviour
     public void find(){  
 
       
-        listOstacoli.RemoveAll(el=>true);
+        listOstacoli.Clear();
         listOstacoli.AddRange(GameObject.FindGameObjectsWithTag("Obstacle"));
 
-        listElementi.RemoveAll(el =>true);
+        listElementi.Clear();
         listElementi.AddRange(listOstacoli);
         listElementi.AddRange(listChunk);
         listElementi.AddRange(listLPlanes);
