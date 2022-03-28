@@ -21,7 +21,7 @@ public class ObjectController : MonoBehaviour
     List <GameObject> listEnvironment = new List<GameObject>();
 
    
-    int howMany;
+    int howManyObs;
 
 
     
@@ -32,7 +32,7 @@ public class ObjectController : MonoBehaviour
         /*Carico le cartelle dei prefab negli appositi vettori*/
 
         
-        howMany=prefOstacoli.Length;
+        howManyObs=prefOstacoli.Length;
 
         //Debug.Log("numero prefab: "+howMany);
         //prefPoteri = Resources.LoadAll<GameObject>("Prefabs/Poteri");
@@ -56,19 +56,17 @@ public class ObjectController : MonoBehaviour
 
     }
 
-
-
     public void spawnOstacoli(){
         
         List <Vector3> posOccupate = new List<Vector3>();        
         Vector3 randPos = randCoord();   
-        int what = UnityEngine.Random.Range(0,howMany); 
+        int what = UnityEngine.Random.Range(0,howManyObs); 
         posOccupate.Add(randPos);
         Instantiate(prefOstacoli[what], randPos, Quaternion.identity);
 
         for (int i = 0; i < 3; i++)
         {
-            what = UnityEngine.Random.Range(0,howMany);
+            what = UnityEngine.Random.Range(0,howManyObs);
             int prob= UnityEngine.Random.Range(0,101);
 
             if(prob<80){
