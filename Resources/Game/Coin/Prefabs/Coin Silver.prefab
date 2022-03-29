@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8669619592108269600}
   - component: {fileID: 8420998750499913012}
-  - component: {fileID: 8420998750499913013}
+  - component: {fileID: 7822727613348943632}
   m_Layer: 0
   m_Name: Coin Silver
   m_TagString: Untagged
@@ -46,19 +46,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.22, y: 1.4, z: 0.52}
   m_Center: {x: 0, y: 0.58, z: -0.07}
---- !u!114 &8420998750499913013
-MonoBehaviour:
+--- !u!95 &7822727613348943632
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8294361373460216474}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f457857a5075446ac49301144a639a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 500
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7bfddeb5bdbec1f4fa60a12c7a58d016, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8688406108944669515
 GameObject:
   m_ObjectHideFlags: 0
