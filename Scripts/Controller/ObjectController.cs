@@ -148,6 +148,7 @@ public class ObjectController : MonoBehaviour
       
         listOstacoli.Clear();
         listOstacoli.AddRange(GameObject.FindGameObjectsWithTag("Obstacle"));
+        listOstacoli.AddRange(GameObject.FindGameObjectsWithTag("Coin"));
 
         listElementi.Clear();
         listElementi.AddRange(listOstacoli);
