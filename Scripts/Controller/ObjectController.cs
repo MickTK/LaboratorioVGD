@@ -10,6 +10,7 @@ public class ObjectController : MonoBehaviour
     /*creo un vettore per ogni tipo di prefab istanziabile*/    
     public GameObject[] prefOstacoli;     
     GameObject[] prefPoteri;     
+    byte nCorsieOccupabili = 3;
 
     /*Creo una lista per ogni tipo di oggetto attualmente presente nella scena*/
     List <GameObject> listElementi = new List<GameObject>();
@@ -32,6 +33,9 @@ public class ObjectController : MonoBehaviour
         /*Carico le cartelle dei prefab negli appositi vettori*/
 
         
+        
+
+
         howManyObs=prefOstacoli.Length;
 
         //Debug.Log("numero prefab: "+howMany);
@@ -64,7 +68,7 @@ public class ObjectController : MonoBehaviour
         posOccupate.Add(randPos);
         Instantiate(prefOstacoli[what], randPos, Quaternion.identity);
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < nCorsieOccupabili; i++)
         {
             what = UnityEngine.Random.Range(0,howManyObs);
             int prob= UnityEngine.Random.Range(0,101);

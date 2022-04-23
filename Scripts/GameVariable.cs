@@ -12,6 +12,7 @@ public class GameVariable : MonoBehaviour
     public byte vite;
     public byte viteMassime;
     public byte viteNonRecuperabili;
+
     Deck<Tratto> tratti = new Deck<Tratto>("Interface/Tratto/Object");
     public Deck<Tratto> Tratti { get => tratti; set => tratti = value; }
     Deck<Item> shop = new Deck<Item>("Interface/Shop/Object");
