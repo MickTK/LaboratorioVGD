@@ -45,7 +45,7 @@ public class TrattoHandler : MonoBehaviour
 
     void Update(){
 
-        if (gameVariable.doni == 4)
+        if (gameVariable.doni == 4 || Input.GetKeyDown("x"))
         {
             StartCoroutine(OpenTratto());
             gameVariable.doni = 0;

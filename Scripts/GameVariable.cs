@@ -5,9 +5,12 @@ using UnityEngine;
 public class GameVariable : MonoBehaviour
 {
     public bool isGameRunning;
+    //TODO IMPLEMENTA
+    public byte difficolta; // 0 = facile, 1 = normale, 2 = difficile, 3 = hardcore
     public Transform player;
     public int monete;
-    public int doni;
+    //TODO IMPLEMENTA I COLLEGAMENTI 
+    public int doni; // oggetti che ruotano che puoi trovare per la strada, power up
     public int punteggio;
     public byte vite;
     public byte viteMassime;
