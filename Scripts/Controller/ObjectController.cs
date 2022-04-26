@@ -5,12 +5,12 @@ using UnityEngine;
 public class ObjectController : MonoBehaviour
 {     
     
-    
     private  float speed = 15f;   //velocità di spostamento di tutti gli oggetti di gioco
 
     /*creo un vettore per ogni tipo di prefab istanziabile*/    
     public GameObject[] prefOstacoli;     
     GameObject[] prefPoteri;     
+    byte nCorsieOccupabili = 3;
 
     /*Creo una lista per ogni tipo di oggetto attualmente presente nella scena*/
     List <GameObject> listElementi = new List<GameObject>();
@@ -20,7 +20,9 @@ public class ObjectController : MonoBehaviour
     List <GameObject> listLPlanes = new List<GameObject>();
     List <GameObject> listRPlanes = new List<GameObject>();
     List <GameObject> listEnvironment = new List<GameObject>();
-    int howMany;
+
+   
+    int howManyObs;
 
 
     
@@ -31,7 +33,10 @@ public class ObjectController : MonoBehaviour
         /*Carico le cartelle dei prefab negli appositi vettori*/
 
         
-        howMany=prefOstacoli.Length;
+        
+
+
+        howManyObs=prefOstacoli.Length;
 
         //Debug.Log("numero prefab: "+howMany);
         //prefPoteri = Resources.LoadAll<GameObject>("Prefabs/Poteri");
@@ -47,37 +52,39 @@ public class ObjectController : MonoBehaviour
 
     public Vector3 randCoord(){
 
-        /*creo la posizione dell'oggetto da istanziare, con y e z fisse ma x variabile*/
-          
-        Vector3 randPos;  
+        /*creo la posizione dell'oggetto da istanziare, con y e z fisse ma x variabile*/ 
         int posX;              
         posX= UnityEngine.Random.Range(-2,3)*2; //genero una x casuale tra -2,0 e 2
-        return randPos = new Vector3(posX,0,80); 
+        return new Vector3(posX,0,80); 
         
 
     }
 
-    public void spawnCoord(Vector3 coordinate){
-        Vector3 randPos = randCoord();   
-        int what = UnityEngine.Random.Range(0,howMany); 
-        if(coordinate!=randPos){
-            Instantiate(prefOstacoli[what], randPos, Quaternion.identity);
-        }
-        else{
-            spawnCoord(coordinate);
-        }
+    public void spawnOstacoli(){
         
-    }
-
-    public void spawnOstacolo(){
+        List <Vector3> posOccupate = new List<Vector3>();        
         Vector3 randPos = randCoord();   
-        int what = UnityEngine.Random.Range(0,howMany); 
+        int what = UnityEngine.Random.Range(0,howManyObs); 
+        posOccupate.Add(randPos);
         Instantiate(prefOstacoli[what], randPos, Quaternion.identity);
 
-        int prob= UnityEngine.Random.Range(0,101);
-        if(prob<80){
-            spawnCoord(randPos);
+        for (int i = 0; i < nCorsieOccupabili; i++)
+        {
+            what = UnityEngine.Random.Range(0,howManyObs);
+            int prob= UnityEngine.Random.Range(0,101);
+
+            if(prob<80){
+                do{
+                    randPos = randCoord();
+                    }
+                while(posOccupate.Contains(randPos));
+                 
+                Instantiate(prefOstacoli[what], randPos, Quaternion.identity);
+                posOccupate.Add(randPos);
+            }
         }
+
+        
            
                    
     }
@@ -143,10 +150,11 @@ public class ObjectController : MonoBehaviour
     public void find(){  
 
       
-        listOstacoli.RemoveAll(el=>true);
+        listOstacoli.Clear();
         listOstacoli.AddRange(GameObject.FindGameObjectsWithTag("Obstacle"));
+        listOstacoli.AddRange(GameObject.FindGameObjectsWithTag("Coin"));
 
-        listElementi.RemoveAll(el =>true);
+        listElementi.Clear();
         listElementi.AddRange(listOstacoli);
         listElementi.AddRange(listChunk);
         listElementi.AddRange(listLPlanes);
