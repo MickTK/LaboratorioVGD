@@ -15,16 +15,19 @@ public class TrattoHandler : MonoBehaviour
     void ClickOne(){
         permanentiUI.SetActive(false);
         gameVariable.Tratti.Active.Add(tratto1.Tratto);
+        gameVariable.isGameRunning = true;
 	}
 
     void ClickTwo(){
         permanentiUI.SetActive(false);
         gameVariable.Tratti.Active.Add(tratto2.Tratto);
+        gameVariable.isGameRunning = true;
 	}
 
     void ClickThree(){
         permanentiUI.SetActive(false);
         gameVariable.Tratti.Active.Add(tratto3.Tratto);
+        gameVariable.isGameRunning = true;
 	}
 
     void Start(){
@@ -56,6 +59,7 @@ public class TrattoHandler : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
+        gameVariable.isGameRunning = false;
         permanentiUI.SetActive(true);
         tratto1.Tratto = gameVariable.Tratti.Draw();
         tratto2.Tratto = gameVariable.Tratti.Draw();

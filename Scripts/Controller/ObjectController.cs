@@ -5,8 +5,7 @@ using UnityEngine;
 public class ObjectController : MonoBehaviour
 {     
     
-    private  float speed = 15f;   //velocità di spostamento di tutti gli oggetti di gioco
-
+    public GameVariable gameVariable;
     /*creo un vettore per ogni tipo di prefab istanziabile*/    
     public GameObject[] prefOstacoli;     
     GameObject[] prefPoteri;     
@@ -31,10 +30,6 @@ public class ObjectController : MonoBehaviour
     public void Start(){
         
         /*Carico le cartelle dei prefab negli appositi vettori*/
-
-        
-        
-
 
         howManyObs=prefOstacoli.Length;
 
@@ -171,7 +166,7 @@ public class ObjectController : MonoBehaviour
 
         if(listElementi!=null){
             foreach(GameObject el in listElementi){
-                el.transform.Translate(-Vector3.forward *Time.deltaTime* speed);
+                el.transform.Translate(-Vector3.forward *Time.deltaTime* gameVariable.gameSpeed);
             }
         }
 

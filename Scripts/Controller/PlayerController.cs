@@ -33,6 +33,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(gameVariable.isGameRunning){
+            Mooving();
+        }
+    }
+
+    void Mooving(){
+
         if (Input.GetKeyDown("space"))
         {
             print("space key was pressed");
@@ -79,8 +86,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(){
+    void OnControllerColliderHit(ControllerColliderHit hit){ //TODO SOMETHING LIKE THIS
 
-        //TODO TAKE DAMAGE
+        if(hit.transform.tag == "Obstacle"){
+
+            if(gameVariable.vite != 0){
+
+                gameVariable.vite -= 1;
+
+            } else {
+
+                //TODO END GAME
+            }
+        }
     }
 }

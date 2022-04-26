@@ -9,7 +9,7 @@ public class WorldController : MonoBehaviour
     bool waitObs = false;
     int countObstacles = 0;
     ObjectController myController;
-    
+    public GameVariable gameVariable;
 
 
     // Start is called before the first frame update
@@ -23,32 +23,33 @@ public class WorldController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        if(waitObs){
-
-            StartCoroutine("delayObs");  
-
-            if(countObstacles<5){
-                myController.spawnOstacoli();
-                countObstacles++;
-            }
-            else{  
-                //ObjectController.spawnPower();
-                countObstacles=0;
-            } 
-                  
+        if(gameVariable.isGameRunning){
             
+            if(waitObs){
+
+                StartCoroutine("delayObs");  
+
+                if(countObstacles<5){
+                    myController.spawnOstacoli();
+                    countObstacles++;
+                }
+                else{  
+                    //ObjectController.spawnPower();
+                    countObstacles=0;
+                } 
+                  
+                
+            }  
+                    
+            myController.moveForward();
+            myController.reset();
         }
-
-        myController.moveForward();
-        myController.reset();
-
     }
 
 
     IEnumerator delayObs(){
         waitObs=false;
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(gameVariable.obstacleWaitTime);
         waitObs=true;
     }
 

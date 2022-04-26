@@ -7,15 +7,44 @@ public class TrattoEffect : MonoBehaviour
     GameVariable gameVariable;
 
     void Start(){
+
         gameVariable = GetComponent<GameVariable>();
+        StartCoroutine(TrattoEffects());    
     }
 
-    void Update(){
+    IEnumerator TrattoEffects()
+    {
+        while(true) 
+        { 
+            if(gameVariable.isGameRunning){
+                ApplyEffects();
+                Exprire();
+            }
 
-        for (int i = gameVariable.Tratti.Active.Count - 1; i >= 0; i--)
-        {
-           
+            yield return new WaitForSeconds(1f);
         }
     }
 
+    void ApplyEffects(){
+
+        foreach (Tratto tratto in gameVariable.Tratti.Active)
+        {
+            switch (tratto.tipo)
+            {
+
+            }
+            tratto.durata -= 1;
+        }
+    }
+
+    void Exprire(){
+
+        for (int i = gameVariable.Tratti.Active.Count - 1; i >= 0; i--)
+        {
+            if(gameVariable.Tratti.Active[i].durata < 0){
+
+                gameVariable.Tratti.Active.Remove(gameVariable.Tratti.Active[i]);
+            }
+        }
+    }
 }

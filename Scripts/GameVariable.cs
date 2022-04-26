@@ -15,10 +15,11 @@ public class GameVariable : MonoBehaviour
     public byte vite;
     public byte viteMassime;
     public byte viteNonRecuperabili;
-
     Deck<Tratto> tratti = new Deck<Tratto>("Interface/Tratto/Object");
     public Deck<Tratto> Tratti { get => tratti; set => tratti = value; }
     Deck<Item> shop = new Deck<Item>("Interface/Shop/Object");
     public Deck<Item> Shop { get => shop; set => shop = value; }
     public float xVelocity = 10f;
+    public float gameSpeed = 15f;
+    public float obstacleWaitTime = 2f;
 }
