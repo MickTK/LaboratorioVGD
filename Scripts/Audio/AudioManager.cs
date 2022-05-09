@@ -4,7 +4,7 @@ using UnityEngine;
 
 public partial class AudioManager : MonoBehaviour
 {
-    // Array che conterrà le informazioni sui suoni
+    // Array che conterrï¿½ le informazioni sui suoni
     public Sound[] sounds;
     // Permette di far partire un suono all'avvio dello script specificandone l'indice
     public int startSoundIndex = -1;
