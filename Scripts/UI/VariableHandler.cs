@@ -3,30 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameVariableHandler : MonoBehaviour
+public class VariableHandler : MonoBehaviour
 {
-    //todo COMPLETA STA ROBA, BISUALIZZA LE ROBE
-    GameVariable gameVariable;
-    public Image diceBar;
-
     [SerializeField]
-    private ObjectList itemPrefab;
-    
+    //todo COMPLETA STA ROBA, BISUALIZZA LE ROBE
+    public GameVariable gameVariable;
+    public Text textVite;
+    public Text textMonete;
+    public Text textDoni;
+    public Text textViteGrigie;
+    public Text textPunteggio;
+    public GameObject itemPrefab;
+    public GridLayoutGroup slotTratti;
+    public GridLayoutGroup slotShop;
+
     void Start()
     {
-        gameVariable = GetComponent<GameVariable>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        diceBar.rectTransform.sizeDelta = new Vector2(gameVariable.doni * 30f, 20f);
-        //diceBar.rectTransform.position = new Vector2(60f + (15 * gameVariable.doni), 250f);
+        textVite.text = gameVariable.vite.ToString();
+        textMonete.text = gameVariable.monete.ToString();
+        textDoni.text = gameVariable.doni.ToString();
+        textViteGrigie.text = gameVariable.viteNonRecuperabili.ToString();
+        textPunteggio.text = gameVariable.punteggio.ToString(); 
+
+        foreach (Transform child in slotTratti.transform) 
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
+        foreach (var listTratti in gameVariable.Tratti.Active)
+        {
+            GameObject itemTile = Instantiate(itemPrefab);
+            itemTile.transform.SetParent(slotTratti.transform);
+            itemTile.GetComponent<ListTileUI>().SetValues(listTratti);
+        }
+
+        foreach (Transform child in slotShop.transform) 
+        {
+            GameObject.Destroy(child.gameObject);
+        }
 
         foreach (var listItem in gameVariable.Shop.Active)
         {
-            ObjectList item = Instantiate(itemPrefab) as ObjectList;
-            item.SetSprite(listItem.artwork,listItem.durata);
+            GameObject itemTile = Instantiate(itemPrefab);
+            itemTile.transform.SetParent(slotShop.transform);
+            itemTile.GetComponent<ListTileUI>().SetValues(listItem);
         }
     }
 }

@@ -166,7 +166,7 @@ public class ObjectController : MonoBehaviour
 
         if(listElementi!=null){
             foreach(GameObject el in listElementi){
-                el.transform.Translate(-Vector3.forward *Time.deltaTime* gameVariable.gameSpeed);
+                el.transform.Translate(-Vector3.forward *Time.deltaTime* gameVariable.ySpeed);
             }
         }
 

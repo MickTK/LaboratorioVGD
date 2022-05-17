@@ -6,26 +6,27 @@ using UnityEngine.UI;
 public class TrattoHandler : MonoBehaviour
 {
 
-    public GameObject permanentiUI;
+    public GameObject trattoUI;
     public TrattoDisplayer tratto1;
     public TrattoDisplayer tratto2;
     public TrattoDisplayer tratto3;
+    public Button exitButton;
     GameVariable gameVariable;
 
     void ClickOne(){
-        permanentiUI.SetActive(false);
+        trattoUI.SetActive(false);
         gameVariable.Tratti.Active.Add(tratto1.Tratto);
         gameVariable.isGameRunning = true;
 	}
 
     void ClickTwo(){
-        permanentiUI.SetActive(false);
+        trattoUI.SetActive(false);
         gameVariable.Tratti.Active.Add(tratto2.Tratto);
         gameVariable.isGameRunning = true;
 	}
 
     void ClickThree(){
-        permanentiUI.SetActive(false);
+        trattoUI.SetActive(false);
         gameVariable.Tratti.Active.Add(tratto3.Tratto);
         gameVariable.isGameRunning = true;
 	}
@@ -34,7 +35,7 @@ public class TrattoHandler : MonoBehaviour
 
         gameVariable = GetComponent<GameVariable>();
 
-        Button btn1 = tratto1.GetComponent<Button>();
+        Button btn1 = tratto1.GetComponent<Button>(); 
         btn1.onClick.AddListener(ClickOne);
 
         Button btn2 = tratto2.GetComponent<Button>();
@@ -43,7 +44,10 @@ public class TrattoHandler : MonoBehaviour
         Button btn3 = tratto3.GetComponent<Button>();
         btn3.onClick.AddListener(ClickThree);
 
-        permanentiUI.SetActive(false);
+        Button exit = exitButton.GetComponent<Button>();
+        exit.onClick.AddListener(Exit);
+
+        trattoUI.SetActive(false);
     }
 
     void Update(){
@@ -52,7 +56,14 @@ public class TrattoHandler : MonoBehaviour
         {
             StartCoroutine(OpenTratto());
             gameVariable.doni = 0;
+            gameVariable.ySpeed += 5;
+            gameVariable.xSpeed += 1;
         }
+    }
+
+    void Exit(){
+        gameVariable.isGameRunning = true;
+        trattoUI.SetActive(false);
     }
 
     IEnumerator OpenTratto(){
@@ -60,7 +71,7 @@ public class TrattoHandler : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         gameVariable.isGameRunning = false;
-        permanentiUI.SetActive(true);
+        trattoUI.SetActive(true);
         tratto1.Tratto = gameVariable.Tratti.Draw();
         tratto2.Tratto = gameVariable.Tratti.Draw();
         tratto3.Tratto = gameVariable.Tratti.Draw();

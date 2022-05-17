@@ -75,20 +75,23 @@ public class PlayerController : MonoBehaviour
 
         if(xDirection == -1 && controller.transform.position.x > lanes[lane].x){
 
-            Vector3 translator = new Vector3(xDirection * gameVariable.xVelocity, 0, 0); 
+            Vector3 translator = new Vector3(xDirection * gameVariable.xSpeed, 0, 0); 
             controller.transform.Translate(translator * Time.deltaTime);
         }
 
         if(xDirection == 1 && controller.transform.position.x < lanes[lane].x){
 
-            Vector3 translator = new Vector3(xDirection * gameVariable.xVelocity, 0, 0); 
+            Vector3 translator = new Vector3(xDirection * gameVariable.xSpeed, 0, 0); 
             controller.transform.Translate(translator * Time.deltaTime);
         }
     }
 
-    void OnControllerColliderHit(ControllerColliderHit hit){ //TODO SOMETHING LIKE THIS
-
-        if(hit.transform.tag == "Obstacle"){
+    void OnTriggerEnter(Collider other)
+    {
+        
+        if(other.transform.tag == "Obstacle")
+        {
+            Destroy(other.gameObject);
 
             if(gameVariable.vite != 0){
 
@@ -98,6 +101,13 @@ public class PlayerController : MonoBehaviour
 
                 //TODO END GAME
             }
+        }
+
+        if(other.transform.tag == "Coin"){
+
+            int valueToAdd = other.GetComponent<MoneyValue>().value;
+            Destroy(other.gameObject);
+            gameVariable.monete += valueToAdd;
         }
     }
 }

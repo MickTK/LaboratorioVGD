@@ -19,7 +19,7 @@ public class GameVariable : MonoBehaviour
     public Deck<Tratto> Tratti { get => tratti; set => tratti = value; }
     Deck<Item> shop = new Deck<Item>("Interface/Shop/Object");
     public Deck<Item> Shop { get => shop; set => shop = value; }
-    public float xVelocity = 10f;
-    public float gameSpeed = 15f;
+    public float xSpeed = 20f;
+    public float ySpeed = 15f;
     public float obstacleWaitTime = 2f;
 }

@@ -43,7 +43,7 @@ public class TrattoEffect : MonoBehaviour
         {
             if(gameVariable.Tratti.Active[i].durata < 0){
 
-                gameVariable.Tratti.Active.Remove(gameVariable.Tratti.Active[i]);
+                //gameVariable.Tratti.Active.Remove(gameVariable.Tratti.Active[i]);
             }
         }
     }
