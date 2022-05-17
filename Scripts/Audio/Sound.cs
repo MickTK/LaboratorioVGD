@@ -8,7 +8,7 @@ public class Sound
     public bool loop;
 
     // false -> suono, true -> musica
-    // Utilizzato per la modificare il volume
+    // Utilizzato per modificare il volume
     public bool isSong = false;
 
     [Range(0f, 1f)]
