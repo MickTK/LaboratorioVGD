@@ -1,6 +1,16 @@
 ### Attributi
 ````
-private IEnumerator coroutine;
+public Renderer rend;              // Mesh personaggio
+private Material originalMaterial; // Materiale della mesh
+public Material replaceMaterial;   // Materiale di rimpiazzo
+private IEnumerator coroutine;     // Coroutine per il blink
+````
+### Inizializzazione
+````
+void Start()
+{
+    originalMaterial = rend.material;
+}
 ````
 ### Trigger
 ````
@@ -11,15 +21,13 @@ StartCoroutine(coroutine);
 ````
 private IEnumerator Blink(int blinks, float time)
 {
-    Vector3 v = gameObject.transform.localScale;
     for (int i = 0; i < blinks; i++)
     {
-        gameObject.transform.localScale = new Vector3(0,0,0);
+        rend.material = replaceMaterial;
         yield return new WaitForSeconds(time);
-        gameObject.transform.localScale = v;
+        rend.material = originalMaterial;
         yield return new WaitForSeconds(time);
     }
-    gameObject.transform.localScale = v;
     StopCoroutine(coroutine);
 }
 ````
