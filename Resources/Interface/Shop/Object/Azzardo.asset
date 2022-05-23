@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
   m_Name: Azzardo
   m_EditorClassIdentifier: 
-  tipo: 11
+  tipo: 10
   titolo: Azzardo
   descrizione: ottieni 2 vite recuperabile e una non recuperabile. Tra 1 minuto paghi
     700 monete, se non le hai perdi le vite guadagnate

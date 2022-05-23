@@ -32,42 +32,41 @@ public class ItemEffects : MonoBehaviour
             switch (item.tipo)
             {
                 case ItemType.MEDICINE:
-                    if(gameVariable.vite < gameVariable.viteMassime){
-                        gameVariable.vite += 1;
-                    }
+                    gameVariable.vite += 1;
                 break;
                 
                 case ItemType.KITSOCCORSO:
-                    if(gameVariable.vite < gameVariable.viteMassime){
-                        gameVariable.vite += 1;
-                    }
-                    if(gameVariable.vite < gameVariable.viteMassime){
-                        gameVariable.vite += 1;
-                    }
+                    gameVariable.vite += 2;
                 break;
                 
                 case ItemType.ANTIPROIETTILE:
                     gameVariable.viteNonRecuperabili += 2;
                 break;
                 
-                case ItemType.CORAZZAPESANTE:
-                    gameVariable.viteNonRecuperabili += 4;
-                break;
-                
                 case ItemType.ZUPPANONNA:
-                    gameVariable.viteMassime += 1;
+                    gameVariable.doni += 1;
+                    gameVariable.vite += 1;
                 break;
                 
                 case ItemType.MOLTIPLICATORE:
-                    //TODO IMPLEMENT
+                    if(item.durata == 30){
+                        gameVariable.duplicatoreMonete *= 2;
+                    }
+                    if(item.durata == 0){
+                        gameVariable.duplicatoreMonete /= 2;
+                    }
                 break;
-                
+
                 case ItemType.CAFFE:
-                    //TODO IMPLEMENT
+                    if(item.durata == 60){
+                        gameVariable.xSpeed *= 0.85f;
+                    }
+                    if(item.durata == 0){
+                        gameVariable.xSpeed /= 0.85f;
+                    }
                 break;
                 
-                case ItemType.AMICOCERCHIO:
-                    //TODO IMPLEMENT
+                case ItemType.SCAFFALEVUOTO:
                 break;
                 
                 case ItemType.CRYPTOVALUTA:
@@ -79,9 +78,7 @@ public class ItemEffects : MonoBehaviour
                 case ItemType.MEDITAZIONE:
                     if(item.durata == 120 || item.durata == 60 || item.durata == 0){
                         
-                        if(gameVariable.vite < gameVariable.viteMassime){
-                            gameVariable.vite += 1;
-                        }
+                        gameVariable.vite += 1;
                     }
                 break;
                 
@@ -89,9 +86,7 @@ public class ItemEffects : MonoBehaviour
 
                     if(item.durata == 60){
 
-                        if(gameVariable.vite < gameVariable.viteMassime){
-                            gameVariable.vite += 1;
-                        }
+                        gameVariable.vite += 1;
 
                         gameVariable.viteNonRecuperabili += 1;
                     }
@@ -115,9 +110,7 @@ public class ItemEffects : MonoBehaviour
 
                     if(item.durata == 60){
 
-                        if(gameVariable.vite < gameVariable.viteMassime){
-                            gameVariable.vite += 2;
-                        }
+                        gameVariable.vite += 2;
 
                         gameVariable.viteNonRecuperabili += 2;
                     }

@@ -31,18 +31,10 @@ public class Deck<T>
 
         int cardPos = (int) (Random.value * pool.Count);
         T card = pool[cardPos];
-        pool.Remove(card);
         return card;
     }
-
-    public T Pick(){
-
-        if(!pool.Any()){ // se la lista è vuota
-            Init();
-        }
-
-        int cardPos = (int) (Random.value * pool.Count);
-        T card = pool[cardPos];
-        return card;
+    
+    public void Remove(T item){
+        pool.Remove(item);
     }
 }

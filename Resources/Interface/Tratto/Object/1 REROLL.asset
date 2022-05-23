@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8311f29364bd71c42aa82acad4a593c2, type: 3}
-  m_Name: NuovaRecluta
+  m_Name: 1 REROLL
   m_EditorClassIdentifier: 
   tipo: 1
   titolo: Nuova Recluta

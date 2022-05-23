@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
   m_Name: Cryptovaluta
   m_EditorClassIdentifier: 
-  tipo: 8
+  tipo: 7
   titolo: Cryptovaluta
   descrizione: tra 30 secondi guadagni 1300 monete
   artwork: {fileID: 0}

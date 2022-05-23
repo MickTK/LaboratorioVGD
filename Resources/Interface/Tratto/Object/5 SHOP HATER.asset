@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
-  m_Name: Meditazione
+  m_Script: {fileID: 11500000, guid: 8311f29364bd71c42aa82acad4a593c2, type: 3}
+  m_Name: 5 SHOP HATER
   m_EditorClassIdentifier: 
-  tipo: 8
-  titolo: Meditazione
-  descrizione: per 3 minuti, ogni minuto rigeneri un cuore
-  artwork: {fileID: 0}
-  prezzo: 700
-  durata: 180
+  tipo: 1
+  titolo: Nuova Recluta
+  descrizione: nuova super fica reclutona
+  artwork: {fileID: 21300000, guid: 94bae605102a59844a14d4c85d5e3ab4, type: 3}
+  activable: 1
+  durata: 0

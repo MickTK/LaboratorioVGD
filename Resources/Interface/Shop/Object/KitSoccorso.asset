@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipo: 1
   titolo: Kit Soccorso
-  descrizione: rigenerazione di 2 cuori
+  descrizione: "2 cuori in pi\xF9"
   artwork: {fileID: 21300000, guid: 0123a718108c229499bf5c502a42776a, type: 3}
-  prezzo: 400
+  prezzo: 500
   durata: 0

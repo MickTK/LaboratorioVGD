@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class MoneyValue : MonoBehaviour
 {
-    public int value;
+    private int value;
+    public GameVariable gameVariable;
+    public int Value { get => value * gameVariable.duplicatoreMonete; set => this.value = value; }
 }

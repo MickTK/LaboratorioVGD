@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
   m_Name: Caffe
   m_EditorClassIdentifier: 
-  tipo: 6
+  tipo: 5
   titolo: Caffe'
   descrizione: "gli ostacoli sono pi\xF9 lenti del 10% per 1 minuto"
   artwork: {fileID: 0}

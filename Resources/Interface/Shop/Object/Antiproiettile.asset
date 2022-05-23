@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipo: 2
   titolo: Antiproiettile
-  descrizione: aggiungi 2 vite non recuperabili
+  descrizione: aggiungi 2 cuori non recuperabili
   artwork: {fileID: 21300000, guid: bb7789741bd5dca4ea8fe30aa4f844ef, type: 3}
-  prezzo: 500
+  prezzo: 400
   durata: 0

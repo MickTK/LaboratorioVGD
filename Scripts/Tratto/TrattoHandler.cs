@@ -13,40 +13,35 @@ public class TrattoHandler : MonoBehaviour
     public Button exitButton;
     GameVariable gameVariable;
 
-    void ClickOne(){
-        trattoUI.SetActive(false);
-        gameVariable.Tratti.Active.Add(tratto1.Tratto);
-        gameVariable.isGameRunning = true;
-	}
-
-    void ClickTwo(){
-        trattoUI.SetActive(false);
-        gameVariable.Tratti.Active.Add(tratto2.Tratto);
-        gameVariable.isGameRunning = true;
-	}
-
-    void ClickThree(){
-        trattoUI.SetActive(false);
-        gameVariable.Tratti.Active.Add(tratto3.Tratto);
-        gameVariable.isGameRunning = true;
-	}
-
     void Start(){
 
         gameVariable = GetComponent<GameVariable>();
 
         Button btn1 = tratto1.GetComponent<Button>(); 
-        btn1.onClick.AddListener(ClickOne);
+        btn1.onClick.AddListener(delegate{ Click(tratto1.Tratto); });
 
         Button btn2 = tratto2.GetComponent<Button>();
-        btn2.onClick.AddListener(ClickTwo);
+        btn2.onClick.AddListener(delegate{ Click(tratto2.Tratto); });
                 
         Button btn3 = tratto3.GetComponent<Button>();
-        btn3.onClick.AddListener(ClickThree);
+        btn3.onClick.AddListener(delegate{ Click(tratto3.Tratto); });
 
         Button exit = exitButton.GetComponent<Button>();
         exit.onClick.AddListener(Exit);
 
+        trattoUI.SetActive(false);
+    }
+
+    void Click(Tratto tratto){
+
+        trattoUI.SetActive(false);
+        gameVariable.Tratti.Active.Add(tratto);
+        gameVariable.Tratti.Remove(tratto);
+        gameVariable.isGameRunning = true;
+    }
+
+    void Exit(){
+        gameVariable.isGameRunning = true;
         trattoUI.SetActive(false);
     }
 
@@ -60,12 +55,7 @@ public class TrattoHandler : MonoBehaviour
             gameVariable.xSpeed += 1;
         }
     }
-
-    void Exit(){
-        gameVariable.isGameRunning = true;
-        trattoUI.SetActive(false);
-    }
-
+    
     IEnumerator OpenTratto(){
 
         yield return new WaitForSeconds(1f);

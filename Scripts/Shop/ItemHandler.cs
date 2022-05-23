@@ -96,9 +96,10 @@ public class ItemHandler : MonoBehaviour
 
     void Update(){
 
-        if (Input.GetKeyDown("c"))
+        if (gameVariable.openShop == true || Input.GetKeyDown("c"))
         {
             StartCoroutine(OpenShop());
+            gameVariable.openShop = false;
         }
     }
 
@@ -108,10 +109,10 @@ public class ItemHandler : MonoBehaviour
 
         gameVariable.isGameRunning = false;
         itemUI.SetActive(true);
-        itemDisplayer1.Item = gameVariable.Shop.Pick();
-        itemDisplayer2.Item = gameVariable.Shop.Pick();
-        itemDisplayer3.Item = gameVariable.Shop.Pick();
-        itemDisplayer4.Item = gameVariable.Shop.Pick();
+        itemDisplayer1.Item = gameVariable.Shop.Draw();
+        itemDisplayer2.Item = gameVariable.Shop.Draw();
+        itemDisplayer3.Item = gameVariable.Shop.Draw();
+        itemDisplayer4.Item = gameVariable.Shop.Draw();
     }
 
 }

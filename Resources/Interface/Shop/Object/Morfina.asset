@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
   m_Name: Morfina
   m_EditorClassIdentifier: 
-  tipo: 12
+  tipo: 11
   titolo: Morfina
   descrizione: "Per 1 minuto, puoi muoverti lateralmente pi\xF9 veloce del 20%"
   artwork: {fileID: 0}

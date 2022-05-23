@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipo: 0
   titolo: Medicinali
-  descrizione: rigenerazione di 1 cuore
+  descrizione: "1 cuore in pi\xF9"
   artwork: {fileID: 21300000, guid: 614025e613a1a63489a73d8695b5adc9, type: 3}
-  prezzo: 200
+  prezzo: 300
   durata: 0

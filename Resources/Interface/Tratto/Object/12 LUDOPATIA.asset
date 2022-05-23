@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
-  m_Name: CorazzaPesante
+  m_Script: {fileID: 11500000, guid: 8311f29364bd71c42aa82acad4a593c2, type: 3}
+  m_Name: 12 LUDOPATIA
   m_EditorClassIdentifier: 
-  tipo: 3
-  titolo: Corazza Pesante
-  descrizione: Aggiunge 4 cuori non recuperabili
-  artwork: {fileID: 0}
-  prezzo: 500
-  durata: 0
+  id: 0
+  titolo: Reroll!
+  descrizione: reroll decsvriozione
+  artwork: {fileID: 21300000, guid: a1689c290df677c4497f27615abe8807, type: 3}

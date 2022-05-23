@@ -12,8 +12,6 @@ public class PlayerController : MonoBehaviour
     public float xDirection = 0f; // la direzione destra o sinistra verso cui si muove il player
     public float yPosition = 0f;
     private float jumpSpeed = 3.5f;
-    private float jumpForce = 5f;
-    private float gravity = 9.81f;
 
     private Vector3[] lanes = new Vector3[]{
 
@@ -57,9 +55,9 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 direction = new Vector3();
-        yPosition -= gravity * Time.deltaTime;
+        yPosition -= gameVariable.gravity * Time.deltaTime;
         direction.y = yPosition;
-        controller.Move(direction * jumpForce * Time.deltaTime);
+        controller.Move(direction * gameVariable.jumpForce * Time.deltaTime);
 
         if (Input.GetKeyDown("a") && lane > 0)
         {
@@ -105,9 +103,21 @@ public class PlayerController : MonoBehaviour
 
         if(other.transform.tag == "Coin"){
 
-            int valueToAdd = other.GetComponent<MoneyValue>().value;
+            MoneyValue component = other.GetComponent<MoneyValue>();
             Destroy(other.gameObject);
-            gameVariable.monete += valueToAdd;
+            gameVariable.monete += component.Value;
+        }
+
+        if(other.transform.tag == "Gift"){
+
+            Destroy(other.gameObject);
+            gameVariable.doni += 1;
+        }
+        
+        if(other.transform.tag == "Shop"){
+            
+            Destroy(other.gameObject);
+            gameVariable.openShop = true;
         }
     }
 }

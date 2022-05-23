@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
   m_Name: ABuonRendere
   m_EditorClassIdentifier: 
-  tipo: 10
+  tipo: 9
   titolo: A Buon Rendere
-  descrizione: ottieni 1 vita recuperabile e una non recuperabile. Tra 1 minuto paghi
-    300 monete, se non le hai perdi le vite guadagnate
+  descrizione: ottieni 1 cuore rosso e grigio. Tra 1 minuto paghi 300 monete, se
+    non le hai perdi i cuori guadagnati
   artwork: {fileID: 0}
   prezzo: 0
   durata: 60
