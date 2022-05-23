@@ -28,7 +28,7 @@ public class VariableHandler : MonoBehaviour
         textVite.text = gameVariable.vite.ToString();
         textMonete.text = gameVariable.monete.ToString();
         textDoni.text = gameVariable.doni.ToString();
-        textViteGrigie.text = gameVariable.viteNonRecuperabili.ToString();
+        textViteGrigie.text = gameVariable.viteOro.ToString();
         textPunteggio.text = gameVariable.punteggio.ToString(); 
 
         foreach (Transform child in slotTratti.transform) 

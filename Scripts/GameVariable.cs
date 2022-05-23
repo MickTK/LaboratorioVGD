@@ -10,12 +10,12 @@ public class GameVariable : MonoBehaviour
     public byte difficolta; // 0 = facile, 1 = normale, 2 = difficile, 3 = hardcore
     public Transform player;
     public int monete;
-    public int duplicatoreMonete = 1;
+    public int moltiplicatoreMonete = 1;
     //TODO IMPLEMENTA I COLLEGAMENTI 
     public int doni; // oggetti che ruotano che puoi trovare per la strada, power up
     public int punteggio;
     public int vite;
-    public int viteNonRecuperabili;
+    public int viteOro;
     Deck<Tratto> tratti = new Deck<Tratto>("Interface/Tratto/Object");
     public Deck<Tratto> Tratti { get => tratti; set => tratti = value; }
     Deck<Item> shop = new Deck<Item>("Interface/Shop/Object");
@@ -25,4 +25,15 @@ public class GameVariable : MonoBehaviour
     public float obstacleWaitTime = 2f;
     public float jumpForce = 5f;
     public float gravity = 9.81f;
+
+    void Update(){
+
+        if(Tratti.Active.Count > 6){
+
+            //TODO YOU WIN
+            //TODO CALCOLARE IL PUNTEGGIO FINALE
+
+            //! yspeed * monete * vite * viteoro*2 * difficolta
+        }
+    }
 }

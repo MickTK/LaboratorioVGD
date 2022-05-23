@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8311f29364bd71c42aa82acad4a593c2, type: 3}
   m_Name: 5 SHOP HATER
   m_EditorClassIdentifier: 
-  tipo: 1
-  titolo: Nuova Recluta
-  descrizione: nuova super fica reclutona
+  tipo: 4
+  titolo: Shop Hater
+  descrizione: ottieni 1 cuore. non acquistando nessun oggetto dagli shop ottieni
+    1 cuore al minuto.
   artwork: {fileID: 21300000, guid: 94bae605102a59844a14d4c85d5e3ab4, type: 3}
   activable: 1
-  durata: 0
+  durata: 60

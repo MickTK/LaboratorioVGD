@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
-  m_Name: ScaffaleVuoto
+  m_Name: 9 MEDITAZIONE
   m_EditorClassIdentifier: 
-  tipo: 6
-  titolo: Scaffale Vuoto
-  descrizione: periodo di crisi, mi spiace
+  tipo: 8
+  titolo: Meditazione
+  descrizione: per 3 minuti, ogni minuto rigeneri un cuore
   artwork: {fileID: 0}
-  prezzo: 0
-  durata: 0
+  prezzo: 700
+  durata: 180

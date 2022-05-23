@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
-  m_Name: Cryptovaluta
+  m_Name: 6 CAFFE
   m_EditorClassIdentifier: 
-  tipo: 7
-  titolo: Cryptovaluta
-  descrizione: tra 30 secondi guadagni 1300 monete
+  tipo: 5
+  titolo: Caffe'
+  descrizione: "gli ostacoli sono pi\xF9 lenti del 10% per 1 minuto"
   artwork: {fileID: 0}
-  prezzo: 1000
-  durata: 30
+  prezzo: 100
+  durata: 60

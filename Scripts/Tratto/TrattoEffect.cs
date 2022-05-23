@@ -39,13 +39,13 @@ public class TrattoEffect : MonoBehaviour
                 {
                     case TrattoType.REROLL:
                         gameVariable.doni = 4;
-                        gameVariable.viteNonRecuperabili += 1;
+                        gameVariable.viteOro += 1;
                         gameVariable.Tratti.Active.Remove(tratto);
                     break;
 
                     case TrattoType.SADICO:
 
-                        gameVariable.duplicatoreMonete /= mulMoneteSadico;
+                        gameVariable.moltiplicatoreMonete /= mulMoneteSadico;
                     
                         if(gameVariable.vite == 1){
                             mulMoneteSadico = 3;
@@ -57,7 +57,7 @@ public class TrattoEffect : MonoBehaviour
                             mulMoneteSadico = 1;
                         }
 
-                        gameVariable.duplicatoreMonete *= mulMoneteSadico;
+                        gameVariable.moltiplicatoreMonete *= mulMoneteSadico;
 
                     break;
 

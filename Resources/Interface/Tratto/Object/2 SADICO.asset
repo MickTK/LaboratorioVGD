@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: 2 SADICO
   m_EditorClassIdentifier: 
   tipo: 1
-  titolo: Nuova Recluta
-  descrizione: nuova super fica reclutona
+  titolo: SADICO
+  descrizione: "meno vite, pi\xF9 soldi! 1 vita = monete 3x;  2 vite = monete 2x; 
+    3 vite o pi\xF9 = monete 1x"
   artwork: {fileID: 21300000, guid: 94bae605102a59844a14d4c85d5e3ab4, type: 3}
   activable: 1
-  durata: 0
+  durata: 999999

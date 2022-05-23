@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
         if(gameVariable.isGameRunning){
             Mooving();
         }
+
     }
 
     void Mooving(){
@@ -103,9 +104,9 @@ public class PlayerController : MonoBehaviour
 
         if(other.transform.tag == "Coin"){
 
-            MoneyValue component = other.GetComponent<MoneyValue>();
+            int MoneyValue = other.GetComponent<MoneyValue>().value;
             Destroy(other.gameObject);
-            gameVariable.monete += component.Value;
+            gameVariable.monete += MoneyValue * gameVariable.moltiplicatoreMonete;
         }
 
         if(other.transform.tag == "Gift"){

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8311f29364bd71c42aa82acad4a593c2, type: 3}
   m_Name: 6 ASCESA
   m_EditorClassIdentifier: 
-  tipo: 1
-  titolo: Nuova Recluta
-  descrizione: nuova super fica reclutona
+  tipo: 5
+  titolo: Ascesa
+  descrizione: "tra 1 minuto salti il 20% pi\xF9 in alto, tra 2 ninuti il gioco rallenta
+    del 10%"
   artwork: {fileID: 21300000, guid: 94bae605102a59844a14d4c85d5e3ab4, type: 3}
   activable: 1
-  durata: 0
+  durata: 120

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
-  m_Name: Zuppanonna
+  m_Name: 8 CRYPTOVALUTA
   m_EditorClassIdentifier: 
-  tipo: 3
-  titolo: Zuppa Dalla Nonna
-  descrizione: "1 cuore in pi\xF9 e 1 dono in pi\xF9"
-  artwork: {fileID: 21300000, guid: 021f1dfe5417f7f49b3c7587ef52a9f6, type: 3}
-  prezzo: 600
-  durata: 0
+  tipo: 7
+  titolo: Cryptovaluta
+  descrizione: tra 30 secondi guadagni 1300 monete
+  artwork: {fileID: 0}
+  prezzo: 1000
+  durata: 30

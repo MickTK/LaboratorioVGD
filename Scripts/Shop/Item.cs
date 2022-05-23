@@ -4,7 +4,7 @@ public enum ItemType
 {
     MEDICINE,
     KITSOCCORSO,
-    ANTIPROIETTILE,
+    CUOREDORO,
     ZUPPANONNA,
     MOLTIPLICATORE,
     CAFFE,

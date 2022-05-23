@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 10 LOWG
   m_EditorClassIdentifier: 
   tipo: 9
-  titolo: Reroll!
-  descrizione: reroll decsvriozione
+  titolo: 'Low G '
+  descrizione: "ogni 30 secondi per 5 secondi hai gravit\xE0 lunare"
   artwork: {fileID: 21300000, guid: a1689c290df677c4497f27615abe8807, type: 3}
   activable: 1
   durata: 0

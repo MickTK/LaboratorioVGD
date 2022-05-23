@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8311f29364bd71c42aa82acad4a593c2, type: 3}
   m_Name: 8 INVESTIMENTO
   m_EditorClassIdentifier: 
-  id: 0
-  titolo: Reroll!
-  descrizione: reroll decsvriozione
+  tipo: 7
+  titolo: Investimento
+  descrizione: perdi tutte le monete. tra 1 minuto ritornano raddoppiate.
   artwork: {fileID: 21300000, guid: a1689c290df677c4497f27615abe8807, type: 3}
+  activable: 1
+  durata: 60

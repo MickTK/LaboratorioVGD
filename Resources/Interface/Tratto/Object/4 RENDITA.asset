@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8311f29364bd71c42aa82acad4a593c2, type: 3}
   m_Name: 4 RENDITA
   m_EditorClassIdentifier: 
-  tipo: 1
-  titolo: Nuova Recluta
-  descrizione: nuova super fica reclutona
+  tipo: 3
+  titolo: Rendita
+  descrizione: ottieni 3 monete al secondo ogni secondo
   artwork: {fileID: 21300000, guid: 94bae605102a59844a14d4c85d5e3ab4, type: 3}
   activable: 1
-  durata: 0
+  durata: 999999

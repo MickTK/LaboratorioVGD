@@ -39,8 +39,8 @@ public class ItemEffects : MonoBehaviour
                     gameVariable.vite += 2;
                 break;
                 
-                case ItemType.ANTIPROIETTILE:
-                    gameVariable.viteNonRecuperabili += 2;
+                case ItemType.CUOREDORO:
+                    gameVariable.viteOro += 2;
                 break;
                 
                 case ItemType.ZUPPANONNA:
@@ -50,10 +50,10 @@ public class ItemEffects : MonoBehaviour
                 
                 case ItemType.MOLTIPLICATORE:
                     if(item.durata == 30){
-                        gameVariable.duplicatoreMonete *= 2;
+                        gameVariable.moltiplicatoreMonete *= 2;
                     }
                     if(item.durata == 0){
-                        gameVariable.duplicatoreMonete /= 2;
+                        gameVariable.moltiplicatoreMonete /= 2;
                     }
                 break;
 
@@ -88,7 +88,7 @@ public class ItemEffects : MonoBehaviour
 
                         gameVariable.vite += 1;
 
-                        gameVariable.viteNonRecuperabili += 1;
+                        gameVariable.viteOro += 1;
                     }
 
                     if(item.durata == 0){
@@ -100,7 +100,7 @@ public class ItemEffects : MonoBehaviour
                         } else {
 
                             gameVariable.vite -= 1;
-                            gameVariable.viteNonRecuperabili -= 1;
+                            gameVariable.viteOro -= 1;
                         }
                     }
 
@@ -112,7 +112,7 @@ public class ItemEffects : MonoBehaviour
 
                         gameVariable.vite += 2;
 
-                        gameVariable.viteNonRecuperabili += 2;
+                        gameVariable.viteOro += 2;
                     }
 
                     if(item.durata == 0){
@@ -124,7 +124,7 @@ public class ItemEffects : MonoBehaviour
                         } else {
 
                             gameVariable.vite -= 2;
-                            gameVariable.viteNonRecuperabili -= 2;
+                            gameVariable.viteOro -= 2;
                         }
                     }
 

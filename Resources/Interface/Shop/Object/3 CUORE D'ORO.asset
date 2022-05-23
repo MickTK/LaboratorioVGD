@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
-  m_Name: Caffe
+  m_Name: 3 CUORE D'ORO
   m_EditorClassIdentifier: 
-  tipo: 5
-  titolo: Caffe'
-  descrizione: "gli ostacoli sono pi\xF9 lenti del 10% per 1 minuto"
-  artwork: {fileID: 0}
-  prezzo: 100
-  durata: 60
+  tipo: 2
+  titolo: Cuore D'oro
+  descrizione: aggiungi 2 cuori d'oro
+  artwork: {fileID: 21300000, guid: bb7789741bd5dca4ea8fe30aa4f844ef, type: 3}
+  prezzo: 400
+  durata: 0
