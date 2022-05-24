@@ -2569,7 +2569,7 @@ MonoBehaviour:
   openShop: 0
   difficolta: 0
   player: {fileID: 322895105}
-  monete: 3000
+  monete: 0
   moltiplicatoreMonete: 1
   doni: 0
   punteggio: 0

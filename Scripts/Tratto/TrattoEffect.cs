@@ -6,9 +6,10 @@ using System;
 public class TrattoEffect : MonoBehaviour
 {
     GameVariable gameVariable;
-    private int mulMoneteSadico;
-    private int holderMoneteInvestimento;
-    private bool altissimoFlag;
+    private int mulMoneteSadico = 1;
+    private int holderMoneteInvestimento = 1;
+    private bool altissimoFlag = false;
+    private bool renditaFlag = false;
 
     void Start(){
 
@@ -40,7 +41,7 @@ public class TrattoEffect : MonoBehaviour
                     case TrattoType.REROLL:
                         gameVariable.doni = 4;
                         gameVariable.viteOro += 1;
-                        gameVariable.Tratti.Active.Remove(tratto);
+                        //gameVariable.Tratti.Active.Remove(tratto);
                     break;
 
                     case TrattoType.SADICO:
@@ -68,20 +69,48 @@ public class TrattoEffect : MonoBehaviour
                     break;
 
                     case TrattoType.RENDITA:
-                        gameVariable.monete += 3;
+
+                        gameVariable.monete += 4;
+
+                        if(tratto.durata == 0){
+
+                            if(renditaFlag == false){
+
+                                tratto.durata = 4;
+                                renditaFlag = true;
+                                gameVariable.obstacleWaitTime /= 3;
+
+                            } else {
+
+                                tratto.durata = 20;
+                                renditaFlag = false;
+                                gameVariable.obstacleWaitTime *= 3;
+                            }
+                            
+                        }
+                        
                     break;
 
                     case TrattoType.SHOPHATER:
-                        gameVariable.vite += 2;
-                        
-                        if(tratto.durata == 0){
-                            tratto.durata = 60;
-                            gameVariable.vite += 1;
-                        }
 
-                        if(gameVariable.Shop.Active.Count != 0){
+                        if(tratto.durata > 999){
+                            gameVariable.vite -= 1;
+                            tratto.durata = 60;
+                        }
+                        
+                        if(gameVariable.Shop.Active.Count == 0){ //se non ci sono oggetti nello shop
+                            
+                            if(tratto.durata == 0){
+
+                                tratto.durata = 60;
+                                gameVariable.vite += 1;
+                            }
+
+                        } else {
+
                             tratto.durata = 0;
                         }
+                        
                     break;
 
                     case TrattoType.ASCESA:
@@ -107,7 +136,7 @@ public class TrattoEffect : MonoBehaviour
                         }
                         
                         if(tratto.durata == 0){
-                            gameVariable.monete += 60;
+                            gameVariable.monete += holderMoneteInvestimento * 2;
                         }
 
                     break;
@@ -139,10 +168,10 @@ public class TrattoEffect : MonoBehaviour
                     break;
 
                     case TrattoType.ALTISSIMO:
-                        gameVariable.monete += Int32.Parse(gameVariable.player.position.y.ToString());
+                        gameVariable.monete += (int) (gameVariable.player.position.y * 1.5f);
                     break;
 
-                    case TrattoType.LUDOPATIA:
+                    case TrattoType.LUDOPATIA: //TODO KIND OF BUGGED
                         System.Random rnd = new System.Random();
                         gameVariable.monete += rnd.Next(10, 600);
                         Tratto gained = gameVariable.Tratti.Draw();
