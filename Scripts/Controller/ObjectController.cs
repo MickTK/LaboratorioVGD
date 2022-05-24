@@ -8,35 +8,21 @@ public class ObjectController : MonoBehaviour
     public GameVariable gameVariable;
     /*creo un vettore per ogni tipo di prefab istanziabile*/    
     public GameObject[] prefOstacoli;     
-    GameObject[] prefPoteri;     
+    public GameObject[] prefDoni;     
     byte nCorsieOccupabili = 3;
 
     /*Creo una lista per ogni tipo di oggetto attualmente presente nella scena*/
     List <GameObject> listElementi = new List<GameObject>();
-    List <GameObject> listOstacoli = new List<GameObject>();
-    List <GameObject> listPoteri = new List<GameObject>();
     List <GameObject> listChunk = new List<GameObject>();
     List <GameObject> listLPlanes = new List<GameObject>();
     List <GameObject> listRPlanes = new List<GameObject>();
     List <GameObject> listEnvironment = new List<GameObject>();
 
-   
-    int howManyObs;
-
-
-    
-
+    public GameObject shop;
+  
 
     public void Start(){
-        
-        /*Carico le cartelle dei prefab negli appositi vettori*/
 
-        howManyObs=prefOstacoli.Length;
-
-        //Debug.Log("numero prefab: "+howMany);
-        //prefPoteri = Resources.LoadAll<GameObject>("Prefabs/Poteri");
-        //listElementi 
-        //listOstacoli 
         listChunk.AddRange(GameObject.FindGameObjectsWithTag("Chunk"));
         listLPlanes.AddRange (GameObject.FindGameObjectsWithTag("LPlane"));
         listRPlanes.AddRange (GameObject.FindGameObjectsWithTag("RPlane"));
@@ -44,7 +30,6 @@ public class ObjectController : MonoBehaviour
 
                
     }
-
     public Vector3 randCoord(){
 
         /*creo la posizione dell'oggetto da istanziare, con y e z fisse ma x variabile*/ 
@@ -54,46 +39,111 @@ public class ObjectController : MonoBehaviour
         
 
     }
-
-    public void spawnOstacoli(){
-        
+    public void spawnOstacoli(bool power){
+        int what;
         List <Vector3> posOccupate = new List<Vector3>();        
-        Vector3 randPos = randCoord();   
-        int what = UnityEngine.Random.Range(0,howManyObs); 
-        posOccupate.Add(randPos);
-        Instantiate(prefOstacoli[what], randPos, Quaternion.identity);
+        Vector3 randPos = randCoord(); 
+        if(power){
+            what = UnityEngine.Random.Range(0,prefDoni.Length); 
+            posOccupate.Add(randPos);
+            randPos.y=0.5f;
+            Instantiate(prefDoni[what], randPos, Quaternion.identity);
+            
+        }else{
+
+             
+            what = UnityEngine.Random.Range(0,prefOstacoli.Length); 
+            posOccupate.Add(randPos);
+            Instantiate(prefOstacoli[what], randPos, Quaternion.identity);
+
+            
+        }
 
         for (int i = 0; i < nCorsieOccupabili; i++)
-        {
-            what = UnityEngine.Random.Range(0,howManyObs);
-            int prob= UnityEngine.Random.Range(0,101);
+            {
+                what = UnityEngine.Random.Range(0,prefOstacoli.Length);
+                int prob= UnityEngine.Random.Range(0,101);
 
-            if(prob<80){
-                do{
-                    randPos = randCoord();
-                    }
-                while(posOccupate.Contains(randPos));
-                 
-                Instantiate(prefOstacoli[what], randPos, Quaternion.identity);
-                posOccupate.Add(randPos);
+                if(prob<80){
+                    do{
+                        randPos = randCoord();
+                        }
+                    while(posOccupate.Contains(randPos));
+                    
+                    Instantiate(prefOstacoli[what], randPos, Quaternion.identity);
+                    posOccupate.Add(randPos);
+                }
             }
-        }
+
+        
 
         
            
                    
     }
+    public void find(){  
+        listElementi.Clear();
 
-    public void spawnPower(){
+        //elementi generabili
+        listElementi.AddRange(GameObject.FindGameObjectsWithTag("Obstacle"));
+        listElementi.AddRange(GameObject.FindGameObjectsWithTag("Coin"));
+        listElementi.AddRange(GameObject.FindGameObjectsWithTag("Gift"));
+
+        //elementi fissi
+        listElementi.AddRange(listChunk);
+        listElementi.AddRange(listLPlanes);
+        listElementi.AddRange(listRPlanes);        
+        listElementi.AddRange(listEnvironment);
+
+        if(shop.activeSelf){
+            listElementi.Add(shop);
+        }
+            
+        
+    }
+    public void moveForward(){
 
 
-        Vector3 randPos = randCoord();
-        int what = UnityEngine.Random.Range(0,prefPoteri.Length+1);
-        Instantiate(prefPoteri[what], randPos, Quaternion.identity);
+        find();    
 
+        if(listElementi!=null){
+            foreach(GameObject el in listElementi){
+                el.transform.Translate(-Vector3.forward *Time.deltaTime* gameVariable.ySpeed);
+            }
+        }
 
     }
+    public void reset(){
+        find();
+        if(listElementi!=null){
+            foreach(GameObject el in listElementi){
+                if(el.transform.position.z<-10){
+                    switch(el.tag){
 
+                        case "RPlane":
+                        case "LPlane":
+                        case "Chunk":
+                            resetTerrains(el);
+                        break;
+
+                        case "Environment":
+                            resetEnv(el);
+                        break;
+
+                        case "Shop":
+                            resetShop(el);
+                        break;
+
+                        default:
+                            Destroy(el);
+                        break;
+
+                    }
+                }
+            }
+        }
+
+    }
     public void resetTerrains(GameObject el){
             
         Vector3 posIniz;
@@ -141,72 +191,21 @@ public class ObjectController : MonoBehaviour
         
 
     }
+    public void resetEnv(GameObject el){
+        Vector3 position;
+        if(GameObject.Find("Shop")==null){
+            position= new Vector3 (el.transform.position.x,el.transform.position.y,90);
+           
+        }else{
 
-    public void find(){  
-
-      
-        listOstacoli.Clear();
-        listOstacoli.AddRange(GameObject.FindGameObjectsWithTag("Obstacle"));
-        listOstacoli.AddRange(GameObject.FindGameObjectsWithTag("Coin"));
-
-        listElementi.Clear();
-        listElementi.AddRange(listOstacoli);
-        listElementi.AddRange(listChunk);
-        listElementi.AddRange(listLPlanes);
-        listElementi.AddRange(listRPlanes);        
-        listElementi.AddRange(listEnvironment);
-
-        
-    }
-
-    public void moveForward(){
-
-
-        find();    
-
-        if(listElementi!=null){
-            foreach(GameObject el in listElementi){
-                el.transform.Translate(-Vector3.forward *Time.deltaTime* gameVariable.ySpeed);
-            }
+            position= new Vector3 (el.transform.position.x,el.transform.position.y,105);
         }
-
-    }
-
-
-    public static void resetEnv(GameObject el){
-
-        Vector3 position= new Vector3 (el.transform.position.x,el.transform.position.y,90);
         el.transform.position=position;
-
     }
-
-    public void reset(){
-        find();
-        if(listElementi!=null){
-            foreach(GameObject el in listElementi){
-                if(el.transform.position.z<-10){
-                    switch(el.tag){
-
-                        case "RPlane":
-                        case "LPlane":
-                        case "Chunk":
-                            resetTerrains(el);
-                        break;
-
-                        case "Environment":
-                            resetEnv(el);
-                        break;
-
-                        default:
-                            Destroy(el);
-                        break;
-
-                    }
-                }
-            }
-        }
-
+    public void resetShop(GameObject el){
+        
+        Vector3 position= new Vector3 (el.transform.position.x,el.transform.position.y,100);
+        el.transform.position=position;
+        el.SetActive(false);
     }
-    
-    
 }

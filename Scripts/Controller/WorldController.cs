@@ -17,7 +17,12 @@ public class WorldController : MonoBehaviour
     {
         myController= GetComponent<ObjectController>();
         myController.prefOstacoli = Resources.LoadAll<GameObject>("Obstacles");
+        myController.prefDoni = Resources.LoadAll<GameObject>("Gifts");
         StartCoroutine("delaySpawn");
+
+        myController.shop = GameObject.Find("Shop");
+        myController.shop.SetActive(false);
+            
     }
 
     // Update is called once per frame
@@ -30,11 +35,12 @@ public class WorldController : MonoBehaviour
                 StartCoroutine("delayObs");  
 
                 if(countObstacles<5){
-                    myController.spawnOstacoli();
+                    myController.spawnOstacoli(false);
                     countObstacles++;
                 }
                 else{  
-                    //ObjectController.spawnPower();
+                    myController.spawnOstacoli(true);
+                    myController.shop.SetActive(true);
                     countObstacles=0;
                 } 
                   
