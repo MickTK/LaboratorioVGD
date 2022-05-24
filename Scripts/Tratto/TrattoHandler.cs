@@ -51,8 +51,8 @@ public class TrattoHandler : MonoBehaviour
         {
             StartCoroutine(OpenTratto());
             gameVariable.doni = 0;
-            gameVariable.ySpeed += 5;
-            gameVariable.xSpeed += 1;
+            gameVariable.obstacleWaitTime *= 0.85f;
+            gameVariable.ySpeed += 1;
         }
     }
     
