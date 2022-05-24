@@ -13,6 +13,13 @@ public class PlayerController : MonoBehaviour
     public float yPosition = 0f;
     private float jumpSpeed = 3.5f;
 
+    /* Animazione */
+    private Animator animator;
+    public Renderer rend;
+    private Material originalMaterial; // Materiale della mesh
+    public Material replaceMaterial;   // Materiale di rimpiazzo
+    private IEnumerator coroutine;     // Coroutine per il blink
+
     private Vector3[] lanes = new Vector3[]{
 
         new Vector3(-4,0,0), // lane left left
@@ -27,21 +34,33 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         gameVariable = gameManager.GetComponent<GameVariable>();
+
+        /* Animazione */
+        animator = GetComponent<Animator>(); // Recupera l'animator
+        animator.SetBool("die", false);      // Rimuove il trigger della morte (per sicurezza)
+        animator.SetFloat("speed", 10f);     // Aumenta la velocità del giocatore
+        originalMaterial = rend.material;    // Materiale del personaggio
     }
 
     void Update()
     {
-        if(gameVariable.isGameRunning){
+        if (gameVariable.isGameRunning)
+        {
             Mooving();
         }
 
     }
 
-    void Mooving(){
+    void Mooving()
+    {
 
         if (Input.GetKeyDown("space"))
         {
             print("space key was pressed");
+
+            /* Animazione */
+            animator.ResetTrigger("jump");  // Resetta il trigger del salto
+            animator.SetTrigger("jump");    // Attiva l'animazione del salto
         }
 
 
@@ -62,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown("a") && lane > 0)
         {
-            lane -= 1; 
+            lane -= 1;
             xDirection = -1;
         }
 
@@ -72,53 +91,80 @@ public class PlayerController : MonoBehaviour
             xDirection = 1;
         }
 
-        if(xDirection == -1 && controller.transform.position.x > lanes[lane].x){
+        if (xDirection == -1 && controller.transform.position.x > lanes[lane].x)
+        {
 
-            Vector3 translator = new Vector3(xDirection * gameVariable.xSpeed, 0, 0); 
+            Vector3 translator = new Vector3(xDirection * gameVariable.xSpeed, 0, 0);
             controller.transform.Translate(translator * Time.deltaTime);
         }
 
-        if(xDirection == 1 && controller.transform.position.x < lanes[lane].x){
+        if (xDirection == 1 && controller.transform.position.x < lanes[lane].x)
+        {
 
-            Vector3 translator = new Vector3(xDirection * gameVariable.xSpeed, 0, 0); 
+            Vector3 translator = new Vector3(xDirection * gameVariable.xSpeed, 0, 0);
             controller.transform.Translate(translator * Time.deltaTime);
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        
-        if(other.transform.tag == "Obstacle")
+
+        if (other.transform.tag == "Obstacle")
         {
             Destroy(other.gameObject);
 
-            if(gameVariable.vite != 0){
+            if (gameVariable.vite != 0)
+            {
+
+                /* Animazione */
+                coroutine = Blink(5, 0.1f);
+                StartCoroutine(coroutine);
 
                 gameVariable.vite -= 1;
 
-            } else {
+            }
+            else
+            {
 
                 //TODO END GAME
+
+                /* Animazione */
+                animator.SetBool("die", true); // Attiva l'animazione della morte del giocatore
             }
         }
 
-        if(other.transform.tag == "Coin"){
+        if (other.transform.tag == "Coin")
+        {
 
             int MoneyValue = other.GetComponent<MoneyValue>().value;
             Destroy(other.gameObject);
             gameVariable.monete += MoneyValue * gameVariable.moltiplicatoreMonete;
         }
 
-        if(other.transform.tag == "Gift"){
+        if (other.transform.tag == "Gift")
+        {
 
             Destroy(other.gameObject);
             gameVariable.doni += 1;
         }
-        
-        if(other.transform.tag == "Shop"){
-            
+
+        if (other.transform.tag == "Shop")
+        {
+
             Destroy(other.gameObject);
             gameVariable.openShop = true;
         }
+    }
+    /* Effetto danno */
+    private IEnumerator Blink(int blinks, float time)
+    {
+        for (int i = 0; i < blinks; i++)
+        {
+            rend.material = replaceMaterial;       // Trasparente
+            yield return new WaitForSeconds(time);
+            rend.material = originalMaterial;      // Visibile
+            yield return new WaitForSeconds(time);
+        }
+        StopCoroutine(coroutine);                  // Termina la coroutine
     }
 }

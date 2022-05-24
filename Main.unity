@@ -802,6 +802,8 @@ MonoBehaviour:
   lane: 2
   xDirection: 0
   yPosition: 0
+  rend: {fileID: 1332067644}
+  replaceMaterial: {fileID: 2100000, guid: e3c4a746c41144f4796d6d2f3a0f26e1, type: 2}
 --- !u!1 &330477951 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2094732254050358232, guid: 55097ed7fe437424fae846c0cdae24eb, type: 3}
@@ -2722,6 +2724,11 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2094732253498042434, guid: 55097ed7fe437424fae846c0cdae24eb, type: 3}
   m_PrefabInstance: {fileID: 5038519911948600700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1332067644 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 137184358506803440, guid: 128a80094e00bf34fa2555766a7eea0e, type: 3}
+  m_PrefabInstance: {fileID: 1079218304}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1347981846
 GameObject:
