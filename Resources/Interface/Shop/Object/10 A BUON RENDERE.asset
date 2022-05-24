@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipo: 9
   titolo: A Buon Rendere
-  descrizione: ottieni 1 cuore rosso e oro. Tra 1 minuto paghi 300 monete, se non
-    le hai perdi i cuori guadagnati
+  descrizione: ottieni 1 cuore rosso e d'oro che perderai se tra 1 minuto non paghi
+    300 monete
   artwork: {fileID: 0}
   prezzo: 0
   durata: 60

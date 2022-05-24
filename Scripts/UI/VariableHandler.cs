@@ -11,8 +11,7 @@ public class VariableHandler : MonoBehaviour
     public Text textVite;
     public Text textMonete;
     public Text textDoni;
-    public Text textViteGrigie;
-    public Text textPunteggio;
+    public Text textViteOro;
     public GameObject itemPrefab;
     public GridLayoutGroup slotTratti;
     public GridLayoutGroup slotShop;
@@ -28,8 +27,7 @@ public class VariableHandler : MonoBehaviour
         textVite.text = gameVariable.vite.ToString();
         textMonete.text = gameVariable.monete.ToString();
         textDoni.text = gameVariable.doni.ToString();
-        textViteGrigie.text = gameVariable.viteOro.ToString();
-        textPunteggio.text = gameVariable.punteggio.ToString(); 
+        textViteOro.text = gameVariable.viteOro.ToString();
 
         foreach (Transform child in slotTratti.transform) 
         {

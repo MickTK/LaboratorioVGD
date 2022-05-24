@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipo: 10
   titolo: Azzardo
-  descrizione: ottieni 2 cuori rossi e d'oro. Tra 1 minuto paghi 700 monete, se non
-    le hai perdi le vite guadagnate
+  descrizione: 'ottieni 2 cuori rossi e d''oro che perderai se tra 1 minuto non paghi
+    700 monete '
   artwork: {fileID: 0}
   prezzo: 0
   durata: 60
