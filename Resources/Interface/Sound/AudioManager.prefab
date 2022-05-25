@@ -80,12 +80,6 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
-    loop: 0
-    isSong: 0
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 87890a66193394e3cb7d6284cc6b4344, type: 3}
     loop: 1
     isSong: 1
@@ -99,6 +93,12 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 030515f205b54fc478961cbe39c4e75e, type: 3}
+    loop: 0
+    isSong: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 79180f511d89441b9aa23ccae1992fe0, type: 3}
     loop: 0
     isSong: 0
     volume: 1

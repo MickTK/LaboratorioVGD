@@ -57,16 +57,18 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             print("space key was pressed");
-
-            /* Animazione */
-            animator.ResetTrigger("jump");  // Resetta il trigger del salto
-            animator.SetTrigger("jump");    // Attiva l'animazione del salto
         }
 
 
         if (Input.GetKeyDown("w") && controller.isGrounded)
         {
             yPosition = jumpSpeed;
+
+            /* Animazione */
+            animator.ResetTrigger("jump");  // Resetta il trigger del salto
+            animator.SetTrigger("jump");    // Attiva l'animazione del salto
+
+            FindObjectOfType<AudioManager>().Play("Salto"); // Suono
         }
 
         if (Input.GetKeyDown("s"))
@@ -120,6 +122,8 @@ public class PlayerController : MonoBehaviour
                 coroutine = Blink(5, 0.1f);
                 StartCoroutine(coroutine);
 
+                FindObjectOfType<AudioManager>().Play("Bonk"); // Suono
+
                 gameVariable.vite -= 1;
 
             }
@@ -130,12 +134,14 @@ public class PlayerController : MonoBehaviour
 
                 /* Animazione */
                 animator.SetBool("die", true); // Attiva l'animazione della morte del giocatore
+
+                FindObjectOfType<AudioManager>().Play("Bonk"); // Suono
             }
         }
 
         if (other.transform.tag == "Coin")
         {
-
+            FindObjectOfType<AudioManager>().Play("Moneta"); // Suono
             int MoneyValue = other.GetComponent<MoneyValue>().value;
             Destroy(other.gameObject);
             gameVariable.monete += MoneyValue * gameVariable.moltiplicatoreMonete;
@@ -146,6 +152,8 @@ public class PlayerController : MonoBehaviour
 
             Destroy(other.gameObject);
             gameVariable.doni += 1;
+
+            FindObjectOfType<AudioManager>().Play("Oggetto"); // Suono
         }
 
         if (other.transform.tag == "Shop")
