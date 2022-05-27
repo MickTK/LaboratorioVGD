@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         /* Animazione */
         animator = GetComponent<Animator>(); // Recupera l'animator
         animator.SetBool("die", false);      // Rimuove il trigger della morte (per sicurezza)
-        animator.SetFloat("speed", 10f);     // Aumenta la velocità del giocatore
+        animator.SetFloat("speed", 10f);     // Aumenta la velocitï¿½ del giocatore
         originalMaterial = rend.material;    // Materiale del personaggio
     }
 
@@ -129,9 +129,6 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-
-                //TODO END GAME
-
                 /* Animazione */
                 animator.SetBool("die", true); // Attiva l'animazione della morte del giocatore
 

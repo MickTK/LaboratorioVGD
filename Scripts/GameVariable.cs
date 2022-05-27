@@ -25,15 +25,4 @@ public class GameVariable : MonoBehaviour
     public float obstacleWaitTime = 2f;
     public float jumpForce = 5f;
     public float gravity = 9.81f;
-
-    void Update(){
-
-        if(Tratti.Active.Count > 6){
-
-            //TODO YOU WIN
-            //TODO CALCOLARE IL PUNTEGGIO FINALE
-
-            //! yspeed * monete * vite * viteoro*2 * difficolta
-        }
-    }
 }
