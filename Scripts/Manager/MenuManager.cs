@@ -13,6 +13,10 @@ public class MenuManager : MonoBehaviour
     public void OpenOptions(){
 
     }
+    
+    public void OpenMainMenu(){
+        SceneManager.LoadScene("StartingMenu");
+    }
 
     public void QuitGame(){
         // save any game data here

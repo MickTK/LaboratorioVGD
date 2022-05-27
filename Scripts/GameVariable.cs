@@ -13,7 +13,6 @@ public class GameVariable : MonoBehaviour
     public int moltiplicatoreMonete = 1;
     //TODO IMPLEMENTA I COLLEGAMENTI 
     public int doni; // oggetti che ruotano che puoi trovare per la strada, power up
-    public int punteggio;
     public int vite;
     public int viteOro;
     Deck<Tratto> tratti = new Deck<Tratto>("Interface/Tratto/Object");
