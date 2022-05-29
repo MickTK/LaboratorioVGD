@@ -9,10 +9,6 @@ public class MenuManager : MonoBehaviour
     public void OpenGame(){
         SceneManager.LoadScene("Main");
     }
-
-    public void OpenOptions(){
-
-    }
     
     public void OpenMainMenu(){
         SceneManager.LoadScene("StartingMenu");

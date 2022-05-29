@@ -21,13 +21,17 @@ public class VariableHandler : MonoBehaviour
         InvokeRepeating("UpdateUI", 0, 1.0f);
     }
 
-    // Update is called once per frame
-    void UpdateUI()
-    {
+    void Update(){
+        
         textVite.text = gameVariable.vite.ToString();
         textMonete.text = gameVariable.monete.ToString();
         textDoni.text = gameVariable.doni.ToString();
         textViteOro.text = gameVariable.viteOro.ToString();
+    }
+
+    // Update is called once per frame
+    void UpdateUI()
+    {
 
         foreach (Transform child in slotTratti.transform) 
         {
