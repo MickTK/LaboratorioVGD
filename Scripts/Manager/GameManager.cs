@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     void Update(){
 
-        if(gameVariable.vite == 0 || gameVariable.Tratti.Active.Count > 6){ // se hai più di 7 tratti o non hai vita 
+        if(gameVariable.vite == 0 || gameVariable.Tratti.Active.Count > 7){ // se hai più di 7 tratti o non hai vita 
 
             gameVariable.isGameRunning = false;
             UI.SetActive(false);
@@ -48,8 +48,9 @@ public class GameManager : MonoBehaviour
         while (true)
         {
 
-            int num = (int) gameVariable.ySpeed * (gameVariable.monete + 1) * (gameVariable.vite + 1) * 
-            (gameVariable.viteOro*2 + 1) * (gameVariable.difficolta + 1) * (gameVariable.Tratti.Active.Count + 1);
+            int num = (int) (gameVariable.ySpeed * ((gameVariable.monete / 5) + 1) * (gameVariable.vite + 1) * 
+            ((gameVariable.buyedItems/2) + 1) * (gameVariable.viteOro*2 + 1) * (gameVariable.difficolta + 1) * 
+            (gameVariable.Tratti.Active.Count + 1)) / 10;
             //TODO SERIALIZE THIS
 
             endGame.SetActive(true);

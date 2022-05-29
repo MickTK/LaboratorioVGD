@@ -15,6 +15,6 @@ MonoBehaviour:
   tipo: 4
   titolo: Moltiplicatore
   descrizione: per 30 secondi le monete valgono doppio
-  artwork: {fileID: 21300000, guid: 07187e79e65f9d34498613ee12d1e6e5, type: 3}
+  artwork: {fileID: 21300000, guid: f1813fb0464ea5441b5fb8500ab2c323, type: 3}
   prezzo: 300
   durata: 30

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipo: 5
   titolo: Ascesa
-  descrizione: "tra 1 minuto salti il 20% pi\xF9 in alto, tra 2 ninuti il gioco rallenta
-    del 10%"
-  artwork: {fileID: 21300000, guid: 94bae605102a59844a14d4c85d5e3ab4, type: 3}
+  descrizione: "tra 30 secondi salti il 20% pi\xF9 in alto, tra 1 minuto il gioco
+    rallenta del 15%"
+  artwork: {fileID: 21300000, guid: 6e6a3236d77f13e49be5a1ce2c32661b, type: 3}
   activable: 1
-  durata: 120
+  durata: 42

@@ -196,6 +196,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5038519911719637502}
     m_Modifications:
+    - target: {fileID: 6412440636049372020, guid: 3be2dba6a0b96c24898c65852686cb16, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7122642
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412440636049372020, guid: 3be2dba6a0b96c24898c65852686cb16, type: 3}
+      propertyPath: m_Color.g
+      value: 0.81633884
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412440636049372020, guid: 3be2dba6a0b96c24898c65852686cb16, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6412440636049372024, guid: 3be2dba6a0b96c24898c65852686cb16, type: 3}
       propertyPath: m_Name
       value: ItemPick1
@@ -298,6 +310,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5038519911719637502}
     m_Modifications:
+    - target: {fileID: 6412440636049372020, guid: 3be2dba6a0b96c24898c65852686cb16, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7122642
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412440636049372020, guid: 3be2dba6a0b96c24898c65852686cb16, type: 3}
+      propertyPath: m_Color.g
+      value: 0.81633884
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412440636049372020, guid: 3be2dba6a0b96c24898c65852686cb16, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6412440636049372024, guid: 3be2dba6a0b96c24898c65852686cb16, type: 3}
       propertyPath: m_Name
       value: ItemPick4
@@ -502,6 +526,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5038519911719637502}
     m_Modifications:
+    - target: {fileID: 6412440636049372020, guid: 3be2dba6a0b96c24898c65852686cb16, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7122642
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412440636049372020, guid: 3be2dba6a0b96c24898c65852686cb16, type: 3}
+      propertyPath: m_Color.g
+      value: 0.81633884
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412440636049372020, guid: 3be2dba6a0b96c24898c65852686cb16, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6412440636049372024, guid: 3be2dba6a0b96c24898c65852686cb16, type: 3}
       propertyPath: m_Name
       value: ItemPick3
@@ -604,6 +640,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5038519911719637502}
     m_Modifications:
+    - target: {fileID: 6412440636049372020, guid: 3be2dba6a0b96c24898c65852686cb16, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7122642
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412440636049372020, guid: 3be2dba6a0b96c24898c65852686cb16, type: 3}
+      propertyPath: m_Color.g
+      value: 0.81633884
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412440636049372020, guid: 3be2dba6a0b96c24898c65852686cb16, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6412440636049372024, guid: 3be2dba6a0b96c24898c65852686cb16, type: 3}
       propertyPath: m_Name
       value: ItemPick2

@@ -16,6 +16,6 @@ MonoBehaviour:
   titolo: Shop Hater
   descrizione: perdi 1 cuore. non acquistando nessun oggetto dagli shop ottieni 1
     cuore al minuto.
-  artwork: {fileID: 21300000, guid: 94bae605102a59844a14d4c85d5e3ab4, type: 3}
+  artwork: {fileID: 21300000, guid: cbd21703bb97f87428d89c04e86c4d75, type: 3}
   activable: 1
-  durata: 32
+  durata: 60

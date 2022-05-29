@@ -15,6 +15,6 @@ MonoBehaviour:
   tipo: 11
   titolo: Morfina
   descrizione: "Per 1 minuto, puoi muoverti lateralmente pi\xF9 veloce del 20%"
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: d9d795a6a3dc1f94780ff780abb03309, type: 3}
   prezzo: 100
   durata: 60

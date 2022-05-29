@@ -24,5 +24,5 @@ public class Item : ScriptableObject
     public string descrizione;
     public Sprite artwork;
     public int prezzo;
-    public int durata;
+    public int durata = 0;
 }

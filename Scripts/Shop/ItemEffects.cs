@@ -139,7 +139,6 @@ public class ItemEffects : MonoBehaviour
                     }
                 break;
             }
-
             item.durata -= 1;
         }
     }

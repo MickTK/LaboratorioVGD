@@ -15,6 +15,6 @@ MonoBehaviour:
   tipo: 2
   titolo: Cuore D'oro
   descrizione: aggiungi 2 cuori d'oro
-  artwork: {fileID: 21300000, guid: bb7789741bd5dca4ea8fe30aa4f844ef, type: 3}
+  artwork: {fileID: 21300000, guid: d9ab8cc4e3931f242b5e425ab7a30bfd, type: 3}
   prezzo: 400
-  durata: 0
+  durata: 3

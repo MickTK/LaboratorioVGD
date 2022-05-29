@@ -379,6 +379,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrattoPick1
       objectReference: {fileID: 0}
+    - target: {fileID: 1430141976698941413, guid: c124c0b0ced502a4e81777d564a07f45, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430141976698941413, guid: c124c0b0ced502a4e81777d564a07f45, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430141976698941413, guid: c124c0b0ced502a4e81777d564a07f45, type: 3}
+      propertyPath: m_Color.g
+      value: 0.52954787
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430141976698941413, guid: c124c0b0ced502a4e81777d564a07f45, type: 3}
+      propertyPath: m_Color.r
+      value: 0.67194736
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c124c0b0ced502a4e81777d564a07f45, type: 3}
 --- !u!224 &640645003140294505 stripped
@@ -481,6 +497,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrattoPick3
       objectReference: {fileID: 0}
+    - target: {fileID: 1430141976698941413, guid: c124c0b0ced502a4e81777d564a07f45, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430141976698941413, guid: c124c0b0ced502a4e81777d564a07f45, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430141976698941413, guid: c124c0b0ced502a4e81777d564a07f45, type: 3}
+      propertyPath: m_Color.g
+      value: 0.52954787
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430141976698941413, guid: c124c0b0ced502a4e81777d564a07f45, type: 3}
+      propertyPath: m_Color.r
+      value: 0.67194736
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c124c0b0ced502a4e81777d564a07f45, type: 3}
 --- !u!224 &640645002199859958 stripped
@@ -582,6 +614,22 @@ PrefabInstance:
     - target: {fileID: 1430141976698941412, guid: c124c0b0ced502a4e81777d564a07f45, type: 3}
       propertyPath: m_Name
       value: TrattoPick2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430141976698941413, guid: c124c0b0ced502a4e81777d564a07f45, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430141976698941413, guid: c124c0b0ced502a4e81777d564a07f45, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430141976698941413, guid: c124c0b0ced502a4e81777d564a07f45, type: 3}
+      propertyPath: m_Color.g
+      value: 0.52954787
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430141976698941413, guid: c124c0b0ced502a4e81777d564a07f45, type: 3}
+      propertyPath: m_Color.r
+      value: 0.67194736
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c124c0b0ced502a4e81777d564a07f45, type: 3}

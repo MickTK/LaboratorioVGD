@@ -15,6 +15,6 @@ MonoBehaviour:
   tipo: 1
   titolo: Kit Soccorso
   descrizione: "2 cuori in pi\xF9"
-  artwork: {fileID: 21300000, guid: 0123a718108c229499bf5c502a42776a, type: 3}
+  artwork: {fileID: 21300000, guid: 46deca66adb540c46a7141d568112df8, type: 3}
   prezzo: 500
-  durata: 0
+  durata: 3

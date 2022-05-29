@@ -16,6 +16,6 @@ MonoBehaviour:
   titolo: Rendita
   descrizione: "ottieni 4 monete al secondo ogni secondo ma ogni tanto ci sono pi\xF9
     ostacoli"
-  artwork: {fileID: 21300000, guid: 94bae605102a59844a14d4c85d5e3ab4, type: 3}
+  artwork: {fileID: 21300000, guid: 701fb950c9ab34c4f9b5fa29b56dddb9, type: 3}
   activable: 1
   durata: 0

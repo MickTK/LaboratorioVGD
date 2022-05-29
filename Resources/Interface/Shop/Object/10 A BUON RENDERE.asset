@@ -16,6 +16,6 @@ MonoBehaviour:
   titolo: A Buon Rendere
   descrizione: ottieni 1 cuore rosso e d'oro che perderai se tra 1 minuto non paghi
     300 monete
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 816fa3227c8874d4892b72d33bc80f1f, type: 3}
   prezzo: 0
   durata: 60

@@ -15,6 +15,6 @@ MonoBehaviour:
   tipo: 0
   titolo: Reroll
   descrizione: "ottieni altre 3 possibilit\xE0 di tratti e guadagni un cuore d'oro"
-  artwork: {fileID: 21300000, guid: 94bae605102a59844a14d4c85d5e3ab4, type: 3}
+  artwork: {fileID: 21300000, guid: 2f7321aa1dffedc449128d182cbb983e, type: 3}
   activable: 1
   durata: 0

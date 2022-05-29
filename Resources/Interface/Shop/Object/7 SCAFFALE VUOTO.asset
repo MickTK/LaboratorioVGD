@@ -15,6 +15,6 @@ MonoBehaviour:
   tipo: 6
   titolo: Scaffale Vuoto
   descrizione: periodo di crisi, mi spiace
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 2d3cd6f30903a4849a30d74dec843719, type: 3}
   prezzo: 0
-  durata: 0
+  durata: -1

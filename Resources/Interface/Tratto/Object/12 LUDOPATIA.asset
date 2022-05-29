@@ -15,6 +15,6 @@ MonoBehaviour:
   tipo: 11
   titolo: Ludopatia
   descrizione: "ottieni un tratto casuale e una quantit\xE0 casuale di monete."
-  artwork: {fileID: 21300000, guid: a1689c290df677c4497f27615abe8807, type: 3}
+  artwork: {fileID: 21300000, guid: 77c07bf5e24cbaf41a162ab5fd46a19e, type: 3}
   activable: 1
   durata: -1

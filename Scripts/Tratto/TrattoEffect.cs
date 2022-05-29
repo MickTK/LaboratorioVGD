@@ -114,11 +114,11 @@ public class TrattoEffect : MonoBehaviour
                     break;
 
                     case TrattoType.ASCESA:
-                        if(tratto.durata == 60){
+                        if(tratto.durata == 30){
                             gameVariable.jumpForce *= 1.2f;
                         }
                         if(tratto.durata == 0){
-                            gameVariable.ySpeed *= 0.9f;
+                            gameVariable.ySpeed *= 0.85f;
                         }
                     break;
 
