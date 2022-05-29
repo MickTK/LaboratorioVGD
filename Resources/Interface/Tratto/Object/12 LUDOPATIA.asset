@@ -17,4 +17,4 @@ MonoBehaviour:
   descrizione: "ottieni un tratto casuale e una quantit\xE0 casuale di monete."
   artwork: {fileID: 21300000, guid: 77c07bf5e24cbaf41a162ab5fd46a19e, type: 3}
   activable: 1
-  durata: -1
+  durata: 0

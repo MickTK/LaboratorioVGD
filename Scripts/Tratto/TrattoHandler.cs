@@ -35,7 +35,8 @@ public class TrattoHandler : MonoBehaviour
     void Click(Tratto tratto){
 
         trattoUI.SetActive(false);
-        gameVariable.Tratti.Active.Add(tratto);
+        Tratto newTratto = Instantiate(tratto);
+        gameVariable.Tratti.Active.Add(newTratto);
         gameVariable.Tratti.Remove(tratto);
         gameVariable.isGameRunning = true;
     }

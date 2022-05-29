@@ -52,7 +52,7 @@ public class ItemHandler : MonoBehaviour
             gameVariable.buyedItems++;
             Item newItem = Instantiate(itemDisplayer1.Item);
             newItem.titolo = Random.Range(1.0f, 999999.0f).ToString();
-            gameVariable.Shop.Active.Add(itemDisplayer1.Item);
+            gameVariable.Shop.Active.Add(newItem);
             gameVariable.monete -= itemDisplayer1.Item.prezzo;
         }
 	}
@@ -78,7 +78,7 @@ public class ItemHandler : MonoBehaviour
             gameVariable.buyedItems++;
             Item newItem = Instantiate(itemDisplayer3.Item);
             newItem.titolo = Random.Range(1.0f, 999999.0f).ToString();
-            gameVariable.Shop.Active.Add(itemDisplayer3.Item);
+            gameVariable.Shop.Active.Add(newItem);
             gameVariable.monete -= itemDisplayer3.Item.prezzo;
         }
 	}
@@ -91,7 +91,7 @@ public class ItemHandler : MonoBehaviour
             gameVariable.buyedItems++;
             Item newItem = Instantiate(itemDisplayer4.Item);
             newItem.titolo = Random.Range(1.0f, 999999.0f).ToString();
-            gameVariable.Shop.Active.Add(itemDisplayer4.Item);
+            gameVariable.Shop.Active.Add(newItem);
             gameVariable.monete -= itemDisplayer4.Item.prezzo;
         }
 	}

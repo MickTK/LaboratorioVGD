@@ -17,4 +17,4 @@ MonoBehaviour:
   descrizione: "pi\xF9 sei in alto rispetto al terreno, pi\xF9 denaro guadagni."
   artwork: {fileID: 21300000, guid: 966697534d95a744fb6f568ac99bcc81, type: 3}
   activable: 1
-  durata: 999992
+  durata: 999999

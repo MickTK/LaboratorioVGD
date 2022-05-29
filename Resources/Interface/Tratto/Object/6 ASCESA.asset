@@ -18,4 +18,4 @@ MonoBehaviour:
     rallenta del 15%"
   artwork: {fileID: 21300000, guid: 6e6a3236d77f13e49be5a1ce2c32661b, type: 3}
   activable: 1
-  durata: 42
+  durata: 60

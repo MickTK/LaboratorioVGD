@@ -34695,6 +34695,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 576509879}
     - target: {fileID: 1541402302586358372, guid: 9063d8bc14700984c8c08caab95616f1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541402302586358372, guid: 9063d8bc14700984c8c08caab95616f1, type: 3}
       propertyPath: textMonete
       value: 
       objectReference: {fileID: 236614699}
@@ -34709,6 +34713,10 @@ PrefabInstance:
     - target: {fileID: 1541402302674093452, guid: 9063d8bc14700984c8c08caab95616f1, type: 3}
       propertyPath: m_Spacing.x
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932221275181651146, guid: 9063d8bc14700984c8c08caab95616f1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9063d8bc14700984c8c08caab95616f1, type: 3}

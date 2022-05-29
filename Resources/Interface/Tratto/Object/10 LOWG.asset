@@ -17,4 +17,4 @@ MonoBehaviour:
   descrizione: "ogni 30 secondi per 5 secondi hai gravit\xE0 lunare"
   artwork: {fileID: 21300000, guid: 517f8ab68d6330f43a8498dee0b4bc4d, type: 3}
   activable: 1
-  durata: 1
+  durata: 5
