@@ -34,15 +34,38 @@ public class WorldController : MonoBehaviour
 
                 StartCoroutine("delayObs");  
 
-                if(countObstacles<5){
-                    myController.spawnOstacoli(false);
-                    countObstacles++;
+                /*
+                    if(countObstacles!=5&&!=10){
+                        myController.spawnOstacoli(false);
+                        countObstacles++;
+                    }
+                    else if(countObstacles==5){  
+                        myController.spawnOstacoli(true);                    
+                    }
+                    else if(countObstacles==10){
+                        myController.spawnOstacoli(true);
+                        myController.shop.SetActive(true);
+                        countObstacles=0;
+                    }
+                */
+
+                switch (countObstacles)
+                {
+                    case 5:
+                        myController.spawnOstacoli(true); 
+                        countObstacles++;        
+                    break;
+                    case 10:
+                        myController.spawnOstacoli(true);
+                        myController.shop.SetActive(true);
+                        countObstacles=0;
+                    break;
+                    
+                    default:
+                        myController.spawnOstacoli(false);
+                        countObstacles++;
+                    break;
                 }
-                else{  
-                    myController.spawnOstacoli(true);
-                    myController.shop.SetActive(true);
-                    countObstacles=0;
-                } 
                   
                 
             }  
