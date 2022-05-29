@@ -9,6 +9,9 @@ public partial class AudioManager : MonoBehaviour
     // Permette di far partire un suono all'avvio dello script specificandone l'indice
     public int startSoundIndex = -1;
 
+    public bool musicOn = true;
+    public bool effectOn = true;
+
     public static AudioManager instance;
 
     void Awake()
