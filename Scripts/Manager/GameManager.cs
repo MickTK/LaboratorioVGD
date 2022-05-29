@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     void Start(){
         
         gameVariable = GetComponent<GameVariable>();
+        gameVariable.highscore=Save.loadScore();
         //TODO LOAD STUFF
     }
 
@@ -56,6 +57,16 @@ public class GameManager : MonoBehaviour
             endGame.SetActive(true);
 
             punteggio.text = "Punteggio: " + num.ToString();
+
+            
+            if(num>gameVariable.highscore){
+                gameVariable.highscore=num;
+                Save.saveScore(gameVariable.highscore);
+            }
+
+            //Debug.Log(gameVariable.highscore);
+
+
 
             yield return new WaitForSeconds(waitTime);
         }

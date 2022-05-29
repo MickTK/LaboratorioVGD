@@ -25,4 +25,5 @@ public class GameVariable : MonoBehaviour
     public float obstacleWaitTime = 2f;
     public float jumpForce = 5f;
     public float gravity = 9.81f;
+    public int highscore;
 }

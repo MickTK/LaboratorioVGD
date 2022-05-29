@@ -6,6 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    int highscore;
+
+
+
+    private void Start() {
+        highscore = Save.loadScore();
+        //Debug.Log(highscore);
+    }
+
+
     public void OpenGame(){
         SceneManager.LoadScene("Main");
     }
