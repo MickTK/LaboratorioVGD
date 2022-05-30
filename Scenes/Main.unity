@@ -2344,7 +2344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b4a81c6cf8e0cd545b6a9e96b64571db, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b4a81c6cf8e0cd545b6a9e96b64571db, type: 3}
       propertyPath: m_TagString
@@ -2483,6 +2483,11 @@ Transform:
   m_Father: {fileID: 1769822573}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1235730546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b4a81c6cf8e0cd545b6a9e96b64571db, type: 3}
+  m_PrefabInstance: {fileID: 1140828089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1242003364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3521,7 +3526,7 @@ MonoBehaviour:
   gameVariable: {fileID: 1252394704}
   prefOstacoli: []
   prefDoni: []
-  shop: {fileID: 0}
+  shop: {fileID: 1235730546}
 --- !u!1 &1853821855
 GameObject:
   m_ObjectHideFlags: 0

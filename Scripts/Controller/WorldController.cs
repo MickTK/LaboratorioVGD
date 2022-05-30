@@ -20,8 +20,8 @@ public class WorldController : MonoBehaviour
         myController.prefDoni = Resources.LoadAll<GameObject>("Gifts");
         StartCoroutine("delaySpawn");
 
-        myController.shop = GameObject.Find("Shop");
-        myController.shop.SetActive(false);
+        //myController.shop = GameObject.Find("Shop");
+        //myController.shop.SetActive(false);
             
     }
 
