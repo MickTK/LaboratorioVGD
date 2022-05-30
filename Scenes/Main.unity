@@ -773,6 +773,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1975194375736644, guid: 128a80094e00bf34fa2555766a7eea0e, type: 3}
   m_PrefabInstance: {fileID: 1079218304}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &322895104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322895103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70564fa3e0b0544eb097950d2cbfe7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectSwipeOnlyAfterRelease: 0
+  SWIPE_THRESHOLD: 250
+  gameVariable: {fileID: 1252394704}
+  playerController: {fileID: 322895108}
 --- !u!4 &322895105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4744222756475520, guid: 128a80094e00bf34fa2555766a7eea0e, type: 3}
@@ -2691,11 +2707,12 @@ MonoBehaviour:
   moltiplicatoreMonete: 1
   doni: 0
   vite: 3
-  viteOro: 0
+  coroneOro: 0
   buyedItems: 0
   xSpeed: 15
   ySpeed: 15
   obstacleWaitTime: 2
+  goodsSpawnRate: 10
   jumpForce: 5
   gravity: 9.81
   highscore: 0

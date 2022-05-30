@@ -44,40 +44,34 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (gameVariable.isGameRunning)
+        if (Input.GetKeyDown("w"))
         {
-            if (Input.GetKeyDown("w"))
-            {
-                MoovingUp();
-            }
+            MoovingUp();
+        }
 
-            if (Input.GetKeyDown("s"))
-            {
-                MoovingDown();
-            }
+        if (Input.GetKeyDown("s"))
+        {
+            MoovingDown();
         }
 
         MoovingVertical();
 
-        if(gameVariable.isGameRunning){
-
-            if (Input.GetKeyDown("a"))
-            {
-                MoovingLeft();
-            }
-
-            if (Input.GetKeyDown("d"))
-            {
-                MoovingRight();
-            }
-
-            MoovingHorizontal();
+        if (Input.GetKeyDown("a"))
+        {
+            MoovingLeft();
         }
+
+        if (Input.GetKeyDown("d"))
+        {
+            MoovingRight();
+        }
+
+        MoovingHorizontal();
     }
 
-    void MoovingUp(){
+    public void MoovingUp(){
 
-        if(controller.isGrounded){
+        if(gameVariable.isGameRunning && controller.isGrounded){
 
             yPosition = jumpSpeed;
 
@@ -89,23 +83,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void MoovingDown(){
+    public void MoovingDown(){
 
-        yPosition -= jumpSpeed;
+        if(gameVariable.isGameRunning){
+
+            yPosition -= jumpSpeed;
+        }
     }
 
-    void MoovingLeft(){
+    public void MoovingLeft(){
 
-        if(lane > 0){
+        if(gameVariable.isGameRunning && lane > 0){
 
             lane -= 1;
             xDirection = -1;
         }
     }
 
-    void MoovingRight(){
+    public void MoovingRight(){
 
-        if(lane < 4){
+        if(gameVariable.isGameRunning && lane < 4){
 
             lane += 1;
             xDirection = 1;
