@@ -39,8 +39,8 @@ public class ItemEffects : MonoBehaviour
                     gameVariable.vite += 2;
                 break;
                 
-                case ItemType.CUOREDORO:
-                    gameVariable.viteOro += 2;
+                case ItemType.CORONEDORO:
+                    gameVariable.coroneOro += 2;
                 break;
                 
                 case ItemType.ZUPPANONNA:
@@ -57,7 +57,7 @@ public class ItemEffects : MonoBehaviour
                     }
                 break;
 
-                case ItemType.CAFFE:
+                case ItemType.CAFFESTRANO:
                     if(item.durata == 60){
                         gameVariable.xSpeed *= 0.85f;
                     }
@@ -88,7 +88,7 @@ public class ItemEffects : MonoBehaviour
 
                         gameVariable.vite += 1;
 
-                        gameVariable.viteOro += 1;
+                        gameVariable.coroneOro += 1;
                     }
 
                     if(item.durata == 0){
@@ -100,7 +100,7 @@ public class ItemEffects : MonoBehaviour
                         } else {
 
                             gameVariable.vite -= 1;
-                            gameVariable.viteOro -= 1;
+                            gameVariable.coroneOro -= 1;
                         }
                     }
 
@@ -112,7 +112,7 @@ public class ItemEffects : MonoBehaviour
 
                         gameVariable.vite += 2;
 
-                        gameVariable.viteOro += 2;
+                        gameVariable.coroneOro += 2;
                     }
 
                     if(item.durata == 0){
@@ -124,7 +124,7 @@ public class ItemEffects : MonoBehaviour
                         } else {
 
                             gameVariable.vite -= 2;
-                            gameVariable.viteOro -= 2;
+                            gameVariable.coroneOro -= 2;
                         }
                     }
 

@@ -18,7 +18,7 @@ public class VariableHandler : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("UpdateUI", 0, 1.0f);
+        InvokeRepeating("UpdateUI", 0, 0.5f);
     }
 
     void Update(){
@@ -26,7 +26,7 @@ public class VariableHandler : MonoBehaviour
         textVite.text = gameVariable.vite.ToString();
         textMonete.text = gameVariable.monete.ToString();
         textDoni.text = gameVariable.doni.ToString();
-        textViteOro.text = gameVariable.viteOro.ToString();
+        textViteOro.text = gameVariable.coroneOro.ToString();
     }
 
     // Update is called once per frame

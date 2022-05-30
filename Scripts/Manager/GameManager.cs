@@ -28,18 +28,21 @@ public class GameManager : MonoBehaviour
             gameVariable.ySpeed = 10;
             gameVariable.obstacleWaitTime = 1.1f;
             gameVariable.vite = 4;
+            gameVariable.goodsSpawnRate = 7;
             break;
 
             case 2:
             gameVariable.ySpeed = 15;
             gameVariable.obstacleWaitTime = 1.0f;
             gameVariable.vite = 3;
+            gameVariable.goodsSpawnRate = 14;
             break;
 
             case 3:
             gameVariable.ySpeed = 20;
             gameVariable.obstacleWaitTime = 0.9f;
             gameVariable.vite = 2;
+            gameVariable.goodsSpawnRate = 21;
             break;
 
             default:
@@ -80,7 +83,7 @@ public class GameManager : MonoBehaviour
         {
 
             int num = (int) (gameVariable.ySpeed * ((gameVariable.monete / 5) + 1) * (gameVariable.vite + 1) * 
-            ((gameVariable.buyedItems/2) + 1) * (gameVariable.viteOro*2 + 1) * (gameVariable.difficolta + 1) * 
+            ((gameVariable.buyedItems/2) + 1) * (gameVariable.coroneOro*2 + 1) * (gameVariable.difficolta + 1) * 
             (gameVariable.Tratti.Active.Count + 1)) / 10;
             //TODO SERIALIZE THIS
 

@@ -14,7 +14,7 @@ public class GameVariable : MonoBehaviour
     //TODO IMPLEMENTA I COLLEGAMENTI 
     public int doni; // oggetti che ruotano che puoi trovare per la strada, power up
     public int vite;
-    public int viteOro;
+    public int coroneOro;
     public int buyedItems = 0;
     Deck<Tratto> tratti = new Deck<Tratto>("Interface/Tratto/Object");
     public Deck<Tratto> Tratti { get => tratti; set => tratti = value; }
@@ -23,6 +23,7 @@ public class GameVariable : MonoBehaviour
     public float xSpeed = 20f;
     public float ySpeed = 15f;
     public float obstacleWaitTime = 2f;
+    public int goodsSpawnRate = 10;
     public float jumpForce = 5f;
     public float gravity = 9.81f;
     public int highscore;

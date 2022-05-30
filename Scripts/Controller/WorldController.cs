@@ -48,25 +48,20 @@ public class WorldController : MonoBehaviour
                     }
                 */
 
-                switch (countObstacles)
-                {
-                    case 10:
-                        myController.spawnOstacoli(true); 
-                        countObstacles++;        
-                    break;
-                    case 17:
-                        myController.spawnOstacoli(true);
-                        myController.shop.SetActive(true);
-                        countObstacles=0;
-                    break;
-                    
-                    default:
-                        myController.spawnOstacoli(false);
-                        countObstacles++;
-                        break;
-                    
-                }
-                  
+                if(countObstacles == gameVariable.goodsSpawnRate){
+
+                    myController.spawnOstacoli(true); 
+                    countObstacles++;  
+                } else if (countObstacles == (int) (gameVariable.goodsSpawnRate * 3.7)){
+
+                    myController.spawnOstacoli(true);
+                    myController.shop.SetActive(true);
+                    countObstacles=0;
+                } else {
+
+                    myController.spawnOstacoli(false);
+                    countObstacles++;
+                }   
                 
             }  
                     

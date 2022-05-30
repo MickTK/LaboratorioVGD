@@ -46,36 +46,33 @@ public class PlayerController : MonoBehaviour
 
         if (gameVariable.isGameRunning)
         {
-            MoovingWindows();
-        }
-    }
-    
-    void MoovingWindows()
-    {
+            if (Input.GetKeyDown("w"))
+            {
+                MoovingUp();
+            }
 
-        if (Input.GetKeyDown("w"))
-        {
-            MoovingUp();
-        }
-
-        if (Input.GetKeyDown("s"))
-        {
-            MoovingDown();
+            if (Input.GetKeyDown("s"))
+            {
+                MoovingDown();
+            }
         }
 
         MoovingVertical();
 
-        if (Input.GetKeyDown("a"))
-        {
-            MoovingLeft();
-        }
+        if(gameVariable.isGameRunning){
 
-        if (Input.GetKeyDown("d"))
-        {
-            MoovingRight();
-        }
+            if (Input.GetKeyDown("a"))
+            {
+                MoovingLeft();
+            }
 
-        MoovingHorizontal();
+            if (Input.GetKeyDown("d"))
+            {
+                MoovingRight();
+            }
+
+            MoovingHorizontal();
+        }
     }
 
     void MoovingUp(){
