@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c60384b27c0d4b24da1720733c92bf43
+guid: a37ebe8624288144fb03c1a4495e1f23
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Permanent Marker
+  - PASTI
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
