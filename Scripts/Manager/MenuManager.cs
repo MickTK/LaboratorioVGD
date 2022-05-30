@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    int highscore;
-    int difficolta = 2;
+    public static int highscore;
+    public static int difficolta = 2;
     public GameObject menuSettings;
     public GameObject menuButton;
     static Color WHITE = Color.white;

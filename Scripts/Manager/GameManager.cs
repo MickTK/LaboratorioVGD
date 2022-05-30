@@ -15,8 +15,36 @@ public class GameManager : MonoBehaviour
     void Start(){
         
         gameVariable = GetComponent<GameVariable>();
-        gameVariable.highscore=Save.loadScore();
-        //TODO LOAD STUFF
+        gameVariable.highscore = MenuManager.highscore;
+        gameVariable.difficolta = MenuManager.difficolta;
+        SetDifficulty();
+    }
+
+    void SetDifficulty(){
+
+        switch(gameVariable.difficolta){
+
+            case 1:
+            gameVariable.ySpeed = 10;
+            gameVariable.obstacleWaitTime = 1.1f;
+            gameVariable.vite = 4;
+            break;
+
+            case 2:
+            gameVariable.ySpeed = 15;
+            gameVariable.obstacleWaitTime = 1.0f;
+            gameVariable.vite = 3;
+            break;
+
+            case 3:
+            gameVariable.ySpeed = 20;
+            gameVariable.obstacleWaitTime = 0.9f;
+            gameVariable.vite = 2;
+            break;
+
+            default:
+            break;
+        }
     }
 
     public void OpenPause(){

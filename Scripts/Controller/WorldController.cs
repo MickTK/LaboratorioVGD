@@ -16,10 +16,9 @@ public class WorldController : MonoBehaviour
     void Start()
     {
         myController= GetComponent<ObjectController>();
-        myController.prefOstacoli = Resources.LoadAll<GameObject>("Obstacles");
-        myController.prefDoni = Resources.LoadAll<GameObject>("Gifts");
+        myController.prefOstacoli = Resources.LoadAll<GameObject>("Interactable/Obstacles");
+        myController.prefDoni = Resources.LoadAll<GameObject>("Interactable/Collectable/Gifts");
         StartCoroutine("delaySpawn");
-
         //myController.shop = GameObject.Find("Shop");
         //myController.shop.SetActive(false);
             
@@ -51,11 +50,11 @@ public class WorldController : MonoBehaviour
 
                 switch (countObstacles)
                 {
-                    case 5:
+                    case 10:
                         myController.spawnOstacoli(true); 
                         countObstacles++;        
                     break;
-                    case 10:
+                    case 17:
                         myController.spawnOstacoli(true);
                         myController.shop.SetActive(true);
                         countObstacles=0;

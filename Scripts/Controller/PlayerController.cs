@@ -12,14 +12,6 @@ public class PlayerController : MonoBehaviour
     public float xDirection = 0f; // la direzione destra o sinistra verso cui si muove il player
     public float yPosition = 0f;
     private float jumpSpeed = 3.5f;
-
-    /* Animazione */
-    private Animator animator;
-    public Renderer rend;
-    private Material originalMaterial; // Materiale della mesh
-    public Material replaceMaterial;   // Materiale di rimpiazzo
-    private IEnumerator coroutine;     // Coroutine per il blink
-
     private Vector3[] lanes = new Vector3[]{
 
         new Vector3(-4,0,0), // lane left left
@@ -29,6 +21,13 @@ public class PlayerController : MonoBehaviour
         new Vector3(4,0,0) // lane right right
 
     };
+
+    /* Animazione */
+    private Animator animator;
+    public Renderer rend;
+    private Material originalMaterial; // Materiale della mesh
+    public Material replaceMaterial;   // Materiale di rimpiazzo
+    private IEnumerator coroutine;     // Coroutine per il blink
 
     void Start()
     {
@@ -44,33 +43,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
         if (gameVariable.isGameRunning)
         {
-            Mooving();
+            MoovingWindows();
         }
-
     }
-
-    void MoovingUp(){
-
-            yPosition = jumpSpeed;
-
-            /* Animazione */
-            animator.ResetTrigger("jump");  // Resetta il trigger del salto
-            animator.SetTrigger("jump");    // Attiva l'animazione del salto
-
-            FindObjectOfType<AudioManager>().Play("Salto"); // Suono
-    }
-
-    void MoovingDown(){
-
-        yPosition -= jumpSpeed;
-    }
-
-    void Mooving()
+    
+    void MoovingWindows()
     {
 
-        if (Input.GetKeyDown("w") && controller.isGrounded)
+        if (Input.GetKeyDown("w"))
         {
             MoovingUp();
         }
@@ -80,23 +63,68 @@ public class PlayerController : MonoBehaviour
             MoovingDown();
         }
 
+        MoovingVertical();
+
+        if (Input.GetKeyDown("a"))
+        {
+            MoovingLeft();
+        }
+
+        if (Input.GetKeyDown("d"))
+        {
+            MoovingRight();
+        }
+
+        MoovingHorizontal();
+    }
+
+    void MoovingUp(){
+
+        if(controller.isGrounded){
+
+            yPosition = jumpSpeed;
+
+            /* Animazione */
+            animator.ResetTrigger("jump");  // Resetta il trigger del salto
+            animator.SetTrigger("jump");    // Attiva l'animazione del salto
+
+            FindObjectOfType<AudioManager>().Play("Salto"); // Suono
+        }
+    }
+
+    void MoovingDown(){
+
+        yPosition -= jumpSpeed;
+    }
+
+    void MoovingLeft(){
+
+        if(lane > 0){
+
+            lane -= 1;
+            xDirection = -1;
+        }
+    }
+
+    void MoovingRight(){
+
+        if(lane < 4){
+
+            lane += 1;
+            xDirection = 1;
+        }
+    }
+
+    void MoovingVertical(){
+
         Vector3 direction = new Vector3();
         yPosition -= gameVariable.gravity * Time.deltaTime;
         direction.y = yPosition;
         controller.Move(direction * gameVariable.jumpForce * Time.deltaTime);
+    }
 
-        if (Input.GetKeyDown("a") && lane > 0)
-        {
-            lane -= 1;
-            xDirection = -1;
-        }
-
-        if (Input.GetKeyDown("d") && lane < 4)
-        {
-            lane += 1;
-            xDirection = 1;
-        }
-
+    void MoovingHorizontal(){
+        
         if (xDirection == -1 && controller.transform.position.x > lanes[lane].x)
         {
 
@@ -153,7 +181,6 @@ public class PlayerController : MonoBehaviour
         if (other.transform.tag == "Shop")
         {
 
-            Destroy(other.gameObject);
             gameVariable.openShop = true;
         }
     }
