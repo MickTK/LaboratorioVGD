@@ -40,6 +40,42 @@ public class MenuManager : MonoBehaviour
 
         menuButton.SetActive(false);
         menuSettings.SetActive(true);
+
+        switch(difficolta){
+
+            case 1:
+            SetButtonColor(EASY, GREEN);
+            SetButtonColor(MEDIUM, WHITE);
+            SetButtonColor(HARD, WHITE);
+            break;          
+              
+            case 2:
+            SetButtonColor(EASY, WHITE);
+            SetButtonColor(MEDIUM, GREEN);
+            SetButtonColor(HARD, WHITE);
+            break;   
+
+            case 3:
+            SetButtonColor(EASY, WHITE);
+            SetButtonColor(MEDIUM, WHITE);
+            SetButtonColor(HARD, GREEN);
+            break;
+
+        }
+
+        if (FindObjectOfType<AudioManager>().GetMusicVolume())
+        {
+            SetButtonColor(MUSIC, GREEN);
+        } else {
+            SetButtonColor(MUSIC, WHITE);
+        }
+
+        if (FindObjectOfType<AudioManager>().GetEffectVolume())
+        {
+            SetButtonColor(EFFECTS, GREEN);
+        } else {
+            SetButtonColor(EFFECTS, WHITE);
+        }
     }
 
     public void CallButtonClick(string buttonType){

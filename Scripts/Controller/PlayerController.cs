@@ -51,17 +51,8 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void Mooving()
-    {
+    void MoovingUp(){
 
-        if (Input.GetKeyDown("space"))
-        {
-            print("space key was pressed");
-        }
-
-
-        if (Input.GetKeyDown("w") && controller.isGrounded)
-        {
             yPosition = jumpSpeed;
 
             /* Animazione */
@@ -69,11 +60,24 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("jump");    // Attiva l'animazione del salto
 
             FindObjectOfType<AudioManager>().Play("Salto"); // Suono
+    }
+
+    void MoovingDown(){
+
+        yPosition -= jumpSpeed;
+    }
+
+    void Mooving()
+    {
+
+        if (Input.GetKeyDown("w") && controller.isGrounded)
+        {
+            MoovingUp();
         }
 
         if (Input.GetKeyDown("s"))
         {
-            yPosition -= jumpSpeed;
+            MoovingDown();
         }
 
         Vector3 direction = new Vector3();

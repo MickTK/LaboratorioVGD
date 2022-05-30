@@ -117,7 +117,7 @@ public class ItemHandler : MonoBehaviour
 
     IEnumerator OpenShop(){
         
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.3f);
 
         gameVariable.isGameRunning = false;
         itemUI.SetActive(true);

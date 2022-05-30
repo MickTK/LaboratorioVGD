@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
-  m_Name: 3 CUORE D'ORO
+  m_Name: 2 KIT SOCCORSO
   m_EditorClassIdentifier: 
-  tipo: 2
-  titolo: Cuore D'oro
-  descrizione: aggiungi 2 cuori d'oro
-  artwork: {fileID: 21300000, guid: d9ab8cc4e3931f242b5e425ab7a30bfd, type: 3}
-  prezzo: 400
-  durata: 3
+  tipo: 1
+  titolo: Kit Soccorso
+  descrizione: "2 cuori in pi\xF9"
+  artwork: {fileID: 21300000, guid: 46deca66adb540c46a7141d568112df8, type: 3}
+  prezzo: 500
+  durata: 0

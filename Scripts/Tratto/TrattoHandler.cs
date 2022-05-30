@@ -34,6 +34,9 @@ public class TrattoHandler : MonoBehaviour
 
     void Click(Tratto tratto){
 
+        gameVariable.obstacleWaitTime *= 0.85f;
+        gameVariable.ySpeed += 1;
+
         trattoUI.SetActive(false);
         Tratto newTratto = Instantiate(tratto);
         gameVariable.Tratti.Active.Add(newTratto);
@@ -52,8 +55,7 @@ public class TrattoHandler : MonoBehaviour
         {
             StartCoroutine(OpenTratto());
             gameVariable.doni = 0;
-            gameVariable.obstacleWaitTime *= 0.85f;
-            gameVariable.ySpeed += 1;
+
         }
     }
     

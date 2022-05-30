@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
-  m_Name: 2 KIT SOCCORSO
+  m_Name: 4 ZUPPA NONNA
   m_EditorClassIdentifier: 
-  tipo: 1
-  titolo: Kit Soccorso
-  descrizione: "2 cuori in pi\xF9"
-  artwork: {fileID: 21300000, guid: 46deca66adb540c46a7141d568112df8, type: 3}
-  prezzo: 500
-  durata: 3
+  tipo: 3
+  titolo: Zuppa Dalla Nonna
+  descrizione: "1 cuore in pi\xF9 e 1 dono in pi\xF9"
+  artwork: {fileID: 21300000, guid: 9f735bfbee670d24799239a378af86a0, type: 3}
+  prezzo: 600
+  durata: 0
