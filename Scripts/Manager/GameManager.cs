@@ -26,23 +26,23 @@ public class GameManager : MonoBehaviour
 
             case 1:
             gameVariable.ySpeed = 10;
-            gameVariable.obstacleWaitTime = 1.1f;
+            gameVariable.obstacleWaitTime = 2.5f;
             gameVariable.vite = 4;
-            gameVariable.goodsSpawnRate = 7;
+            gameVariable.goodsSpawnRate = 6;
             break;
 
             case 2:
             gameVariable.ySpeed = 15;
-            gameVariable.obstacleWaitTime = 1.0f;
+            gameVariable.obstacleWaitTime = 1.5f;
             gameVariable.vite = 3;
-            gameVariable.goodsSpawnRate = 14;
+            gameVariable.goodsSpawnRate = 12;
             break;
 
             case 3:
             gameVariable.ySpeed = 20;
-            gameVariable.obstacleWaitTime = 0.9f;
+            gameVariable.obstacleWaitTime = 1f;
             gameVariable.vite = 2;
-            gameVariable.goodsSpawnRate = 21;
+            gameVariable.goodsSpawnRate = 18;
             break;
 
             default:
