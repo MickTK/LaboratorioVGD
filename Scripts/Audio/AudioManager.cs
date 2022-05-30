@@ -4,7 +4,7 @@ using UnityEngine;
 
 public partial class AudioManager : MonoBehaviour
 {
-    // Array che conterr� le informazioni sui suoni
+    // Array che conterra' le informazioni sui suoni
     public Sound[] sounds;
     // Permette di far partire un suono all'avvio dello script specificandone l'indice
     public int startSoundIndex = -1;
@@ -15,13 +15,15 @@ public partial class AudioManager : MonoBehaviour
     {
         /* Persistenza dei suoni: permette di mantenere attivo un suono al cambio di scena  */
         if (instance == null)
+        {
             instance = this;
+            DontDestroyOnLoad(instance);
+        }
         else
         {
             Destroy(gameObject);
-            return;
+
         }
-        DontDestroyOnLoad(gameObject);
 
         /* Inizializza i suoni nell'array */
         foreach (Sound s in sounds)
