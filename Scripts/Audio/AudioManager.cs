@@ -9,9 +9,6 @@ public partial class AudioManager : MonoBehaviour
     // Permette di far partire un suono all'avvio dello script specificandone l'indice
     public int startSoundIndex = -1;
 
-    public bool musicOn = true;
-    public bool effectOn = true;
-
     public static AudioManager instance;
 
     void Awake()
@@ -66,19 +63,42 @@ public partial class AudioManager : MonoBehaviour
         s.source.Stop();
     }
 
+    // Stato dei volume (on/off) della musica e dei suoni
+    private bool musicOn = true;
+    private bool effectOn = true;
+    public bool GetMusicVolume()
+    {
+        return musicOn;
+    }
+    public bool GetEffectVolume()
+    {
+        return effectOn;
+    }
+
     // Metodo per modificare il volume dei suoni e della musica
     // type -> "Music" per modificare il volume della musica, "Sound" per i suoni di gioco
     public void SetVolume(float volume, string type)
     {
+        if (type.ToLower() == "music")
+            if (volume == 0f)
+                musicOn = false;
+            else
+                musicOn = true;
+        else if (type.ToLower() == "sound")
+            if (volume == 0f)
+                effectOn = false;
+            else
+                effectOn = true;
+
         foreach (Sound sound in sounds) 
         {
             if (type.ToLower() == "music" && sound.isSong)
             {
-                sound.volume = volume;
+                sound.source.volume = volume;
             }
             else if (type.ToLower() == "sound" && !sound.isSong)
             {
-                sound.volume = volume;
+                sound.source.volume = volume;
             }
         }
     }

@@ -118,11 +118,12 @@ public class MenuManager : MonoBehaviour
     // Cambia volume della musica
     public void SetMusicVolume()
     {
-        if (FindObjectOfType<AudioManager>().musicOn)
+        if (FindObjectOfType<AudioManager>().GetMusicVolume())
         {
 
             FindObjectOfType<AudioManager>().SetVolume(0f, "Music");
             SetButtonColor(buttonMusic, WHITE);
+
 
         } else {
 
@@ -133,7 +134,7 @@ public class MenuManager : MonoBehaviour
     // Cambia volume degli effetti
     public void SetEffectsVolume()
     {
-        if (FindObjectOfType<AudioManager>().effectOn)
+        if (FindObjectOfType<AudioManager>().GetEffectVolume())
         {
 
             FindObjectOfType<AudioManager>().SetVolume(0f, "Sound");
@@ -144,6 +145,5 @@ public class MenuManager : MonoBehaviour
             FindObjectOfType<AudioManager>().SetVolume(1f, "Sound");
             SetButtonColor(buttonEffects, GREEN);
         }
-            
     }
 }
