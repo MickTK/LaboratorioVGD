@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
 
         if(gameVariable.vite == 0 || gameVariable.Tratti.Active.Count > 7){ // se hai più di 7 tratti o non hai vita 
 
+            FindObjectOfType<PlayerController>().Die();
+
             gameVariable.isGameRunning = false;
             UI.SetActive(false);
 

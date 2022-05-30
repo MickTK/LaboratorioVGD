@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
 
-            if (gameVariable.vite != 0)
+            if (gameVariable.vite > 0)
             {
 
                 /* Animazione */
@@ -126,13 +126,6 @@ public class PlayerController : MonoBehaviour
 
                 gameVariable.vite -= 1;
 
-            }
-            else
-            {
-                /* Animazione */
-                animator.SetBool("die", true); // Attiva l'animazione della morte del giocatore
-
-                FindObjectOfType<AudioManager>().Play("Bonk"); // Suono
             }
         }
 
@@ -160,6 +153,13 @@ public class PlayerController : MonoBehaviour
             gameVariable.openShop = true;
         }
     }
+
+    public void Die()
+    {
+        /* Animazione */
+        animator.SetBool("die", true); // Attiva l'animazione della morte del giocatore
+    }
+
     /* Effetto danno */
     private IEnumerator Blink(int blinks, float time)
     {
