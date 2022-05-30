@@ -8,27 +8,24 @@ public class MenuManager : MonoBehaviour
 {
     int highscore;
     int difficolta = 2;
-    Button buttonEasy;
-    Button buttonMedium;
-    Button buttonHard;
-    Button buttonMusic;
-    Button buttonEffects;
     public GameObject menuSettings;
     public GameObject menuButton;
     static Color WHITE = Color.white;
     static Color GREEN = Color.green;
+    static string EASY = "EasyButton";
+    static string MEDIUM = "MediumButton";
+    static string HARD = "HardButton";
+    static string MUSIC = "MusicButton";
+    static string EFFECTS = "EffectsButton";
 
     private void Start() {
-        highscore = Save.loadScore();
 
-        buttonEasy = GameObject.Find("EasyButton").GetComponent<Button>();
-        buttonMedium = GameObject.Find("MediumButton").GetComponent<Button>();
-        buttonHard = GameObject.Find("HardButton").GetComponent<Button>();
-        buttonMusic = GameObject.Find("MusicButton").GetComponent<Button>();
-        buttonEffects = GameObject.Find("EffectsButton").GetComponent<Button>();
+        highscore = Save.loadScore();
     }
 
-    public void SetButtonColor(Button button, Color color){
+    public void SetButtonColor(string buttonName, Color color){
+        
+        Button button = GameObject.Find(buttonName).GetComponent<Button>();
         ColorBlock colors = button.colors;
         colors.normalColor = color;
         colors.selectedColor = color;
@@ -51,23 +48,23 @@ public class MenuManager : MonoBehaviour
         {
             case "Easy":
             difficolta = 1;
-            SetButtonColor(buttonEasy, GREEN);
-            SetButtonColor(buttonMedium, WHITE);
-            SetButtonColor(buttonHard, WHITE);
+            SetButtonColor(EASY, GREEN);
+            SetButtonColor(MEDIUM, WHITE);
+            SetButtonColor(HARD, WHITE);
             break;
 
             case "Medium":
             difficolta = 2;
-            SetButtonColor(buttonEasy, WHITE);
-            SetButtonColor(buttonMedium, GREEN);
-            SetButtonColor(buttonHard, WHITE);
+            SetButtonColor(EASY, WHITE);
+            SetButtonColor(MEDIUM, GREEN);
+            SetButtonColor(HARD, WHITE);
             break;
 
             case "Hard":
             difficolta = 3;
-            SetButtonColor(buttonEasy, WHITE);
-            SetButtonColor(buttonMedium, WHITE);
-            SetButtonColor(buttonHard, GREEN);
+            SetButtonColor(EASY, WHITE);
+            SetButtonColor(MEDIUM, WHITE);
+            SetButtonColor(HARD, GREEN);
             break;
 
             case "Music":
@@ -122,13 +119,13 @@ public class MenuManager : MonoBehaviour
         {
 
             FindObjectOfType<AudioManager>().SetVolume(0f, "Music");
-            SetButtonColor(buttonMusic, WHITE);
+            SetButtonColor(MUSIC, WHITE);
 
 
         } else {
 
             FindObjectOfType<AudioManager>().SetVolume(1f, "Music");
-            SetButtonColor(buttonMusic, GREEN);
+            SetButtonColor(MUSIC, GREEN);
         }
     }
     // Cambia volume degli effetti
@@ -138,12 +135,12 @@ public class MenuManager : MonoBehaviour
         {
 
             FindObjectOfType<AudioManager>().SetVolume(0f, "Sound");
-            SetButtonColor(buttonEffects, WHITE);
+            SetButtonColor(EFFECTS, WHITE);
 
         } else {
 
             FindObjectOfType<AudioManager>().SetVolume(1f, "Sound");
-            SetButtonColor(buttonEffects, GREEN);
+            SetButtonColor(EFFECTS, GREEN);
         }
     }
 }
