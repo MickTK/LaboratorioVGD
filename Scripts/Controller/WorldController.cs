@@ -49,7 +49,7 @@ public class WorldController : MonoBehaviour
                     }
                 */
 
-                switch (countObsacles)
+                switch (countObstacles)
                 {
                     case 5:
                         myController.spawnOstacoli(true); 
@@ -64,6 +64,7 @@ public class WorldController : MonoBehaviour
                     default:
                         myController.spawnOstacoli(false);
                         countObstacles++;
+                        break;
                     
                 }
                   
