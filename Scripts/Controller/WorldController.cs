@@ -17,7 +17,7 @@ public class WorldController : MonoBehaviour
     {
         myController= GetComponent<ObjectController>();
         myController.prefOstacoli = Resources.LoadAll<GameObject>("Interactable/Obstacles");
-        myController.prefDoni = Resources.LoadAll<GameObject>("Interactable/Collectable/Gifts/toSpawn");
+        myController.prefDoni = Resources.LoadAll<GameObject>("Interactable/Collectable/Gifts/Prefabs");
         StartCoroutine("delaySpawn");
         //myController.shop = GameObject.Find("Shop");
         //myController.shop.SetActive(false);
@@ -33,13 +33,16 @@ public class WorldController : MonoBehaviour
 
                 StartCoroutine("delayObs");  
 
-                if(countObstacles == gameVariable.goodsSpawnRate){
+
+            
+                if(countObstacles%gameVariable.giftsSpawnRate==0 && countObstacles!=0){
 
                     myController.spawnOstacoli(true); 
                     countObstacles++;  
-                } else if (countObstacles == (int) (gameVariable.goodsSpawnRate * 3.7)){
+                   
+                } else if (countObstacles%gameVariable.shopSpawnRate==0 && countObstacles!=0){
 
-                    myController.spawnOstacoli(true);
+                    myController.spawnOstacoli(false);
                     myController.shop.SetActive(true);
                     countObstacles=0;
                 } else {

@@ -49,6 +49,7 @@ public class ObjectController : MonoBehaviour
             randPos.y=0.5f;
             Instantiate(prefDoni[what], randPos, Quaternion.identity);
             
+            
         }else{
 
              

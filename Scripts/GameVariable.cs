@@ -24,7 +24,10 @@ public class GameVariable : MonoBehaviour
     public float xSpeed = 20f;
     public float ySpeed = 15f;
     public float obstacleWaitTime = 2f;
-    public int goodsSpawnRate = 10;
+
+    public int giftsSpawnRate = 7;
+    public int shopSpawnRate = 30;
+
     public float jumpForce = 5f;
     public float gravity = 9.81f;
     public int punteggio;

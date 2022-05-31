@@ -159,7 +159,6 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             FindObjectOfType<AudioManager>().Play("Moneta"); // Suono
             int MoneyValue = other.GetComponent<MoneyValue>().value;
-            Debug.Log(MoneyValue + " + " + gameVariable.moltiplicatoreMonete + " + " + other.gameObject.name);
             gameVariable.monete += MoneyValue * gameVariable.moltiplicatoreMonete;
         }
 
