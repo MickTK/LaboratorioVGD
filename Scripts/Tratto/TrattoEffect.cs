@@ -29,14 +29,14 @@ public class TrattoEffect : MonoBehaviour
         }
     }
 
-    void ApplyEffects(){
+    void ApplyEffects(){ //applica gli effetti dei tratti
 
         foreach (Tratto tratto in gameVariable.Tratti.Active)
         {
 
             if(tratto.durata >= 0){ 
 
-                switch (tratto.tipo)
+                switch (tratto.tipo) 
                 {
                     case TrattoType.REROLL:
                         gameVariable.doni = 4;
@@ -47,7 +47,7 @@ public class TrattoEffect : MonoBehaviour
 
                         gameVariable.moltiplicatoreMonete /= mulMoneteSadico;
                     
-                        if(gameVariable.vite == 1){
+                        if(gameVariable.vite == 1){ 
                             mulMoneteSadico = 3;
                         }
                         if(gameVariable.vite == 2){

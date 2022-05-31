@@ -79,6 +79,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    //onclick del button esterno, in base al bottone fa un attività diversa
     public void CallButtonClick(string buttonType){
 
         switch (buttonType)
@@ -129,6 +130,7 @@ public class MenuManager : MonoBehaviour
     }
 
     public void QuitGame(){
+        
         // save any game data here
         #if UNITY_EDITOR
             // Application.Quit() does not work in the editor so

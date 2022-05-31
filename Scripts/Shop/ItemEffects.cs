@@ -12,6 +12,7 @@ public class ItemEffects : MonoBehaviour
         StartCoroutine(ShopEffects());    
     }
 
+    
     IEnumerator ShopEffects()
     {
         while(true) 
@@ -25,11 +26,12 @@ public class ItemEffects : MonoBehaviour
         }
     }
 
+    //applica gli effetti degli oggetti acquistati
     void ApplyEffects(){
 
         foreach (Item item in gameVariable.Shop.Active)
         {
-            switch (item.tipo)
+            switch (item.tipo) //ogni oggetto ha un case 
             {
                 case ItemType.MEDICINE:
                     gameVariable.vite += 1;
@@ -141,11 +143,12 @@ public class ItemEffects : MonoBehaviour
                     }
                 break;
             }
-            item.durata -= 1;
+
+            item.durata -= 1; //ogni oggetto perde 1 di tempo
         }
     }
 
-    void Exprire(){
+    void Exprire(){ //quando l'oggetto ha una durata sotto lo 0 si elimina
 
         for (int i = gameVariable.Shop.Active.Count - 1; i >= 0; i--)
         {
