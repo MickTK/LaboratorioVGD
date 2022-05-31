@@ -27,32 +27,35 @@ public class WorldController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameVariable.isGameRunning){
+        if(gameVariable.isGameRunning){ //flag che esegue un check se il gioco è effettivamente in running
             
-            if(waitObs){
+            if(waitObs){    //utilizzo un flag che aggiorno con una coroutine per aggiungere un ritardo allo spawn degli ostacoli
 
                 StartCoroutine("delayObs");  
 
 
-            
+                //ogni n file di ostacoli istantanzio una fila differente
                 if(countObstacles%gameVariable.giftsSpawnRate==0 && countObstacles!=0){
 
+                    //fila con un gift
                     myController.spawnOstacoli(true); 
                     countObstacles++;  
                    
                 } else if (countObstacles%gameVariable.shopSpawnRate==0 && countObstacles!=0){
 
+                    //fila con lo shop
                     myController.spawnOstacoli(false);
                     myController.shop.SetActive(true);
                     countObstacles=0;
                 } else {
 
+                    //fila qualsiasi
                     myController.spawnOstacoli(false);
                     countObstacles++;
                 }   
                 
             }  
-                    
+            
             myController.moveForward();
             myController.reset();
         }
@@ -61,14 +64,14 @@ public class WorldController : MonoBehaviour
 
     IEnumerator delayObs(){
         waitObs=false;
-        yield return new WaitForSecondsRealtime(gameVariable.obstacleWaitTime);
+        yield return new WaitForSecondsRealtime(gameVariable.obstacleWaitTime); //posso decidere ogni quanto ritardare lo spawn degli ostacoli tramite questa variabile
         waitObs=true;
     }
 
   
     IEnumerator delaySpawn(){
-
-        yield return new WaitForSecondsRealtime(2);
+        //coroutine di delay per il primo spawn degli ostacoli
+        yield return new WaitForSecondsRealtime(2); 
         waitObs=true;
 
     }

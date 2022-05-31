@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class ObjectController : MonoBehaviour
 {     
-    
+    /*creo un vettore per ogni tipo di prefab istanziabile*/  
     public GameVariable gameVariable;
-    /*creo un vettore per ogni tipo di prefab istanziabile*/    
     public GameObject[] prefOstacoli;     
     public GameObject[] prefDoni;     
     byte nCorsieOccupabili = 3;
@@ -17,7 +16,6 @@ public class ObjectController : MonoBehaviour
     List <GameObject> listLPlanes = new List<GameObject>();
     List <GameObject> listRPlanes = new List<GameObject>();
     List <GameObject> listEnvironment = new List<GameObject>();
-
     public GameObject shop;
   
     public void Start(){
@@ -33,26 +31,26 @@ public class ObjectController : MonoBehaviour
         /*creo la posizione dell'oggetto da istanziare, con y e z fisse ma x variabile*/ 
         int posX, posZ;              
         posX= UnityEngine.Random.Range(-2,3)*2; //genero una x casuale tra -2,0 e 2
-        posZ= UnityEngine.Random.Range(-2,3)*2;
+        posZ= UnityEngine.Random.Range(-2,3)*2; //uguale per la z
         posZ+=80; 
         return new Vector3(posX,0,posZ); 
     }
 
     public void spawnOstacoli(bool power){
 
-        int numGenForEachPrefab;
+        int numGenForEachPrefab;    //variabile che uso per generare un determinato tipo di oggetto
         List <Vector3> posOccupate = new List<Vector3>();        
         Vector3 randPos = randCoord(); 
 
-        if(power){
+        if(power){  //se richiamo la funzione con un valore true il primo degli oggetti sarà un gift
 
             numGenForEachPrefab = UnityEngine.Random.Range(0,prefDoni.Length); 
-            posOccupate.Add(randPos);
+            posOccupate.Add(randPos);   //quando aggiungo un oggetto tengo conto delle posizioni occupate in questo array
             randPos.y=0.5f;
-            Instantiate(prefDoni[numGenForEachPrefab], randPos, Quaternion.identity);
+            Instantiate(prefDoni[numGenForEachPrefab], randPos, Quaternion.identity);   
             
             
-        }else{
+        }else{  
 
              
             numGenForEachPrefab = UnityEngine.Random.Range(0,prefOstacoli.Length); 
@@ -62,15 +60,15 @@ public class ObjectController : MonoBehaviour
             
         }
 
-        for (int i = 0; i < nCorsieOccupabili; i++)
+        for (int i = 0; i < nCorsieOccupabili; i++) //genero gli altri oggetti nelle alrte corsie
             {
                 numGenForEachPrefab = UnityEngine.Random.Range(0,prefOstacoli.Length);
                 int prob= UnityEngine.Random.Range(0,101);
 
-                if(prob<80){
+                if(prob<80){    //probabilità di generare l'oggetto nella corsia n
                     do{
                         randPos = randCoord();
-                        }
+                    }
                     while(posOccupate.Contains(randPos));
                     
                     Instantiate(prefOstacoli[numGenForEachPrefab], randPos, Quaternion.identity);
@@ -79,7 +77,7 @@ public class ObjectController : MonoBehaviour
             }     
     }
     
-    public void find(){  
+    public void find(){  //aggiorno le liste degli oggetti in game
         listElementi.Clear();
 
         //elementi generabili
@@ -106,12 +104,12 @@ public class ObjectController : MonoBehaviour
 
         if(listElementi!=null){
             foreach(GameObject el in listElementi){
-                el.transform.Translate(-Vector3.forward *Time.deltaTime* gameVariable.ySpeed);
+                el.transform.Translate(-Vector3.forward *Time.deltaTime* gameVariable.ySpeed);  //movimento frontale degli oggetti in gioco
             }
         }
 
     }
-    public void reset(){
+    public void reset(){    //controllo che gli oggetti abbiano superato il limite e li gestisco in maniera differente
         find();
         if(listElementi!=null){
             foreach(GameObject el in listElementi){
@@ -142,7 +140,7 @@ public class ObjectController : MonoBehaviour
         }
 
     }
-    public void resetTerrains(GameObject el){
+    public void resetTerrains(GameObject el){   //i 3 tipi di terreni hanno un array di riferimento per l'ultima posizione al quale devono essere ripristinati
             
         Vector3 posIniz;
         float max=0;
@@ -189,7 +187,7 @@ public class ObjectController : MonoBehaviour
         
 
     }
-    public void resetEnv(GameObject el){
+    public void resetEnv(GameObject el){    //environment riaggiorno la z, in due casi differenti se lo shop è attivo o meno
         Vector3 position;
         if(GameObject.Find("Shop")==null){
             position= new Vector3 (el.transform.position.x,el.transform.position.y,90);
@@ -200,7 +198,7 @@ public class ObjectController : MonoBehaviour
         }
         el.transform.position=position;
     }
-    public void resetShop(GameObject el){
+    public void resetShop(GameObject el){//risposto lo shop e lo rendo nuovamente non attivo
         
         Vector3 position= new Vector3 (el.transform.position.x,el.transform.position.y,100);
         el.transform.position=position;
