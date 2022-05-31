@@ -124,6 +124,7 @@ public class ItemEffects : MonoBehaviour
 
                         } else {
 
+                            gameVariable.monete -= 700; 
                             gameVariable.vite -= 2;
                             gameVariable.coroneOro -= 2;
                         }
