@@ -6,6 +6,7 @@ public class GameVariable : MonoBehaviour
 {
     public bool isGameRunning;
     public bool openShop = false;
+    public bool invincible = false;
     //TODO IMPLEMENTA
     public int difficolta; // 0 = facile, 1 = normale, 2 = difficile, 3 = hardcore
     public Transform player;

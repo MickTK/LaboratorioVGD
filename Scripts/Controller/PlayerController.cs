@@ -141,9 +141,9 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
 
-            if (gameVariable.vite > 0)
+            if (gameVariable.vite > 0 && !gameVariable.invincible)
             {
-
+                gameVariable.invincible = true;
                 /* Animazione */
                 coroutine = Blink(5, 0.1f);
                 StartCoroutine(coroutine);
@@ -151,7 +151,6 @@ public class PlayerController : MonoBehaviour
                 FindObjectOfType<AudioManager>().Play("Bonk"); // Suono
 
                 gameVariable.vite -= 1;
-
             }
         }
 
@@ -175,7 +174,6 @@ public class PlayerController : MonoBehaviour
 
         if (other.transform.tag == "Shop")
         {
-
             gameVariable.openShop = true;
         }
     }
@@ -196,6 +194,7 @@ public class PlayerController : MonoBehaviour
             rend.material = originalMaterial;      // Visibile
             yield return new WaitForSeconds(time);
         }
+        gameVariable.invincible = false;
         StopCoroutine(coroutine);                  // Termina la coroutine
     }
 }
