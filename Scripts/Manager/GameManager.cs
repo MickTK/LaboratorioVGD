@@ -84,9 +84,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator OpenMenuEnding(float waitTime)
     {
-        while (true)
-        {
-
+        
             int num = (int) (gameVariable.ySpeed * ((gameVariable.monete / 5) + 1) * (gameVariable.vite + 1) * 
             ((gameVariable.buyedItems/2) + 1) * (gameVariable.coroneOro*2 + 1) * (gameVariable.difficolta + 1) * 
             (gameVariable.Tratti.Active.Count + 1)) / 10;
@@ -95,7 +93,7 @@ public class GameManager : MonoBehaviour
             endGame.SetActive(true);
 
             punteggio.text = "Punteggio: " + num.ToString();
-
+            
             
             if(num>gameVariable.punteggio){
                 gameVariable.punteggio=num;
@@ -106,6 +104,6 @@ public class GameManager : MonoBehaviour
             //Debug.Log(gameVariable.highscore);
 
             yield return new WaitForSeconds(waitTime);
-        }
+        
     }
 }
