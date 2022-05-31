@@ -98,6 +98,7 @@ public class ItemHandler : MonoBehaviour
     
     void Exit(){
 
+        Time.timeScale = 1f;
         gameVariable.isGameRunning = true;
         itemUI.SetActive(false);
         item4.SetActive(true);
@@ -119,6 +120,7 @@ public class ItemHandler : MonoBehaviour
         
         yield return new WaitForSeconds(0.1f);
 
+        Time.timeScale = 0f;
         gameVariable.isGameRunning = false;
         itemUI.SetActive(true);
         itemDisplayer1.Item = gameVariable.Shop.Draw();

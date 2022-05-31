@@ -2631,6 +2631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameRunning: 1
   openShop: 0
+  invincible: 0
   difficolta: 0
   player: {fileID: 322895105}
   monete: 5000
@@ -2645,7 +2646,7 @@ MonoBehaviour:
   goodsSpawnRate: 3
   jumpForce: 5
   gravity: 9.81
-  highscore: 0
+  punteggio: 0
 --- !u!114 &1252394705
 MonoBehaviour:
   m_ObjectHideFlags: 0

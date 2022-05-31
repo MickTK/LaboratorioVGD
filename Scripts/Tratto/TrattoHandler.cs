@@ -36,6 +36,7 @@ public class TrattoHandler : MonoBehaviour
 
         gameVariable.obstacleWaitTime *= 0.9f;
         gameVariable.ySpeed += 1;
+        Time.timeScale = 1f;
 
         trattoUI.SetActive(false);
         Tratto newTratto = Instantiate(tratto);
@@ -45,6 +46,8 @@ public class TrattoHandler : MonoBehaviour
     }
 
     void Exit(){
+
+        Time.timeScale = 1f;
         gameVariable.isGameRunning = true;
         trattoUI.SetActive(false);
     }
@@ -63,6 +66,7 @@ public class TrattoHandler : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
+        Time.timeScale = 0f;
         gameVariable.isGameRunning = false;
         trattoUI.SetActive(true);
         tratto1.Tratto = gameVariable.Tratti.Draw();

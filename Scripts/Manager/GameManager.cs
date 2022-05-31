@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     void Start(){
         
         gameVariable = GetComponent<GameVariable>();
-        gameVariable.highscore = MenuManager.highscore;
+        gameVariable.punteggio = MenuManager.highscore;
         gameVariable.difficolta = MenuManager.difficolta;
         SetDifficulty();
     }
@@ -51,12 +51,14 @@ public class GameManager : MonoBehaviour
     }
 
     public void OpenPause(){
+        Time.timeScale = 0f;
         gameVariable.isGameRunning = false;
         UI.SetActive(false);
         pauseMenu.SetActive(true);
     }
 
     public void ClosePause(){
+        Time.timeScale = 1f;
         gameVariable.isGameRunning = true;
         UI.SetActive(true);
         pauseMenu.SetActive(false);
@@ -92,14 +94,13 @@ public class GameManager : MonoBehaviour
             punteggio.text = "Punteggio: " + num.ToString();
 
             
-            if(num>gameVariable.highscore){
-                gameVariable.highscore=num;
-                Save.saveScore(gameVariable.highscore);
+            if(num>gameVariable.punteggio){
+                gameVariable.punteggio=num;
+                Save.saveScore(gameVariable.punteggio);
             }
 
+
             //Debug.Log(gameVariable.highscore);
-
-
 
             yield return new WaitForSeconds(waitTime);
         }

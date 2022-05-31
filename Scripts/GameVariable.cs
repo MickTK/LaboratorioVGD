@@ -27,5 +27,5 @@ public class GameVariable : MonoBehaviour
     public int goodsSpawnRate = 10;
     public float jumpForce = 5f;
     public float gravity = 9.81f;
-    public int highscore;
+    public int punteggio;
 }
