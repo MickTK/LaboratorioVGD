@@ -20,49 +20,51 @@ public class ObjectController : MonoBehaviour
 
     public GameObject shop;
   
-
     public void Start(){
 
         listChunk.AddRange(GameObject.FindGameObjectsWithTag("Chunk"));
         listLPlanes.AddRange (GameObject.FindGameObjectsWithTag("LPlane"));
         listRPlanes.AddRange (GameObject.FindGameObjectsWithTag("RPlane"));
-        listEnvironment.AddRange (GameObject.FindGameObjectsWithTag("Environment"));
-
-               
+        listEnvironment.AddRange (GameObject.FindGameObjectsWithTag("Environment"));     
     }
+
     public Vector3 randCoord(){
 
         /*creo la posizione dell'oggetto da istanziare, con y e z fisse ma x variabile*/ 
-        int posX;              
+        int posX, posZ;              
         posX= UnityEngine.Random.Range(-2,3)*2; //genero una x casuale tra -2,0 e 2
-        return new Vector3(posX,0,80); 
-        
-
+        posZ= UnityEngine.Random.Range(-2,3)*2;
+        posZ+=80; 
+        return new Vector3(posX,0,posZ); 
     }
+
     public void spawnOstacoli(bool power){
-        int what;
+
+        int numGenForEachPrefab;
         List <Vector3> posOccupate = new List<Vector3>();        
         Vector3 randPos = randCoord(); 
+
         if(power){
-            what = UnityEngine.Random.Range(0,prefDoni.Length); 
+
+            numGenForEachPrefab = UnityEngine.Random.Range(0,prefDoni.Length); 
             posOccupate.Add(randPos);
             randPos.y=0.5f;
-            Instantiate(prefDoni[what], randPos, Quaternion.identity);
+            Instantiate(prefDoni[numGenForEachPrefab], randPos, Quaternion.identity);
             
             
         }else{
 
              
-            what = UnityEngine.Random.Range(0,prefOstacoli.Length); 
+            numGenForEachPrefab = UnityEngine.Random.Range(0,prefOstacoli.Length); 
             posOccupate.Add(randPos);
-            Instantiate(prefOstacoli[what], randPos, Quaternion.identity);
+            Instantiate(prefOstacoli[numGenForEachPrefab], randPos, Quaternion.identity);
 
             
         }
 
         for (int i = 0; i < nCorsieOccupabili; i++)
             {
-                what = UnityEngine.Random.Range(0,prefOstacoli.Length);
+                numGenForEachPrefab = UnityEngine.Random.Range(0,prefOstacoli.Length);
                 int prob= UnityEngine.Random.Range(0,101);
 
                 if(prob<80){
@@ -71,17 +73,12 @@ public class ObjectController : MonoBehaviour
                         }
                     while(posOccupate.Contains(randPos));
                     
-                    Instantiate(prefOstacoli[what], randPos, Quaternion.identity);
+                    Instantiate(prefOstacoli[numGenForEachPrefab], randPos, Quaternion.identity);
                     posOccupate.Add(randPos);
                 }
-            }
-
-        
-
-        
-           
-                   
+            }     
     }
+    
     public void find(){  
         listElementi.Clear();
 

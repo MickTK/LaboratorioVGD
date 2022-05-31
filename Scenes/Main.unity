@@ -2634,16 +2634,17 @@ MonoBehaviour:
   invincible: 0
   difficolta: 0
   player: {fileID: 322895105}
-  monete: 0
+  monete: 7000
   moltiplicatoreMonete: 1
   doni: 0
-  vite: 3
+  vite: 7000
   coroneOro: 0
   buyedItems: 0
   xSpeed: 15
   ySpeed: 15
   obstacleWaitTime: 2
-  goodsSpawnRate: 3
+  giftsSpawnRate: 7
+  shopSpawnRate: 30
   jumpForce: 5
   gravity: 9.81
   punteggio: 0

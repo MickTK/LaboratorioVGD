@@ -75,15 +75,15 @@ public class TrattoEffect : MonoBehaviour
 
                             if(renditaFlag == false){
 
-                                tratto.durata = 4;
+                                tratto.durata = 5;
                                 renditaFlag = true;
-                                gameVariable.obstacleWaitTime /= 3;
+                                gameVariable.obstacleWaitTime /= 2;
 
                             } else {
 
-                                tratto.durata = 20;
+                                tratto.durata = 25;
                                 renditaFlag = false;
-                                gameVariable.obstacleWaitTime *= 3;
+                                gameVariable.obstacleWaitTime *= 2;
                             }
                             
                         }
