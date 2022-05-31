@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
     public void MoovingUp(){
 
         if(gameVariable.isGameRunning && controller.isGrounded){
-
+            
             yPosition = jumpSpeed;
 
             /* Animazione */
