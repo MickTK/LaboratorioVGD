@@ -33,6 +33,7 @@ public class MenuManager : MonoBehaviour
     }
 
     public void OpenGame(){
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Main");
     }
     
@@ -123,6 +124,7 @@ public class MenuManager : MonoBehaviour
     }
 
     public void OpenMainMenu(){
+        Time.timeScale = 1f;
         SceneManager.LoadScene("StartingMenu");
     }
 
