@@ -87,7 +87,7 @@ public class ObjectController : MonoBehaviour
         //elementi generabili
         listElementi.AddRange(GameObject.FindGameObjectsWithTag("Obstacle"));
         listElementi.AddRange(GameObject.FindGameObjectsWithTag("Coin"));
-        listElementi.AddRange(GameObject.FindGameObjectsWithTag("Gift"));
+        
 
         //elementi fissi
         listElementi.AddRange(listChunk);

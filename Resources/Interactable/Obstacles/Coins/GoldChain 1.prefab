@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1247923956762167633}
   m_Layer: 0
-  m_Name: GoldChain
+  m_Name: GoldChain 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
