@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
 
-        if (other.transform.tag == "Obstacle")
+        if (other.transform.tag == "Obstacle" || other.transform.tag == "ObstaclePart")
         {
             Destroy(other.gameObject);
 
