@@ -60,10 +60,10 @@ public class ItemEffects : MonoBehaviour
 
                 case ItemType.CAFFESTRANO:
                     if(item.durata == 60){
-                        gameVariable.xSpeed *= 0.85f;
+                        gameVariable.obstacleWaitTime /= 0.85f;
                     }
                     if(item.durata == 0){
-                        gameVariable.xSpeed /= 0.85f;
+                        gameVariable.obstacleWaitTime *= 0.85f;
                     }
                 break;
                 

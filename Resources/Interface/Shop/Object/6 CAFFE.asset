@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipo: 5
   titolo: Caffe' Strano
-  descrizione: "gli ostacoli sono pi\xF9 lenti del 10% per 1 minuto"
+  descrizione: "gli ostacoli sono pi\xF9 distanti tra loro per 1 minuto"
   artwork: {fileID: 21300000, guid: 8af60e85ea19c11448080ed8d25896cb, type: 3}
   prezzo: 100
   durata: 60
