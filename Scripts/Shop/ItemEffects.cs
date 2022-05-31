@@ -50,6 +50,7 @@ public class ItemEffects : MonoBehaviour
                 
                 case ItemType.MOLTIPLICATORE:
                     if(item.durata == 30){
+                        gameVariable.coroneOro += 1;
                         gameVariable.moltiplicatoreMonete *= 2;
                     }
                     if(item.durata == 0){

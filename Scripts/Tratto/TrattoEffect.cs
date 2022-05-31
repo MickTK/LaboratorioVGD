@@ -41,7 +41,6 @@ public class TrattoEffect : MonoBehaviour
                     case TrattoType.REROLL:
                         gameVariable.doni = 4;
                         gameVariable.coroneOro += 1;
-                        //gameVariable.Tratti.Active.Remove(tratto);
                     break;
 
                     case TrattoType.SADICO:

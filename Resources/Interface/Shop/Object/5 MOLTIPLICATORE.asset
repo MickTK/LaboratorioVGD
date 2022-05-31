@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipo: 4
   titolo: Moltiplicatore
-  descrizione: per 30 secondi le monete valgono doppio
+  descrizione: per 30 secondi le monete valgono doppio, ottieni una corona d'oro
   artwork: {fileID: 21300000, guid: f1813fb0464ea5441b5fb8500ab2c323, type: 3}
   prezzo: 300
   durata: 30
