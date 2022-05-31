@@ -2642,7 +2642,7 @@ MonoBehaviour:
   xSpeed: 15
   ySpeed: 15
   obstacleWaitTime: 2
-  goodsSpawnRate: 10
+  goodsSpawnRate: 3
   jumpForce: 5
   gravity: 9.81
   highscore: 0

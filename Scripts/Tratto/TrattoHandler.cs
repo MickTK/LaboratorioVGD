@@ -34,7 +34,7 @@ public class TrattoHandler : MonoBehaviour
 
     void Click(Tratto tratto){
 
-        gameVariable.obstacleWaitTime *= 0.85f;
+        gameVariable.obstacleWaitTime *= 0.9f;
         gameVariable.ySpeed += 1;
 
         trattoUI.SetActive(false);

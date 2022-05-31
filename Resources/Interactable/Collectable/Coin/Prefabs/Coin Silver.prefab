@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8420998750499913012}
   - component: {fileID: 7822727613348943632}
   - component: {fileID: 398237557084356408}
-  - component: {fileID: 6044685361865466283}
   m_Layer: 0
   m_Name: Coin Silver
   m_TagString: Coin
@@ -79,21 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d521d42ecc4cf844948253c9d81ab52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 3
---- !u!64 &6044685361865466283
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8294361373460216474}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5216581434543980006, guid: 21c163042a84aed4cbafda1dd699f30d, type: 3}
+  value: 10
 --- !u!1 &8688406108944669515
 GameObject:
   m_ObjectHideFlags: 0

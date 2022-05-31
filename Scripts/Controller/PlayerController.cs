@@ -157,9 +157,10 @@ public class PlayerController : MonoBehaviour
 
         if (other.transform.tag == "Coin")
         {
+            Destroy(other.gameObject);
             FindObjectOfType<AudioManager>().Play("Moneta"); // Suono
             int MoneyValue = other.GetComponent<MoneyValue>().value;
-            Destroy(other.gameObject);
+            Debug.Log(MoneyValue + " + " + gameVariable.moltiplicatoreMonete + " + " + other.gameObject.name);
             gameVariable.monete += MoneyValue * gameVariable.moltiplicatoreMonete;
         }
 
