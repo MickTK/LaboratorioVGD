@@ -1367,10 +1367,10 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
-    m_Resolution: 0
+    m_Resolution: 2
     m_CustomResolution: -1
     m_Strength: 0.7
-    m_Bias: 0.2
+    m_Bias: 0.23
     m_NormalBias: 0.5
     m_NearPlane: 0.2
     m_CullingMatrixOverride:
@@ -1691,54 +1691,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5038519911719637502, guid: 55097ed7fe437424fae846c0cdae24eb, type: 3}
   m_PrefabInstance: {fileID: 5038519911948600700}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &852706390
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 852706391}
-  - component: {fileID: 852706392}
-  m_Layer: 0
-  m_Name: FXController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &852706391
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852706390}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.2622385, y: -9.47092, z: 108.97635}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1769822573}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &852706392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852706390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 59d830ec0a68e094b8cc49acc46e60bb, type: 2}
-  isGlobal: 0
-  blendDistance: 0
-  weight: 1
-  priority: 0
 --- !u!1001 &856255890
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3521,7 +3473,6 @@ Transform:
   - {fileID: 1208694575}
   - {fileID: 1252394699}
   - {fileID: 1807200099}
-  - {fileID: 852706391}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
