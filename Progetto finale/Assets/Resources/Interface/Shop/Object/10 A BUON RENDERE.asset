@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1afbad1108d75a442b560a508041a198, type: 3}
+  m_Name: 10 A BUON RENDERE
+  m_EditorClassIdentifier: 
+  tipo: 9
+  titolo: A Buon Rendere
+  descrizione: ottieni 1 cuore rosso e una corona che perderai se tra 1 minuto non
+    paghi 300 monete
+  artwork: {fileID: 21300000, guid: 816fa3227c8874d4892b72d33bc80f1f, type: 3}
+  prezzo: 0
+  durata: 60

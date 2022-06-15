@@ -1,0 +1,40 @@
+Prima di iniziare: Caricare su questo compito un gdocs con poche righe (massimo una pagina) che spieghino in cosa consiste il gioco che si vuole sviluppare, quali meccaniche si vogliono implementare e in quale delle tre tracce rientra.
+Deadline: entro il 31/03/2022 23:59
+Modalità di consegna: Progetto completo e Build del gioco in archivio compresso da allegare come consegna di questo compito.
+
+
+Requisiti comuni a tutti i progetti:
+Menù iniziale
+Menù pausa
+Salvataggio progressi o punteggi
+Utilizzo dell’ Animator
+Utilizzo della Canvas
+Durata complessiva del gioco non superiore ai 30 minuti
+Codice ben organizzato e documentato
+Nessun errore in compilazione o a runtime
+Cosa potete usare: Modelli, animazioni, materiali, texture, shader, effetti particellari, in generale componenti visive di terze parti, gratuite o acquistate.
+
+
+Cosa NON potete usare: In generale qualunque componente di terze parti che fa uso di script o framework che gestiscono il gameplay, non utilizzate componenti di terze parti che dovreste essere in grado di programmare.
+
+
+Scegliere tra uno dei seguenti generi da sviluppare:
+(I generi proposti vanno intesi come tracce, avete piena libertà creativa fintanto che rispettate i requisiti specifici del genere scelto)
+
+
+- Action / Adventure:
+Scena di esplorazione con NPC pacifici e nemici.
+Possibilità di interagire con gli NPC pacifici (es. dialogo)
+Possibilità di eliminare i nemici.
+Oggetti raccoglibili / equipaggiabili (armi, potenziamenti, collezionabili)
+Scena con Boss fight.
+- HyperCasual:
+Almeno 3 livelli unici o unico livello generato random.
+Potenziamenti sbloccabili con punti guadagnati in gioco.
+Opzioni selezionabili dal giocatore per modificare il gameplay (es. Difficoltà, velocità, abilità del player…)
+- Racing:
+Unico tracciato o mappa aperta.
+Veicoli NPC.
+UI specifica (tachimetro, distanza percorsa, posizione in classifica, timer di gara).
+Checkpoint per il tracciato.
+Obiettivi per la mappa aperta.

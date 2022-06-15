@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8311f29364bd71c42aa82acad4a593c2, type: 3}
+  m_Name: 6 ASCESA
+  m_EditorClassIdentifier: 
+  tipo: 5
+  titolo: Ascesa
+  descrizione: "tra 30 secondi salti il 20% pi\xF9 in alto, tra 1 minuto il gioco
+    rallenta del 15%"
+  artwork: {fileID: 21300000, guid: 6e6a3236d77f13e49be5a1ce2c32661b, type: 3}
+  activable: 1
+  durata: 60

@@ -1,0 +1,20 @@
+Scaricare l'archivio "Homework2_Assignment.zip".
+La cartella contiene un progetto Unity incompleto. Il vostro compito è scrivere il codice mancante all'interno dei vari script in modo che il gioco funzioni correttamente. Sarà inoltre necessario completare i due animator presenti nel player e nel nemico, creare alcuni nav mesh link  e fare il bake della nav mesh.
+
+
+Per quanto riguarda gli animator il comportamento deve essere il seguente:
+
+
+1) Animator Personaggio: il personaggio può stare in idle, correre, ruotare a destra e sinistra e sparare. Le animazioni di movimento devono essere gestite con un blend tree. L'animazione di sparo può partire solo se il personaggio è fermo (animazione di idle) e la transizione non deve avere "exit time". la velocità dell'animazione di sparo deve essere 3.
+2) Animator Nemico: Il nemico può solo stare in idle, camminare e dare pugni. idle e camminata devono essere gestite tramite un blend tree. 
+
+
+Per quanto riguarda il sistema di navigazione, è necessario prima di tutto creare 2 nav mesh link. Il primo link è tra l'oggetto link0 e l'oggetto link1. Il secondo è tra l'oggetto link2 e l'oggetto link3. Entrambi i link devono essere unidirezionali. 
+
+
+
+ Il gioco deve funzionare esattamente come la build di esempio che abbiamo messo a disposizione sia per windows che per mac. Il compito viene considerato nullo se gli script consegnati non compilano.
+
+
+
+Per consegnare caricate un archivio contenente tutto il progetto. Il nome dell'archivio deve essere "matricola_team_leader.zip".

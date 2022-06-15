@@ -1,0 +1,8 @@
+Scaricare l'archivio "Homework1.zip".
+La cartella Homework1-Assignment contiene un progetto Unity incompleto. Il vostro compito è scrivere il codice mancante all'interno dei vari script in modo che il gioco funzioni correttamente. Il gioco deve funzionare esattamente come la build di esempio che abbiamo messo a disposizione sia per windows che per mac. Il compito viene considerato nullo se gli script consegnati non compilano.
+
+
+La valutazione si basa su 2 parametri:
+Correttezza delle funzionalità implementate
+Scelte implementative (alcune funzionalità possono essere implementate in modo più o meno intelligente, cercate di scegliere sempre soluzioni il più possibile "eleganti")
+Per consegnare caricate un archivio contenente gli script del vostro progetto. Il nome dell'archivio deve essere "matricola_team_leader.zip"
